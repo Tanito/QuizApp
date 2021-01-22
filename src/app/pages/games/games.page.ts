@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TabsPage } from '../tabs/tabs.page';
 import { User } from 'src/app/models/user.model';
 import { AccountService } from 'src/app/services/account.service';
-import { DocsService } from 'src/app/services/docs.service';
-// import { Usd2Service } from '../../services/docs.service';
-import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -20,7 +17,6 @@ export class GamesPage implements OnInit {
 
   constructor(private tabsPage: TabsPage, private accountService: AccountService, 
     private http: HttpClient
-    // private docsService: DocsService
     ) { }
     getName(){
       return this.http.get('https://prueba2053456.herokuapp.com/users')
