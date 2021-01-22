@@ -1,0 +1,7 @@
+{
+  "name": "ScienceAngularApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
