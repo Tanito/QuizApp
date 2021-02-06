@@ -18,7 +18,7 @@ export class GameServiceService {
 //    } 
 
 getQuizzes(){
-    return this.http.get('http://localhost:3000/mobile')
+    return this.http.get('http://localhost:3000/mobile/quizzes/2')
 
    } 
   

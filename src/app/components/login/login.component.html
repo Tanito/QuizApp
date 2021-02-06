@@ -1,19 +1,20 @@
-         <form class="flex-center-x-column">
+         
             <h1> Bienvenido a Quiz App</h1>
-            <div class="form-group full-length margin-input">
-              <input type="email" class="form-control form-rounded-top" aria-describedby="emailHelp" placeholder="Enter email">
-              <input type="password" class="form-control form-rounded-bottom" id="passInput" placeholder="Password">
-            </div>
-
+            <input type="email" class="form-control form-rounded-top" aria-describedby="emailHelp" placeholder="Ingrese email" [(ngModel)]="email">
+         
+            <input type="password" class="form-control form-rounded-bottom" placeholder="Password" [(ngModel)]="password">
+           
             <a routerLink="/sign-in" class="flex-right-x">Perdiste tu contraseña?</a>
           
-            <ion-button (click)="loginFunction()" expand="full" routerLink="/tabs" routerDirection="forward" class="full-length margin-text form-rounded">INGRESAR</ion-button>
+            <ion-button (click)="login()" expand="full" 
+            class="full-length margin-text form-rounded">INGRESAR</ion-button>
+            <!-- routerLink="/tabs" routerDirection="forward" -->
             
             <div class="form-group flex-center-x-row margin-input">
              <p> Aún no te has registrado?</p> <a routerLink="/sign-in" style="margin-left: 3%;">Registrate</a>
             </div>
             <p>Henry Labs - Grupo 3</p>
-        </form>  
+  
 
   
   

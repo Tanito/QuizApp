@@ -13,11 +13,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class DocsPage implements OnInit {
 
   Schools: any = [];
-  headClass= 'head-white'
-  isAuth: boolean
-  trucboool= false
+  headClass= 'head-white';
+  isAuth: boolean;
+  trucboool= false;
   
   constructor(private tabsPage: TabsPage, private docsService: DocsService, private route: ActivatedRoute, private authGuard: AuthGuardGuard) { }
+
+
 
   ngOnInit() {
   this.isAuth = this.authGuard.loggedIn

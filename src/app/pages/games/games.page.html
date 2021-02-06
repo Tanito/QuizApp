@@ -8,25 +8,26 @@
 
 <ion-content>
   <div id="msg">
-    <h1>Bienvenido {{ name }}</h1>
+    <h1>Bienvenido Ulises!{{ name }}</h1>
+    <p>Estos son tus quizzes:</p>
   </div>
   <ion-list>
     <ion-item-sliding *ngFor="let q of Quizzes" >
      
       <ion-item>
        <ion-col id="col1"> 
-         <ion-img src="{{q[7].logo}}"> </ion-img></ion-col>
+         <ion-img src="{{q.logo}}"> </ion-img></ion-col>
        <ion-col id="col2">
-        <ion-row> <ion-label class="ion-text-wrap"> {{q}} </ion-label> </ion-row>
-        <!--      
+       
+        <!-- <ion-row> <ion-label class="ion-text-wrap"> {{q}} </ion-label> </ion-row> -->
+           
          <ion-row> <ion-label class="ion-text-wrap"> {{q.name}} </ion-label> </ion-row>
-         <ion-row> <ion-label class="ion-text-wrap"> {{s.country}} </ion-label> </ion-row>
-         <ion-row> <ion-label class="ion-text-wrap"> {{s.city}} </ion-label> </ion-row>
-         <ion-row> <ion-label class="ion-text-wrap"> {{s.description}} </ion-label> </ion-row>
-         <ion-row> <ion-label class="ion-text-wrap"> {{s.email}} </ion-label> </ion-row> -->
+         <ion-row> <ion-label class="ion-text-wrap"> {{q.description}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> Cantidad de Preguntas: {{q.quantity}} </ion-label> </ion-row>
+        
+        
 
-
-          <a href="{{s.logo}}"  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a>
+          <!-- <a href=""  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a> -->
          </ion-col>                         
       </ion-item>
            

@@ -9,7 +9,7 @@ export class DocsService {
   constructor(private http: HttpClient) { }
 
   getSchools(){
-    return this.http.get('https://apiquizzes.herokuapp.com/org')
+    return this.http.get('http://localhost:3000/org')
 
    } 
 

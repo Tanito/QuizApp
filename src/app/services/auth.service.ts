@@ -5,14 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  email: '';
-  password: '';
+
  
   isAuth = true
   constructor( private http: HttpClient ) { }
 
   login(){
-     this.http.post('https://apiquizzes.herokuapp.com/auth/login', `email=${this.email}&password=${this.password}`).subscribe(data => {
+    // console.log("DATOS",this.email,this.password)
+     this.http.post('https://apiquizzes.herokuapp.com/auth/login', 'body').subscribe(data => {
           // console.log(JSON.stringify(data));
           console.log("Intentando loguear",data);
          }, error => {

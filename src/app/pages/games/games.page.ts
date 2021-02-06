@@ -11,7 +11,7 @@ import { GameServiceService } from 'src/app/services/game-service.service';
   styleUrls: ['./games.page.scss'],
 })
 export class GamesPage implements OnInit {
-  name: '';
+  name: string = '';
   Entities: any = [];
   Quizzes: any = [];
   user: User[]
@@ -29,10 +29,13 @@ export class GamesPage implements OnInit {
     this.user = this.accountService.users
     this.gameService.getQuizzes()
     .subscribe( resp => {
-     this.Entities = resp,
-     this.Quizzes = this.Entities.entities.quizzes
-      // let listado = resp
-      console.log("listado", this.Quizzes)
+    //  this.Entities = resp,
+    //  this.Quizzes = this.Entities.entities.quizzes
+      this.Quizzes = resp
+       // console.log("entities", this.Entities)
+      // console.log("listado", this.Quizzes[7].logo)
+
+     
     })
 
   
