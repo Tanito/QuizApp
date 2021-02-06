@@ -3,6 +3,7 @@ import { TabsPage } from '../tabs/tabs.page';
 import { User } from 'src/app/models/user.model';
 import { AccountService } from 'src/app/services/account.service';
 import { HttpClient } from '@angular/common/http';
+import { GameServiceService } from 'src/app/services/game-service.service';
 
 @Component({
   selector: 'app-games',
@@ -11,22 +12,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GamesPage implements OnInit {
   name: '';
-
-  
+  Entities: any = [];
+  Quizzes: any = [];
   user: User[]
 
   constructor(private tabsPage: TabsPage, private accountService: AccountService, 
-    private http: HttpClient
+    private http: HttpClient, private gameService: GameServiceService
     ) { }
-    getName(){
-      return this.http.get('https://prueba2053456.herokuapp.com/users')
+    // getQuizzes(){
+    //   return this.http.get('https://prueba2053456.herokuapp.com/users')
   
-     } 
+    //  } 
   
   
   ngOnInit() {
     this.user = this.accountService.users
-
+    this.gameService.getQuizzes()
+    .subscribe( resp => {
+     this.Entities = resp,
+     this.Quizzes = this.Entities.entities.quizzes
+      // let listado = resp
+      console.log("listado", this.Quizzes)
+    })
 
   //   this.http.get('https://ionic.io')
   // .then(data => {
@@ -45,11 +52,7 @@ export class GamesPage implements OnInit {
 
 
 
-   this.getName()
-   .subscribe( resp => {
-    this.name = resp[0].firstName;
-  
-  })
+ 
   }
   
   

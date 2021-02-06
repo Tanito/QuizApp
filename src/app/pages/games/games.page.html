@@ -10,21 +10,29 @@
   <div id="msg">
     <h1>Bienvenido {{ name }}</h1>
   </div>
-    <ion-slides [options]="slideOpts" style="height: 100%;">
-   
-        <ion-slide>
-       </ion-slide>
-        <ion-slide class="flex-center-x-row" >
-          <div class="contentFlex content"  routerLink="/game-prehistoire">
-                  <ion-img src="./assets/logo.JPG"></ion-img> 
-                  <p>Prehistoria 1</p>
-         </div>
-      </ion-slide>
-    
-        <ion-slide>
-         
-        </ion-slide>
-      </ion-slides>
+  <ion-list>
+    <ion-item-sliding *ngFor="let q of Quizzes" >
+     
+      <ion-item>
+       <ion-col id="col1"> 
+         <ion-img src="{{q[7].logo}}"> </ion-img></ion-col>
+       <ion-col id="col2">
+        <ion-row> <ion-label class="ion-text-wrap"> {{q}} </ion-label> </ion-row>
+        <!--      
+         <ion-row> <ion-label class="ion-text-wrap"> {{q.name}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.country}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.city}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.description}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.email}} </ion-label> </ion-row> -->
+
+
+          <a href="{{s.logo}}"  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a>
+         </ion-col>                         
+      </ion-item>
+           
+    </ion-item-sliding>   
+
+</ion-list>
 </ion-content>
 
 
