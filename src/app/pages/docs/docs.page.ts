@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DocsPage implements OnInit {
 
+  Schools: any = [];
   headClass= 'head-white'
   isAuth: boolean
   docsContent: any[]
@@ -21,7 +22,12 @@ export class DocsPage implements OnInit {
 
   ngOnInit() {
   this.isAuth = this.authGuard.loggedIn
-  this.docsContent = this.docsService.docsContent
+  this.docsService.getSchools()
+  .subscribe( resp => {
+   this.Schools = resp
+    // let listado = resp
+    console.log("listado", this.Schools)
+  })
   }
   openFirst(){
     this.tabsPage.openFirst()

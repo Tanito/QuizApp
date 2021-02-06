@@ -11,11 +11,14 @@ export class AuthService {
   isAuth = true
   constructor( private http: HttpClient ) { }
 
-  // login(){
-  //    this.http.post('https://prueba2053456.herokuapp.com/auth/login', `email=${email}&password=${password}`)
-
-  //  } 
-
+  login(){
+     this.http.post('https://apiquizzes.herokuapp.com/auth/login', `email=${this.email}&password=${this.password}`).subscribe(data => {
+          // console.log(JSON.stringify(data));
+          console.log("Intentando loguear",data);
+         }, error => {
+          console.log("Error al loguear");
+   } 
+     )};
 //    this.http.post("https://myserver/api/my/endpoint", "some=parameter&another=parameter&and=another&one=parameter").subscribe(data => {
 //     console.log(JSON.stringify(data.json()));
 // }, error => {

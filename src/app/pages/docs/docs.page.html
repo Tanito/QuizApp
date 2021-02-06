@@ -6,9 +6,26 @@
   </div>
 
 <ion-content class="ion-padding">
-  <app-docs-item
-    *ngFor= "let docscontent of docsContent; let i = index" 
-    [id]="i"  [background]='docscontent.background' [subtitle]='docscontent.subtitle' [title]='docscontent.title' [content]='docscontent.content'
-    >
-</app-docs-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let s of Schools" >
+     
+      <ion-item>
+       <ion-col id="col1"> 
+         <ion-img src="{{s.logo}}"> </ion-img></ion-col>
+       <ion-col id="col2">
+     
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.name}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.country}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.city}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.description}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{s.email}} </ion-label> </ion-row>
+
+
+          <a href="{{s.logo}}"  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a>
+         </ion-col>                         
+      </ion-item>
+           
+    </ion-item-sliding>   
+
+</ion-list>
 </ion-content>
