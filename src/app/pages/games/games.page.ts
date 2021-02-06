@@ -35,24 +35,7 @@ export class GamesPage implements OnInit {
       console.log("listado", this.Quizzes)
     })
 
-  //   this.http.get('https://ionic.io')
-  // .then(data => {
-
-  //   console.log(data);
-
-
-  // })
-  // .catch(error => {
-
-  //   console.log(error.status);
-  //   console.log(error.error); // error message as string
-  //   console.log(error.headers);
-
-  // });
-
-
-
- 
+  
   }
   
   
