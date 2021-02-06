@@ -1,25 +1,42 @@
-<ion-header>
+<!-- <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start" style="padding: 15px;" (click)="openFirst()">
             <ion-icon name="menu"></ion-icon>
           </ion-buttons>       
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
 <ion-content>
   <div id="msg">
-    <h1>Bienvenido Ulises!{{ name }}</h1>
-    <p>Estos son tus quizzes:</p>
+    <h2 class="userName">Ulises,{{ name }}</h2>
+    <p>estos son tus quizzes</p>
   </div>
   <ion-list>
     <ion-item-sliding *ngFor="let q of Quizzes" >
      
-      <ion-item>
+        <ion-card>
+          <div class="quizImg">
+            <img src="{{q.logo}}" />
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{q.name}}</ion-card-title>
+            <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>{{q.description}}</ion-card-content>
+
+          <ion-button color="light">
+            <a href="" class="aInfo" target="_blank">
+              Más info
+            </a>
+          </ion-button>
+        </ion-card>
+
+      <!-- <ion-item>
        <ion-col id="col1"> 
          <ion-img src="{{q.logo}}"> </ion-img></ion-col>
        <ion-col id="col2">
        
-        <!-- <ion-row> <ion-label class="ion-text-wrap"> {{q}} </ion-label> </ion-row> -->
+        <ion-row> <ion-label class="ion-text-wrap"> {{q}} </ion-label> </ion-row>
            
          <ion-row> <ion-label class="ion-text-wrap"> {{q.name}} </ion-label> </ion-row>
          <ion-row> <ion-label class="ion-text-wrap"> {{q.description}} </ion-label> </ion-row>
@@ -27,9 +44,9 @@
         
         
 
-          <!-- <a href=""  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a> -->
+          <a href=""  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a>
          </ion-col>                         
-      </ion-item>
+      </ion-item> -->
            
     </ion-item-sliding>   
 
