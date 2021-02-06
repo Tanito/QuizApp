@@ -9,13 +9,25 @@
     padding: 15px;
 }
 
-
 .content{
     margin-bottom: 20rem;
-
 }
-
 
 #msg{
     text-align: center;
+}
+
+.quizImg {
+    height: 15rem;
+    width: auto;
+    overflow: hidden;
+}
+
+.aInfo {
+    color: black;
+    font-size: x-small;
+}
+
+.userName {
+    margin-top: 2rem;
 }
