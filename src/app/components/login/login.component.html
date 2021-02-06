@@ -1,21 +1,47 @@
-         
-            <h1> Bienvenido a Quiz App</h1>
-            <input type="email" class="form-control form-rounded-top" aria-describedby="emailHelp" placeholder="Ingrese email" [(ngModel)]="email">
-         
-            <input type="password" class="form-control form-rounded-bottom" placeholder="Password" [(ngModel)]="password">
-           
-            <a routerLink="/sign-in" class="flex-right-x">Perdiste tu contraseña?</a>
-          
-            <ion-button (click)="login()" expand="full" 
-            class="full-length margin-text form-rounded">INGRESAR</ion-button>
-            <!-- routerLink="/tabs" routerDirection="forward" -->
-            
-            <div class="form-group flex-center-x-row margin-input">
-             <p> Aún no te has registrado?</p> <a routerLink="/sign-in" style="margin-left: 3%;">Registrate</a>
-            </div>
-            <p>Henry Labs - Grupo 3</p>
-  
+<div class="containerLogin">
+  <img
+    class="logoLogin"
+    src="https://i.ibb.co/GC5dTnW/rect650.png"
+    alt="QuizApp"
+  />
+  <h1>Bienvenido</h1>
+  <input
+    type="email"
+    class="form-control form-rounded-top"
+    aria-describedby="emailHelp"
+    placeholder="Email"
+    [(ngModel)]="email"
+  />
 
-  
-  
-        
+  <input
+    type="password"
+    class="form-control form-rounded-bottom"
+    placeholder="Password"
+    [(ngModel)]="password"
+  />
+
+  <a routerLink="/sign-in" class="linkPassword"> ¿Perdiste tu contraseña? </a>
+  <div class="externalLogin">
+  <ion-icon name="logo-facebook"></ion-icon>
+  <ion-icon name="logo-google"></ion-icon>
+</div>
+  <ion-button
+    (click)="login()"
+    expand="full"
+    class="full-length margin-text form-rounded"
+  >
+    INGRESAR
+  </ion-button>
+
+  <!-- routerLink="/tabs" routerDirection="forward" -->
+
+    <ion-button
+      routerLink="/sign-in"
+      expand="full"
+      class="full-length margin-text form-rounded"
+    >
+      <a class="registerButton"> Registrate </a>
+    </ion-button>
+
+  <p class="text">Henry Labs - Grupo 3</p>
+</div>

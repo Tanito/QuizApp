@@ -1,3 +1,17 @@
 .length{
     width: 100%;
 }
+
+.containerSignIn {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formInputs {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+}

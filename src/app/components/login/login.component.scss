@@ -1,23 +1,64 @@
+.containerLogin{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 1rem;
+}
+
+.logoLogin {
+    height: 8rem;
+}
+
 .margin-input{
  margin-top: 2rem;
 }
 
 .margin-text{
     margin-top: 1rem;
-   }
+}
 
 .form-rounded-top {
     border-radius: 0.4rem 0.4rem 0 0 ;
     height: 3rem;
     padding: 1rem;
-    }
+    margin: 0.5rem 0rem;
+}
 
 .form-rounded-bottom {
     border-radius: 0 0 0.4rem 0.4rem;
     height: 3rem;
     padding: 1rem;
-    }
+    margin: 0.5rem 0rem;
+}
 
 .form-rounded {
     height: 3rem;  
-    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linkPassword {
+    font-size: 0.8rem;
+    align-self: center;
+}
+
+.text {
+    font-size: 0.8rem;
+    margin-top: 3rem;
+}
+
+.registerButton {
+    color: white;
+    text-decoration: none;
+}
+
+.externalLogin {
+    display: flex;
+    flex-direction: row;
+}
