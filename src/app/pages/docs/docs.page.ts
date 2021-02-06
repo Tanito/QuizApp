@@ -15,7 +15,6 @@ export class DocsPage implements OnInit {
   Schools: any = [];
   headClass= 'head-white'
   isAuth: boolean
-  docsContent: any[]
   trucboool= false
   
   constructor(private tabsPage: TabsPage, private docsService: DocsService, private route: ActivatedRoute, private authGuard: AuthGuardGuard) { }

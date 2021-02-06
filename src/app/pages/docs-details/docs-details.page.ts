@@ -21,19 +21,6 @@ export class DocsDetailsPage implements OnInit {
 
     this.docsId = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.title = this.docsService.docsContent[this.docsId].title
-    this.subtitle = this.docsService.docsContent[this.docsId].subtitle
-    this.content = this.docsService.docsContent[this.docsId].content
-    this.background = this.docsService.docsContent[this.docsId].background
-
-
- /**  AUTRE FACON DE FAIRE AVEC UNE FONCTION DANS LES SERVICES 
-    const docsId = this.activatedRoute.snapshot.paramMap.get('id'); 
-
-    this.title = this.docsService.docsContent[].title
-    this.title = this.docsService.getDocsContentById(+docsId).title
-    this.subtitle = this.docsService.getDocsContentById(+docsId).subtitle
-    this.content = this.docsService.getDocsContentById(+docsId).content **/
   }
 
   

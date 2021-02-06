@@ -34,7 +34,7 @@ export class GamePrehistoirePage implements OnInit {
 
 
   ngOnInit() {
-    this.questions = this.gameServiceService.questionsChapter1
+  
     //this.randomizeQuestions()
     this.randomizeAnswers()
     this.disabledButton = true
@@ -48,12 +48,12 @@ export class GamePrehistoirePage implements OnInit {
         if(this.response.correct){
           this.score = this.score + 20;
           this.trueResponse()
-          console.log('tu as gagné' + this.life)
+          console.log('Has ganado' + this.life)
       }
        else{
          this.life--
          this.falseResponse()
-         console.log('tu as perdu' + this.life)
+         console.log('has perdido' + this.life)
        }
       }
     

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { DocsDetailsPageRoutingModule } from './docs-details-routing.module';
 
 import { DocsDetailsPage } from './docs-details.page';
-import { DocsPrehistoireComponent } from 'src/app/components/docs-prehistoire/docs-prehistoire.component';
 
 @NgModule({
   imports: [
@@ -16,6 +15,6 @@ import { DocsPrehistoireComponent } from 'src/app/components/docs-prehistoire/do
     IonicModule,
     DocsDetailsPageRoutingModule
   ],
-  declarations: [DocsDetailsPage, DocsPrehistoireComponent]
+  declarations: [DocsDetailsPage]
 })
 export class DocsDetailsPageModule {}
