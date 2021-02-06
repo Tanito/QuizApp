@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ password: string;
 email: string;
 userObject: any;
 
-constructor( private authService: AuthService, private http: HttpClient, private router:Router,) { 
+constructor( private authService: AuthService, private http: HttpClient, private router:Router, private storage: Storage,) { 
 }
 
 imprimir(){

@@ -10,11 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { TabsPageModule } from './pages/tabs/tabs.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpXhrBackend, HttpBackend } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,TabsPageModule, BrowserAnimationsModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,TabsPageModule, BrowserAnimationsModule, HttpClientModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
