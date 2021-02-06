@@ -24,6 +24,7 @@ imprimir(){
 };
 
 loginOK() {
+  this.storage.set('User', this.userObject);
   this.router.navigate(['tabs']);
 }
 
@@ -33,12 +34,10 @@ loginFunction (){
   }
 
   login(){
-    console.log("DATOS",this.email,this.password)
-    const body = {email: this.email,
+      const body = {email: this.email,
       password: this.password}
 
      this.http.post('http://localhost:3000/auth/login', body).subscribe(data => {
-          // console.log(JSON.stringify(data));
           this.userObject = data;
           if (this.userObject.token !== undefined){
             this.loginOK()

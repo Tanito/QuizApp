@@ -15,6 +15,7 @@ export class SignInPage implements OnInit {
   private todo : FormGroup;
   name = new FormControl('')
   progressID = 0
+  lastName: string;
 
   profileForm = this.formBuilder.group({
     firstName: ['',  Validators.required],
