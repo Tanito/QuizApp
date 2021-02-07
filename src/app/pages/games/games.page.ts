@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { AccountService } from 'src/app/services/account.service';
 import { HttpClient } from '@angular/common/http';
 import { GameServiceService } from 'src/app/services/game-service.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-games',
@@ -15,32 +16,41 @@ export class GamesPage implements OnInit {
   Entities: any = [];
   Quizzes: any = [];
   user: User[]
+  userObject: any = {};
+  firstName: string;
 
   constructor(private tabsPage: TabsPage, private accountService: AccountService, 
-    private http: HttpClient, private gameService: GameServiceService
+    private http: HttpClient, private gameService: GameServiceService, private storage: Storage,
     ) { }
-    // getQuizzes(){
-    //   return this.http.get('https://prueba2053456.herokuapp.com/users')
-  
-    //  } 
   
   
   ngOnInit() {
-    this.user = this.accountService.users
+    // this.user = this.accountService.users
     this.gameService.getQuizzes()
     .subscribe( resp => {
-    //  this.Entities = resp,
-    //  this.Quizzes = this.Entities.entities.quizzes
-      this.Quizzes = resp
-       // console.log("entities", this.Entities)
-      // console.log("listado", this.Quizzes[7].logo)
-
+    this.Quizzes = resp
      
-    })
+  })
+  this.cargarStorage()
 
+  // this.firstName = this.userObject.user.firstName; // Esto acá lo hace romper.
   
   }
-  
+  cargarStorage(){
+    // return new Promise((resolve, reject) => {
+   this.storage.get('User').then(val => { 
+     
+         
+      this.firstName = val.user.firstName; 
+      console.log("INFO STORAGE", this.firstName)
+    //   resolve(true);
+    // } else {
+    //   resolve(false);
+    // }
+  // });
+})
+
+  }
   
   slideOpts = {
     initialSlide: 1,

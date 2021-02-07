@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { Endpoints } from "../../services/endpoints";
 
 
 @Component({
@@ -16,7 +17,11 @@ password: string;
 email: string;
 userObject: any;
 
-constructor( private authService: AuthService, private http: HttpClient, private router:Router, private storage: Storage,) { 
+constructor( private authService: AuthService, 
+             private http: HttpClient, 
+             private router:Router, 
+             private storage: Storage,
+             private endpoints: Endpoints) { 
 }
 
 imprimir(){
@@ -37,7 +42,7 @@ loginFunction (){
       const body = {email: this.email,
       password: this.password}
 
-     this.http.post('http://localhost:3000/auth/login', body).subscribe(data => {
+     this.http.post(this.endpoints.LOGIN_ENDPOINT, body).subscribe(data => {
           this.userObject = data;
           if (this.userObject.token !== undefined){
             this.loginOK()
