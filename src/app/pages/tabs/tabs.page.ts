@@ -15,7 +15,10 @@ export class TabsPage implements OnInit {
 
   ngOnInit() {
   }
-  //méthode du drawer
+  // getQuizzes(){
+  //   return this.http.get(this.endpoints.MOBILE_QUIZZES_ENDPOINT + this.id)
+
+  //  } 
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');

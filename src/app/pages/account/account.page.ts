@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TabsPage } from '../tabs/tabs.page';
 import { AuthService } from 'src/app/services/auth.service';
 import * as Highcharts from 'highcharts';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-account',
@@ -9,10 +10,34 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
+  firstName: string;
+  lastName: string;
+  email: string;
+  id: number;
+  birthdate: Date;
+  cellphone: number;
+  photo: string;
+  type: string;
 
-  constructor(private tabsPage: TabsPage,private authService: AuthService) { }
+  constructor(private tabsPage: TabsPage,
+              private authService: AuthService,
+              private storage: Storage,) { }
 
   ngOnInit() {
+    this.cargarStorage();
+  }
+
+  cargarStorage(){
+    this.storage.get('User').then(val => { 
+    this.firstName = val.user.firstName; 
+    this.lastName= val.user.lastName;
+    this.email= val.user.email;
+    this.id= val.user.id;
+    this.birthdate= val.user.birthdate;    
+    this.cellphone= val.user.cellphone;
+    this.photo= val.user.photo;
+    this.type= val.user.type;
+ })
   }
 
   openFirst(){
@@ -46,19 +71,19 @@ export class AccountPage implements OnInit {
     },
    series: [{
     data: [{
-      name: 'Chrome',
+      name: 'Informática',
       y: 61.41
     }, {
-      name: 'Internet Explorer',
+      name: 'Matemática',
       y: 11.84
     }, {
-      name: 'Firefox',
+      name: 'Geografía',
       y: 10.85
     }, {
-      name: 'Edge',
+      name: 'Historia',
       y: 4.67
     }, {
-      name: 'Safari',
+      name: 'Química',
       y: 4.18
     }, {
       name: 'Other',
