@@ -35,7 +35,9 @@ export class Endpoints {
    
     QUESTIONS_ENDPOINT:string = this.BASE_ENDPOINT + '/questions';
 
-   // COUNT_QUIZ_ENDPOINT = QUIZ_ENDPOINT + '/all/quizzes';
+    ROLE_ENDPOINT:string = this.BASE_ENDPOINT + '/roles';
+
+    ENROLL_ENDPOINT:string = this.ROLE_ENDPOINT + '/quizzes';
     
     // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
     

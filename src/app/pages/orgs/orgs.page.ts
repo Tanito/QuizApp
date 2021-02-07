@@ -18,6 +18,10 @@ export class OrgsPage implements OnInit {
   ​    logo: string;
   ​    name: string;
       schoolQuizzes: any;
+      body: any;
+      userId: number;
+      quizId: number;
+      info: any;
 
   constructor( private storage: Storage,
     private http: HttpClient, 
@@ -43,6 +47,17 @@ export class OrgsPage implements OnInit {
     
   } 
 
+//Probar si funciona el enroll.
+  inscriptionQuizApi(userId, quizId){
+    const body = {UserId: userId, QuizId: quizId }
+      
+    this.http.post(this.endpoints.ROLE_ENDPOINT, body).subscribe(data => {
+      this.info = data;
+     }
+ )
+   
+  }
+
   async cargarStorage(){ //Cargo el localStorage
     await this.storage.get('School').then(val => {
      this.id = val.id; 
@@ -54,11 +69,6 @@ export class OrgsPage implements OnInit {
      this.city= val.city;
      console.log("id2", this.id)
    })
-  //  .then(()=> this.getQuizzes() // una vez que tengo el id, llamo a la api
-  //  .subscribe( resp => {
-  //  this.Quizzes = resp
-    
-  //  }))
    }
 
 }
