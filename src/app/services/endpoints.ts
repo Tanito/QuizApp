@@ -33,6 +33,8 @@ export class Endpoints {
     
     QUIZ_INFO_ENDPOINT:string = this.QUIZ_ENDPOINT + '/info';
    
+    QUESTIONS_ENDPOINT:string = this.BASE_ENDPOINT + '/questions';
+
    // COUNT_QUIZ_ENDPOINT = QUIZ_ENDPOINT + '/all/quizzes';
     
     // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
@@ -40,7 +42,6 @@ export class Endpoints {
     // USER_PROFILE_ENDPOINT = BASE_ENDPOINT + '/auth/me/';
     
     
-    // QUESTIONS_ENDPOINT = BASE_ENDPOINT + '/questions';
     
     // FINAL_REGISTER_SCHOOL_ENDPOINT = AUTH_ENDPOINT + '/org/register';
     
