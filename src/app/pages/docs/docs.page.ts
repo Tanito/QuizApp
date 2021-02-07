@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Endpoints } from "../../services/endpoints";
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-docs',
@@ -36,6 +37,7 @@ export class DocsPage implements OnInit {
               private http: HttpClient,
               private endpoints: Endpoints,
               private storage: Storage,
+              private router:Router,
               ) { }
 
 
@@ -50,12 +52,23 @@ export class DocsPage implements OnInit {
   })
   }
 
-  getSchool(){
-    return this.http.get(this.endpoints.SCHOOL_ENDPOINT)
-
+  getSchool(id){
+    this.id = id
+    return this.http.get(this.endpoints.SCHOOL_ENDPOINT + '/' + this.id)
+    
    } 
 
-
+goToSchool(id){
+  this.id = id
+  this.getSchool(this.id)
+  .subscribe( resp => {
+   this.School = resp
+    // let listado = resp
+    console.log("listado", this.School)
+    this.storage.set('School', this.School);
+    this.router.navigate(['orgs']);
+  })
+}
 
   openFirst(){
     this.tabsPage.openFirst()

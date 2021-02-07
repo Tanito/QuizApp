@@ -8,16 +8,39 @@
     <p>estos son tus quizzes</p>
   </div>
   <ion-list>
-    <ion-item-sliding *ngFor="let q of Quizzes">
-      <ion-card>
-        <div class="quizImg">
-          <img src="{{q.logo}}" />
-        </div>
-        <ion-card-header>
-          <ion-card-title>{{q.name}}</ion-card-title>
-          <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>{{q.description}}</ion-card-content>
+    <ion-item-sliding *ngFor="let q of Quizzes" >
+     
+        <ion-card>
+          <div class="quizImg">
+            <img src="{{q.logo}}" />
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{q.name}}</ion-card-title>
+            <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>{{q.description}}</ion-card-content>
+
+          <ion-button color="light"
+          (click)="goToQuiz(q.id)"
+          >
+            Ir Al Quiz
+            
+          </ion-button>
+        </ion-card>
+        <!-- <a routerLink="/quiz" class="aInfo"> Ir al Quiz </a> -->
+
+      <!-- <ion-item>
+       <ion-col id="col1"> 
+         <ion-img src="{{q.logo}}"> </ion-img></ion-col>
+       <ion-col id="col2">
+       
+        <ion-row> <ion-label class="ion-text-wrap"> {{q}} </ion-label> </ion-row>
+           
+         <ion-row> <ion-label class="ion-text-wrap"> {{q.name}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> {{q.description}} </ion-label> </ion-row>
+         <ion-row> <ion-label class="ion-text-wrap"> Cantidad de Preguntas: {{q.quantity}} </ion-label> </ion-row>
+        
+        
 
         <ion-button color="light">
           <a routerLink="/game-prehistoire" class="aInfo"> Ir al Quiz </a>

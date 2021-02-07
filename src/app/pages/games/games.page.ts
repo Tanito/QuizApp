@@ -16,6 +16,7 @@ export class GamesPage implements OnInit {
   name: string = '';
   Entities: any = [];
   Quizzes: any = [];
+  Quiz: any;
   user: User[]
   userObject: any = {};
   firstName: string;
@@ -50,6 +51,24 @@ console.log("id", this.id)
     return this.http.get(this.endpoints.MOBILE_QUIZZES_ENDPOINT + '/' + this.id)
     
   } 
+
+  getQuiz(id){
+    this.id = id
+    return this.http.get(this.endpoints.QUIZ_INFO_ENDPOINT + '/' + this.id)
+    
+   } 
+
+   goToQuiz(id){
+    this.id = id
+    this.getQuiz(this.id)
+    .subscribe( resp => {
+     this.Quiz = resp
+      // let listado = resp
+      console.log("listado", this.Quiz)
+      // this.storage.set('Quiz', this.Quiz);
+      // this.router.navigate(['orgs']);
+    })
+  }
 
 
 async cargarStorage(){ //Cargo el localStorage
