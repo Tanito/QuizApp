@@ -27,7 +27,7 @@ export class Endpoints {
     
     USER_REGISTER_ENDPOINT:string = this.AUTH_ENDPOINT + '/register';
     
-    SCHOOL_ENDPOINT:string = this.BASE_ENDPOINT + '/org/';
+    SCHOOL_ENDPOINT:string = this.BASE_ENDPOINT + '/org';
     
     QUIZ_ENDPOINT:string = this.BASE_ENDPOINT + '/quiz';
     

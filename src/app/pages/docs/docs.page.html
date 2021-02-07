@@ -1,8 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <div class="menuContainerOrg">
+      <ion-icon name="menu" (click)="openFirst()"></ion-icon>
+      <ion-searchbar placeholder="Buscar"></ion-searchbar>
+    
+    </div>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-padding">
-  <div class="menuContainerOrg">
-    <ion-icon name="menu" (click)="openFirst()"></ion-icon>
-    <ion-icon name="more"></ion-icon>
-  </div>
   <ion-list>
     <ion-item-sliding *ngFor="let s of Schools">
       <ion-card>

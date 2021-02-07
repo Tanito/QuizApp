@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
   <img src="{{logo}}" />
  <p>Descripción: {{description}}</p> 
  <p>Cantidad de preguntas: {{quantity}}</p> 
@@ -15,8 +16,7 @@
  <p>{{this.School.name}}</p> 
  <img src="{{this.School.logo}}" />
  <p>{{this.Subject.name}}</p> 
-
-
+ 
  <ion-button (click)="comenzar()" shape="round" fill="outline">Comenzar!!</ion-button>
 
  <ion-list>
