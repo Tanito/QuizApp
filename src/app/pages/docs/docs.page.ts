@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Endpoints } from "../../services/endpoints";
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-docs',
@@ -36,6 +37,7 @@ export class DocsPage implements OnInit {
               private http: HttpClient,
               private endpoints: Endpoints,
               private storage: Storage,
+              private router:Router,
               ) { }
 
 
@@ -63,6 +65,8 @@ goToSchool(id){
    this.School = resp
     // let listado = resp
     console.log("listado", this.School)
+    this.storage.set('School', this.School);
+    this.router.navigate(['orgs']);
   })
 }
 
