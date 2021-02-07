@@ -6,51 +6,31 @@
     <div>
         <form [formGroup]="profileForm" class="formInputs" (ngSubmit)="onSubmit()">
           <mat-form-field>
-            <input
-              matInput
-              placeholder="Nombre"
-              formControlName="firstName"
-              required
-            />
+            <input matInput placeholder="Nombre" formControlName="firstName" required />
           </mat-form-field>
 
           <mat-form-field>
-            <input
-              matInput
-              placeholder="Apellido"
-              formControlName="lastName"
-              required
-            />
+            <input matInput placeholder="Apellido" formControlName="lastName" required />
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Fecha de nacimiento" required />
+            <input matInput placeholder="Fecha de nacimiento" formControlName="birthdate" required />
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Celular" required />
+            <input matInput placeholder="Celular" formControlName="cellphone" required />
+          </mat-form-field>
+
+          <mat-form-field> 
+            <input matInput placeholder="Email" formControlName="email" required />
           </mat-form-field>
 
           <mat-form-field>
-            <input
-              matInput
-              placeholder="Email"
-              formControlName="email"
-              required
-            />
+            <input matInput placeholder="Password" formControlName="password" required />
           </mat-form-field>
 
           <mat-form-field>
-            <input
-              matInput
-              placeholder="Password"
-              formControlName="password"
-              required
-            />
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput placeholder="Foto" required />
+            <input matInput placeholder="Foto" formControlName="photo" required />
           </mat-form-field>
 
           <button

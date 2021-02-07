@@ -5,9 +5,8 @@ export class User{
     public lastName: string,
     public email: string,
     public password: string,
-    public city: string,
-    public department: string,
-    public number: string,
-    public addressName:string){}
+    public birthdate: string,
+    public cellphone: string,
+    public photo: string){}
 
 }
