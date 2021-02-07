@@ -15,17 +15,15 @@ export class SignInPage implements OnInit {
   private todo : FormGroup;
   name = new FormControl('')
   progressID = 0
-  lastName: string;
 
   profileForm = this.formBuilder.group({
     firstName: ['',  Validators.required],
-    lastName: [''],
-      email: [''],
-      password: [''],
-      city: [''],
-      department: [''],
-      number: [''],
-      addressName: ['']
+    lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      birthdate: ['', Validators.required],
+      cellphone: ['', Validators.required],
+      photo: ['', Validators.required]
       
     })
   
@@ -60,10 +58,9 @@ export class SignInPage implements OnInit {
      formValue ['lastName'],
      formValue['email'],
      formValue['password'],
-     formValue['city'],
-     formValue['department'],
-     formValue['number'],
-     formValue['addressName']
+     formValue['birthdate'],
+     formValue['cellphone'],
+     formValue['photo'],
    )
    this.accountService.addUser(newUser)
     }
