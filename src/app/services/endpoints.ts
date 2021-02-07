@@ -29,15 +29,16 @@ export class Endpoints {
     
     SCHOOL_ENDPOINT:string = this.BASE_ENDPOINT + '/org/';
     
-    // QUIZ_ENDPOINT = BASE_ENDPOINT + '/quiz';
+    QUIZ_ENDPOINT:string = this.BASE_ENDPOINT + '/quiz';
     
-    // COUNT_QUIZ_ENDPOINT = QUIZ_ENDPOINT + '/all/quizzes';
+    QUIZ_INFO_ENDPOINT:string = this.QUIZ_ENDPOINT + '/info';
+   
+   // COUNT_QUIZ_ENDPOINT = QUIZ_ENDPOINT + '/all/quizzes';
     
     // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
     
     // USER_PROFILE_ENDPOINT = BASE_ENDPOINT + '/auth/me/';
     
-    // QUIZ_INFO_ENDPOINT = QUIZ_ENDPOINT + '/info';
     
     // QUESTIONS_ENDPOINT = BASE_ENDPOINT + '/questions';
     

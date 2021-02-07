@@ -24,12 +24,14 @@
           </ion-card-header>
           <ion-card-content>{{q.description}}</ion-card-content>
 
-          <ion-button color="light">
-            <a routerLink="/game-prehistoire" class="aInfo"> Ir al Quiz </a>
-           
-                     
+          <ion-button color="light"
+          (click)="goToQuiz(q.id)"
+          >
+            Ir Al Quiz
+            
           </ion-button>
         </ion-card>
+        <!-- <a routerLink="/quiz" class="aInfo"> Ir al Quiz </a> -->
 
       <!-- <ion-item>
        <ion-col id="col1"> 
