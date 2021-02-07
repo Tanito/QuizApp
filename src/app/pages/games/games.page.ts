@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { GameServiceService } from 'src/app/services/game-service.service';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -34,6 +35,7 @@ export class GamesPage implements OnInit {
               private gameService: GameServiceService, 
               private storage: Storage,
               private endpoints: Endpoints,
+              private router:Router,
     ) { }
   
   
@@ -65,8 +67,8 @@ console.log("id", this.id)
      this.Quiz = resp
       // let listado = resp
       console.log("listado", this.Quiz)
-      // this.storage.set('Quiz', this.Quiz);
-      // this.router.navigate(['orgs']);
+      this.storage.set('Quiz', this.Quiz);
+      this.router.navigate(['quiz']);
     })
   }
 
