@@ -1,22 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Endpoints } from "./endpoints";
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GameServiceService {
+export class GameServiceService implements OnInit{
 
+  id: number;
 
   constructor(private http: HttpClient,
-              private endpoints: Endpoints
+              private endpoints: Endpoints,
+              private storage: Storage,
     ) { }
 
+    
+    ngOnInit() {
+  console.log("ggs")
+    }
+    
+    getQuizzes(){
+      return this.http.get(this.endpoints.MOBILE_QUIZZES_ENDPOINT + this.id)
+      
+    } 
 
-getQuizzes(){
-    return this.http.get(this.endpoints.MOBILE_QUIZZES_ENDPOINT + '/2')
-
-   } 
+    cargarStorage(){
+      this.storage.get('User').then(val => { 
+      this.id= val.user.id;
+      })
+    }
+    
+    
+  }
   
-  
-}
