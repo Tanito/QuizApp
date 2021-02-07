@@ -26,12 +26,12 @@ const routes: Routes = [
     path: 'results',
     loadChildren: () => import('./pages/results/results.module').then( m => m.ResultsPageModule)
   },
-  //path wildcard qui permet pour chaque erreur de lien de rediriger vers la page d'erreur 404
-  { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
   {
     path: 'orgs',
     loadChildren: () => import('./pages/orgs/orgs.module').then( m => m.OrgsPageModule)
-  }
+  },
+  //path wildcard qui permet pour chaque erreur de lien de rediriger vers la page d'erreur 404
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 
 
 ];
