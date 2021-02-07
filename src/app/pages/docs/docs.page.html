@@ -24,10 +24,11 @@
          <!-- (click)=""  -->
          <ion-button 
          expand="full" 
-          routerLink="/orgs" routerDirection="forward"   
-          class="full-length margin-text form-rounded">Más Info</ion-button>
-         </ion-col>                         
+         (click)="goToSchool(s.id)"
+         class="full-length margin-text form-rounded">Más Info</ion-button>
+        </ion-col>                         
       </ion-item>
+      <!-- routerLink="/orgs" routerDirection="forward"    -->
            
     </ion-item-sliding>   
 

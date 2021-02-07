@@ -50,12 +50,21 @@ export class DocsPage implements OnInit {
   })
   }
 
-  getSchool(){
-    return this.http.get(this.endpoints.SCHOOL_ENDPOINT)
-
+  getSchool(id){
+    this.id = id
+    return this.http.get(this.endpoints.SCHOOL_ENDPOINT + '/' + this.id)
+    
    } 
 
-
+goToSchool(id){
+  this.id = id
+  this.getSchool(this.id)
+  .subscribe( resp => {
+   this.School = resp
+    // let listado = resp
+    console.log("listado", this.School)
+  })
+}
 
   openFirst(){
     this.tabsPage.openFirst()
