@@ -204,9 +204,17 @@
   justify-content: center;
 }
 
+.highchartItem {
+  width: 90%; height: 90%; display: block;
+}
+
 .line {
   height: 100%;
   width: 1%;
+}
+
+.svgLine {
+  stroke: #dadada; stroke-width: 2;
 }
 
 .infoQuizzes {

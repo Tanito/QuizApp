@@ -42,43 +42,27 @@
       </div>
     </div>
 
-    <div
-      class="bottomContainer"
-    >
-      <div
-        class="statisticsContainer"
-      >
+    <div class="bottomContainer">
+      <div class="statisticsContainer">
         <div class="statistics">
-          <p class="statisticsTitle">
-            Estadísticas Generales
-          </p>
+          <p class="statisticsTitle">Estadísticas Generales</p>
         </div>
-        <div
-          class="statisticsIcon"
-        >
+        <div class="statisticsIcon">
           <ion-icon name="flag"></ion-icon>
         </div>
       </div>
       <div class="statisticsData">
-        <div
-          class="chartContainer"
-        >
+        <div class="chartContainer">
           <highcharts-chart
             [Highcharts]="Highcharts"
             [options]="chartOptions"
-            style="width: 90%; height: 90%; display: block"
+            class="highchartItem"
           >
           </highcharts-chart>
         </div>
         <div class="line">
           <svg height="100%" width="3px">
-            <line
-              x1="0"
-              y1="15%"
-              x2="0"
-              y2="85%"
-              style="stroke: #dadada; stroke-width: 2"
-            ></line>
+            <line x1="0" y1="15%" x2="0" y2="85%" class="svgLine"></line>
           </svg>
         </div>
         <div class="infoQuizzes">
