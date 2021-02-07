@@ -8,7 +8,7 @@
 
 <ion-content>
   <div id="msg">
-    <h2 class="userName">Ulises,{{ name }}</h2>
+    <h2 class="userName">{{firstName}} </h2>
     <p>estos son tus quizzes</p>
   </div>
   <ion-list>
@@ -25,9 +25,9 @@
           <ion-card-content>{{q.description}}</ion-card-content>
 
           <ion-button color="light">
-            <a href="" class="aInfo" target="_blank">
-              Más info
-            </a>
+            <a routerLink="/game-prehistoire" class="aInfo"> Ir al Quiz </a>
+           
+                     
           </ion-button>
         </ion-card>
 

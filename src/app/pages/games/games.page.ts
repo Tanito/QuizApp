@@ -4,6 +4,8 @@ import { User } from 'src/app/models/user.model';
 import { AccountService } from 'src/app/services/account.service';
 import { HttpClient } from '@angular/common/http';
 import { GameServiceService } from 'src/app/services/game-service.service';
+import { Storage } from '@ionic/storage';
+import { Endpoints } from "../../services/endpoints";
 
 @Component({
   selector: 'app-games',
@@ -15,33 +17,58 @@ export class GamesPage implements OnInit {
   Entities: any = [];
   Quizzes: any = [];
   user: User[]
+  userObject: any = {};
+  firstName: string;
+  lastName: string;
+  email: string;
+  id: number;
+  birthdate: Date;
+  cellphone: number;
+  photo: string;
+  type: string;
 
-  constructor(private tabsPage: TabsPage, private accountService: AccountService, 
-    private http: HttpClient, private gameService: GameServiceService
+  constructor(private tabsPage: TabsPage, 
+              private accountService: AccountService, 
+              private http: HttpClient, 
+              private gameService: GameServiceService, 
+              private storage: Storage,
+              private endpoints: Endpoints,
     ) { }
-    // getQuizzes(){
-    //   return this.http.get('https://prueba2053456.herokuapp.com/users')
-  
-    //  } 
   
   
   ngOnInit() {
-    this.user = this.accountService.users
-    this.gameService.getQuizzes()
-    .subscribe( resp => {
-    //  this.Entities = resp,
-    //  this.Quizzes = this.Entities.entities.quizzes
-      this.Quizzes = resp
-       // console.log("entities", this.Entities)
-      // console.log("listado", this.Quizzes[7].logo)
-
-     
-    })
-
   
+    this.cargarStorage() //Refrescar la pantalla cuando carga?
+console.log("id", this.id)
+ 
+    
+   
   }
-  
-  
+
+  getQuizzes(){
+    console.log("se ejecuta get quizzes", this.endpoints.MOBILE_QUIZZES_ENDPOINT + '/' + this.id)
+    return this.http.get(this.endpoints.MOBILE_QUIZZES_ENDPOINT + '/' + this.id)
+    
+  } 
+
+
+async cargarStorage(){ //Cargo el localStorage
+ await this.storage.get('User').then(val => { 
+  this.firstName = val.user.firstName; 
+  this.lastName= val.user.lastName;
+  this.email= val.user.email;
+  this.id = val.user.id;
+  this.birthdate= val.user.birthdate;    
+  this.cellphone= val.user.cellphone;
+  this.photo= val.user.photo;
+  this.type= val.user.type;
+  console.log("id2", this.id)
+}).then(()=> this.getQuizzes() // una vez que tengo el id, llamo a la api
+.subscribe( resp => {
+this.Quizzes = resp
+ 
+}))
+}
   slideOpts = {
     initialSlide: 1,
     speed: 400
