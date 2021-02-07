@@ -1,14 +1,10 @@
-<!-- <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start" style="padding: 15px;" (click)="openFirst()">
-            <ion-icon name="menu"></ion-icon>
-          </ion-buttons>       
-    </ion-toolbar>
-  </ion-header> -->
-
 <ion-content>
   <div id="msg">
-    <h2 class="userName">{{firstName}} </h2>
+    <div class="menuContainer">
+      <ion-icon name="menu" (click)="openFirst()"></ion-icon>
+      <ion-icon name="more"></ion-icon>
+    </div>
+    <h2 class="userName">{{firstName}},</h2>
     <p>estos son tus quizzes</p>
   </div>
   <ion-list>
@@ -46,13 +42,10 @@
         
         
 
-          <a href=""  target="_blank"><ion-button type="submit" color="primary" shape="full" expand="block">Más Info</ion-button></a>
-         </ion-col>                         
-      </ion-item> -->
-           
-    </ion-item-sliding>   
-
-</ion-list>
+        <ion-button color="light">
+          <a routerLink="/game-prehistoire" class="aInfo"> Ir al Quiz </a>
+        </ion-button>
+      </ion-card>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
-
-
