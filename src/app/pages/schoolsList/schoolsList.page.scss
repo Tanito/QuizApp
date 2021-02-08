@@ -1,7 +1,26 @@
 .menuContainerOrg {
-    margin-top: 1rem;
     padding: 1rem 1rem 1rem 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     font-size: 22px;
+}
+
+.textSchools {
+    color: black;
+}
+
+.locationSchools {
+    color:black;
+    margin-top: 0.2rem;
+}
+
+.margin-text {
+    margin-left: 0.5rem;
+    width: 95%;
+}
+
+.schoolData {
+    font-size: 0.8rem;
+    color: black;
 }
