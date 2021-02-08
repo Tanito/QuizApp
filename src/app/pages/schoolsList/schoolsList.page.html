@@ -1,34 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    
+<ion-content class="ion-padding">
+<!--   <ion-list> -->
+
     <div class="menuContainerOrg">
       <ion-icon name="menu" (click)="openFirst()"></ion-icon>
-      <ion-searchbar placeholder="Buscar"></ion-searchbar>
-    
+      <ion-searchbar placeholder="Buscar" class="searchBar"></ion-searchbar>
     </div>
-  </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
-  <ion-list>
+
     <ion-item-sliding *ngFor="let s of Schools">
       <ion-card>
         <div class="quizImg">
           <img src="{{s.logo}}" />
         </div>
         <ion-card-header>
-          <ion-card-title>{{s.name}}</ion-card-title>
-          <ion-card-subtitle>{{s.city}}, {{s.country}}</ion-card-subtitle>
+          <ion-card-title class="textSchools">{{s.name}}</ion-card-title>
+          <ion-card-subtitle class="locationSchools">{{s.city}}, {{s.country}}</ion-card-subtitle>
+          <p class="schoolData">{{s.email}}</p>
         </ion-card-header>
-        <ion-card-content>
-          {{s.description}}<br />
-          {{s.email}}
+        <ion-card-content class="textSchools">
+          {{s.description}}
         </ion-card-content>
 
         <ion-button 
-         expand="full" 
          (click)="goToSchool(s.id)"
-         class="full-length margin-text form-rounded">Más Info</ion-button>
+         class="margin-text form-rounded">Más Info</ion-button>
       </ion-card>
     </ion-item-sliding>
-  </ion-list>
+<!--   </ion-list> -->
 </ion-content>

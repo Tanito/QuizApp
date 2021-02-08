@@ -13,12 +13,12 @@
           <img src="{{q.logo}}" />
         </div>
         <ion-card-header>
-          <ion-card-title>{{q.name}}</ion-card-title>
-          <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
+          <ion-card-title class="textQuizzes">{{q.name}}</ion-card-title>
+          <ion-card-subtitle class="textQuizzes">{{q.quantity}} preguntas</ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content>{{q.description}}</ion-card-content>
+        <ion-card-content class="textQuizzes">{{q.description}}</ion-card-content>
 
-        <ion-button color="light" (click)="goToQuiz(q.id)">
+        <ion-button class="light buttonQuizzes" (click)="goToQuiz(q.id)">
           Ir Al Quiz
         </ion-button>
       </ion-card>
