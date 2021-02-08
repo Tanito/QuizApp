@@ -48,8 +48,8 @@ export class SignInPage implements OnInit {
   }
 
   onSubmitStep(){
-    this.router.navigateByUrl('/tabs/games')
-    console.log(this.profileForm.value);
+    // this.router.navigateByUrl('/tabs/games')
+    // console.log(this.profileForm.value);
 
    //paramètres des données du formulaires lors du submit
    const formValue = this.profileForm.value //récupère toutes les valeurs formControlName (stockés dans le HTML) du tableau profileForm

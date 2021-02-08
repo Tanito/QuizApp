@@ -29,6 +29,10 @@ export class QuizPage implements OnInit {
   Questions: any;
   //Listado de respuestas
   Answers: any;
+  infoQuiz: boolean = true;
+  ocultar2: boolean = false;
+
+
   constructor(private storage: Storage,
     private http: HttpClient,
     private endpoints: Endpoints,
@@ -49,14 +53,27 @@ export class QuizPage implements OnInit {
     .subscribe(resp => {
       this.QuizQA = resp
       // let listado = resp
-      console.log("pregunta", this.QuizQA.questions.byId[0].question)
-      console.log("respuestas", this.QuizQA.questions.byId[0].Answers[0].text)
-      console.log("respuestas", this.QuizQA.questions.byId[0].Answers[1].text)
-      console.log("respuestas", this.QuizQA.questions.byId[0].Answers[2].text)
-      console.log("respuestas", this.QuizQA.questions.byId[0].Answers[3].text)
+      // console.log("pregunta", this.QuizQA.questions.byId[0].question)
+      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[0].text)
+      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[1].text)
+      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[2].text)
+      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[3].text)
+      this.Questions = this.QuizQA.questions.byId
+      console.log("preguntas", this.Questions)
       // this.storage.set('Quiz', this.Quiz);
       // this.router.navigate(['quiz']);
     })
+    this.accion1();
+  }
+
+  prueba(n){
+    n=false
+   
+  }
+
+  accion1(){
+    this.infoQuiz = !this.infoQuiz;
+    this.ocultar2 = !this.ocultar2;
   }
   async cargarStorage() { //Cargo el localStorage
     // await this.storage.remove('Quiz').then(() =>{
