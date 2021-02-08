@@ -1,4 +1,4 @@
-//import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 import { TabsPage } from '../tabs/tabs.page';
 import { AuthService } from 'src/app/services/auth.service';
 import * as Highcharts from 'highcharts';
