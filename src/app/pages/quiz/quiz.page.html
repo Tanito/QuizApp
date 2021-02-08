@@ -23,18 +23,6 @@
     <ion-button (click)="comenzar()" class="primary buttonStart">Comenzar</ion-button>
   </ion-card>
 
-  <!--   <img src="{{logo}}" />
-  <p>Descripción: {{description}}</p>
-  <p>Cantidad de preguntas: {{quantity}}</p>
-
-  <p>{{this.School.name}}</p>
-  <img src="{{this.School.logo}}" />
-  <p>{{this.Subject.name}}</p>
-
-  <ion-button (click)="comenzar()" shape="round" fill="outline"
-    >Comenzar!!</ion-button
-  > -->
-
   <ion-list >
     <ion-progress-bar color="primary" value={{progressBar}}></ion-progress-bar>
 
@@ -51,9 +39,6 @@
           </ion-button>
         </ion-card-content>
 
-        <!-- <ion-button color="light" *ngFor="let a of Answers" (click)="checkAnswer(a)">
-          Acá va la respuesta
-        </ion-button> -->
       </ion-card>
      
     </ion-item-sliding>
@@ -70,10 +55,7 @@
         
          <ion-img [src]="imageToShow"></ion-img>
         </ion-card-content>
-
-        <!-- <ion-button color="light" *ngFor="let a of Answers" (click)="checkAnswer(a)">
-          Acá va la respuesta
-        </ion-button> -->
+  
       </ion-card>
      
     </ion-item-sliding>

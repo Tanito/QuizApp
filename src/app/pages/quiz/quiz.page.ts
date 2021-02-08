@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
-// import { veryGood } from "../../../assets/veryGood.gif"
 
 @Component({
   selector: 'app-quiz',
@@ -58,17 +57,9 @@ export class QuizPage implements OnInit {
     this.traerQA(this.id)
     .subscribe(resp => {
       this.QuizQA = resp
-      // let listado = resp
-      // console.log("pregunta", this.QuizQA.questions.byId[0].question)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[0].text)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[1].text)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[2].text)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[3].text)
       this.Questions = this.QuizQA.questions.byId
       console.log("preguntas", this.Questions)
       this.progressBar = (this.step -1) / this.Questions.length
-      // this.storage.set('Quiz', this.Quiz);
-      // this.router.navigate(['quiz']);
     })
     this.accion1();
     console.log(this.clicked)
@@ -118,12 +109,5 @@ export class QuizPage implements OnInit {
       this.Reviews = val.Reviews;
       console.log("id2", this.id)
     })
-    // })
-    //  .then(()=> this.getQuizzes() // una vez que tengo el id, llamo a la api
-    //  .subscribe( resp => {
-    //  this.Quizzes = resp
-
-    //  }))
-  }
-
+   }
 }

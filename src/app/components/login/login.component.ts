@@ -32,7 +32,7 @@ loginOK() {
   this.storage.set('User', this.userObject);
  setTimeout( () => {
   this.router.navigate(['tabs'])
-}, 3000);
+}, 2000);
   ;
 }
 
