@@ -9,11 +9,11 @@ import { Endpoints } from "../../services/endpoints";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-games',
-  templateUrl: './games.page.html',
-  styleUrls: ['./games.page.scss'],
+  selector: 'app-quizzes',
+  templateUrl: './quizzes.page.html',
+  styleUrls: ['./quizzes.page.scss'],
 })
-export class GamesPage implements OnInit {
+export class QuizzesPage implements OnInit {
   name: string = '';
   Entities: any = [];
   Quizzes: any = [];

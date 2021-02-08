@@ -7,7 +7,7 @@ import { AuthGuardGuard } from 'src/app/services/auth-guard.guard';
 const routes: Routes = [
   {
     path: 'tabs',
-    redirectTo: 'tabs/games',
+    redirectTo: 'tabs/quizzes',
     pathMatch: 'full'
   },
   {
@@ -16,11 +16,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'games',
+        path: 'quizzes',
         children: [
           {
             path: '',
-            loadChildren: () => import('../games/games.module').then( m => m.GamesPageModule)
+            loadChildren: () => import('../quizzes/quizzes.module').then( m => m.QuizzesPageModule)
           }
         ]
       },
