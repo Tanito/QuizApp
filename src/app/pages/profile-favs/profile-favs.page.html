@@ -1,9 +1,10 @@
 <ion-header>
   <div class="head">
-      <div style="padding: 25px 20px 20px 20px; display: flex; justify-content: space-between; color: white; font-size: 22px;" >
-          <ion-icon name="arrow-back"></ion-icon> 
-          <ion-icon name="more"></ion-icon>
-      </div>
+    <ion-toolbar>
+      <ion-buttons mode="ios" slot="start" >
+        <ion-back-button text="Atrás" defaultHref="/tabs/account"></ion-back-button>
+        </ion-buttons>
+         </ion-toolbar>
 
         <div style="display: flex; justify-content: space-around; margin-top: 13px;">
           <div routerLink="/tabs/account"  style="display: flex; width: 20%; justify-content: center; color:white">
@@ -27,13 +28,7 @@
       <p style="margin-top: 20px;">Va una parte con mensajes?</p>
       </div>
     
-    <div style="padding: 15px; background: white; width: 100%; height: 10%; position: absolute; bottom: 0;  display: flex; align-items: center; flex-direction: row; justify-content: space-between;">
-    <ion-icon name="camera"></ion-icon>
-    <div style="border-radius: 40px; padding: 18px; background: #f7f9fc; width: 80%; height: 2.5rem; display: flex; align-items: center; flex-direction: row; justify-content: space-between;">
-     Escribe un mensaje...
-     <ion-icon name="mic"></ion-icon>
-    </div>
-    <ion-icon name="send"></ion-icon>  </div>
+  
 </div>
 
 </ion-content>

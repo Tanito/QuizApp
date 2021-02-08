@@ -1,10 +1,10 @@
 <ion-header>
   <div class="head">
-      <div style="padding: 25px 20px 20px 20px; display: flex; justify-content: space-between; color: white; font-size: 22px;" >
-        <ion-icon name="arrow-back"></ion-icon>         
-        <ion-icon name="more"></ion-icon>
-      </div>
-
+    <ion-toolbar>
+      <ion-buttons mode="ios" slot="start" >
+        <ion-back-button text="Atrás" defaultHref="/tabs/account"></ion-back-button>
+        </ion-buttons>
+         </ion-toolbar>
         <div style="display: flex; justify-content: space-around; margin-top: 13px;">
           <div routerLink="/tabs/account"  style="display: flex; width: 20%; justify-content: center; color:white">
             General
