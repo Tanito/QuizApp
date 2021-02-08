@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
+// import { veryGood } from "../../../assets/veryGood.gif"
 
 @Component({
   selector: 'app-quiz',
@@ -34,6 +35,9 @@ export class QuizPage implements OnInit {
   clicked: any;
   step: number = 1;
   progressBar: number;
+  countCorrect: number = 0;
+  Finished: string = '';
+  imageToShow: string = '';
 
   constructor(private storage: Storage,
     private http: HttpClient,
@@ -70,9 +74,19 @@ export class QuizPage implements OnInit {
     console.log(this.clicked)
   }
  
-  changeStep(i) {
+  changeStep(i, a) {
     this.step = i;
+    console.log("Step & i", this.step, i)
     this.progressBar = (this.step -1) / this.Questions.length
+    this.checkAnswer(a)
+    if(this.step > this.Questions.length){
+      this.Finished = 'finished'
+      const x = this.countCorrect / this.Questions.length;
+      if (0 <= x && x <= 0.4) return this.imageToShow = "../../../assets/veryBad.gif"
+      if (0.4 < x && x < 0.7) return this.imageToShow = "../../../assets/masomenos.gif"
+      if (0.7 <= x && x < 0.9) return this.imageToShow = "../../../assets/ok.gif"
+      if (0.9 <= x ) return this.imageToShow = "../../../assets/veryGood.gif"
+    }
   }
 
   accion1(){
@@ -80,7 +94,13 @@ export class QuizPage implements OnInit {
     this.qa = !this.qa;
     
   }
-
+  checkAnswer(a){
+    console.log("que manda acá?", a)
+    if(a.correct) {
+      this.countCorrect = this.countCorrect + 1;
+    }
+    console.log("Correctas", this.countCorrect)
+  }
 
   async cargarStorage() { //Cargo el localStorage
     // await this.storage.remove('Quiz').then(() =>{
