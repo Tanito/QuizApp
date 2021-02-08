@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+//import { Component, OnInit } from '@angular/core';
 import { TabsPage } from '../tabs/tabs.page';
 import { AuthService } from 'src/app/services/auth.service';
 import * as Highcharts from 'highcharts';
 import { Storage } from '@ionic/storage';
+
+import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage implements OnInit {
+export class AccountPage implements OnInit, AfterViewInit {
+
+  @ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
+
   firstName: string;
   lastName: string;
   email: string;
@@ -19,12 +25,33 @@ export class AccountPage implements OnInit {
   photo: string;
   type: string;
 
+  doughnutChart: any;
+
   constructor(private tabsPage: TabsPage,
               private authService: AuthService,
               private storage: Storage,) { }
 
   ngOnInit() {
     this.cargarStorage();
+  }
+
+  ngAfterViewInit() {
+    this.doughnutChartMethod();
+  }
+
+  doughnutChartMethod() {
+    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [15, 85],
+          backgroundColor: [
+            "#e74c3c",
+            "#2ecc71"
+          ]
+        }]
+      }
+    });
   }
 
   cargarStorage(){

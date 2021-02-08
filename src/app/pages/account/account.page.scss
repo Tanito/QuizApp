@@ -14,28 +14,24 @@
 }
 
 .text {
-  font-family: Roboto;
-  font-size: 14px;
+  font-size: 1rem;
   color: rgb(187, 187, 187);
   margin: 0;
 }
 
 .text2 {
-  font-family: Roboto-light;
-  font-size: 15px;
-  color: rgb(187, 187, 187);
-  margin: -2px 0 0 0;
+  font-size: 0.7rem;
+  color: rgb(107, 107, 107);
 }
 
 .text3 {
-  font-family: Roboto;
+  font-size: 0.8rem;
   margin: 1px 0 0 0;
 }
 
 .text4 {
-  font-family: Roboto;
-  font-size: 15px;
-  margin: 0;
+  font-size: 1rem;
+  margin: 0rem;
   color: white;
 }
 
@@ -67,13 +63,8 @@
   color: white;
 }
 
-.userLevel {
-  font-size: 0.8rem;
-  color: #dadada;
-}
-
 .userEmail {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   margin-bottom: 0;
   color: white;
 }
@@ -148,9 +139,8 @@
 }
 
 .label {
-  font-size: 18px;
+  font-size: 1rem;
   margin: 0;
-  font-family: Roboto;
 }
 
 .bottomContainer {
@@ -174,20 +164,7 @@
 }
 
 .statisticsTitle {
-  font-size: 22px;
-  margin: 0;
-  font-family: Roboto;
-}
-
-.statisticsIcon {
-  height: 100%;
-  width: 18%;
-  background: linear-gradient(#ee699d, #fb5b67);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  color: white;
+  font-size: 1.1rem;
 }
 
 .statisticsData {
@@ -205,7 +182,9 @@
 }
 
 .highchartItem {
-  width: 90%; height: 90%; display: block;
+  width: 90%; 
+  height: 90%; 
+  display: block;
 }
 
 .line {
@@ -214,7 +193,8 @@
 }
 
 .svgLine {
-  stroke: #dadada; stroke-width: 2;
+  stroke: #dadada; 
+  stroke-width: 2;
 }
 
 .infoQuizzes {

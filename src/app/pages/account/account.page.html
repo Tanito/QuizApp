@@ -11,8 +11,7 @@
       </ion-avatar>
       <div class="contentFlexMargin">
         <h2 class="userInfo">{{firstName}} {{lastName}}</h2>
-        <p class="userLevel">Nivel</p>
-        <h6 class="userEmail">{{email}}</h6>
+        <p class="userEmail">{{email}}</p>
       </div>
     </div>
     <div class="containerMenu">
@@ -26,18 +25,17 @@
 <ion-content>
   <div class="containerTrophy">
     <div class="tagTrophy">
-      <p class="text4">Últimos logros</p>
+      <p class="text4">NIVEL</p>
     </div>
     <div class="trophy">
       <div class="trophyIcon">
         <ion-icon name="trophy"></ion-icon>
       </div>
       <div class="trophyLegend">
-        <p class="label">Modelador de piedra</p>
-        <p class="text-justify text-truncate text">
-          Completa todas las preguntas de la Edad de Piedra.<ion-icon
-            name="checkmark"
-          ></ion-icon>
+        <p class="label">Experto</p>
+        <!-- Dependiendo de la cantidad de queizzes que respondió podríamos ponerle un nivel: principiante (menos de 5), aficionado (menos de 10), intermedio (menos de 15), maestro (menos de 20), experto (más de 20) -->
+        <p class="text2">
+          Haz completado 20 quizzes!
         </p>
       </div>
     </div>
@@ -45,31 +43,29 @@
     <div class="bottomContainer">
       <div class="statisticsContainer">
         <div class="statistics">
-          <p class="statisticsTitle">Estadísticas Generales</p>
-        </div>
-        <div class="statisticsIcon">
-          <ion-icon name="flag"></ion-icon>
+          <p class="statisticsTitle">Estadísticas generales</p>
         </div>
       </div>
       <div class="statisticsData">
-        <div class="chartContainer">
-          <highcharts-chart
+       <div class="chartContainer">
+          <canvas #doughnutCanvas style="position: relative; height:2rem; width:50%"></canvas>
+<!--           <highcharts-chart
             [Highcharts]="Highcharts"
             [options]="chartOptions"
             class="highchartItem"
           >
-          </highcharts-chart>
-        </div>
+          </highcharts-chart> -->
+         </div>
         <div class="line">
           <svg height="100%" width="3px">
             <line x1="0" y1="15%" x2="0" y2="85%" class="svgLine"></line>
           </svg>
         </div>
         <div class="infoQuizzes">
-          <p class="text3">Quiz Hechos</p>
-          <p class="text">4</p>
+          <p class="text3">Quizzes terminados</p>
+          <p class="text">20</p>
           <p class="text3">Aprobados</p>
-          <p class="text">2</p>
+          <p class="text">17</p>
         </div>
       </div>
     </div>
