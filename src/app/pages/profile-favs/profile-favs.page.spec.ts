@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ProfileMessagesPage } from './profile-messages.page';
+import { ProfileFavsPage } from './profile-favs.page';
 
-describe('ProfileMessagesPage', () => {
-  let component: ProfileMessagesPage;
-  let fixture: ComponentFixture<ProfileMessagesPage>;
+describe('ProfileFavsPage', () => {
+  let component: ProfileFavsPage;
+  let fixture: ComponentFixture<ProfileFavsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileMessagesPage ],
+      declarations: [ ProfileFavsPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ProfileMessagesPage);
+    fixture = TestBed.createComponent(ProfileFavsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProfileMessagesPage } from './profile-messages.page';
+import { ProfileFavsPage } from './profile-favs.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfileMessagesPage
+    component: ProfileFavsPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProfileMessagesPageRoutingModule {}
+export class ProfileFavsPageRoutingModule {}

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfileMessagesPageRoutingModule } from './profile-messages-routing.module';
+import { ProfileFavsPageRoutingModule } from './profile-favs-routing.module';
 
-import { ProfileMessagesPage } from './profile-messages.page';
+import { ProfileFavsPage } from './profile-favs.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfileMessagesPageRoutingModule
+    ProfileFavsPageRoutingModule
   ],
-  declarations: [ProfileMessagesPage]
+  declarations: [ProfileFavsPage]
 })
-export class ProfileMessagesPageModule {}
+export class ProfileFavsPageModule {}

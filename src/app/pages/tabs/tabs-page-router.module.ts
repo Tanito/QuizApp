@@ -25,11 +25,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'docs',
+        path: 'schoolsList',
         children: [
           {
             path: '',
-            loadChildren: () => import('../docs/docs.module').then( m => m.DocsPageModule)
+            loadChildren: () => import('../schoolsList/schoolsList.module').then( m => m.SchoolsListPageModule)
           },
           {
             path: ':id',
@@ -57,11 +57,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'profile-messages',
+        path: 'profile-favs',
         children: [
           {
             path: '',
-            loadChildren: () => import('../profile-messages/profile-messages.module').then( m => m.ProfileMessagesPageModule)
+            loadChildren: () => import('../profile-favs/profile-favs.module').then( m => m.ProfileFavsPageModule)
           }
         ]
       } 

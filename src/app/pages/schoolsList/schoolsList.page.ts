@@ -10,11 +10,11 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-docs',
-  templateUrl: './docs.page.html',
-  styleUrls: ['./docs.page.scss'],
+  selector: 'app-schoolsList',
+  templateUrl: './schoolsList.page.html',
+  styleUrls: ['./schoolsList.page.scss'],
 })
-export class DocsPage implements OnInit {
+export class SchoolsListPage implements OnInit {
 
   Schools: any;
   School: any;

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { DocsPageRoutingModule } from './docs-routing.module';
-import { DocsPage } from './docs.page';
+import { SchoolsListPageRoutingModule } from './schoolsList-routing.module';
+import { SchoolsListPage } from './schoolsList.page';
 import { DocsItemComponent } from 'src/app/components/docs-item/docs-item.component';
 
 @NgModule({
@@ -11,8 +11,8 @@ import { DocsItemComponent } from 'src/app/components/docs-item/docs-item.compon
     CommonModule,
     FormsModule,
     IonicModule,
-    DocsPageRoutingModule
+    SchoolsListPageRoutingModule
   ],
-  declarations: [DocsPage, DocsItemComponent]
+  declarations: [SchoolsListPage, DocsItemComponent]
 })
-export class DocsPageModule {}
+export class SchoolsListPageModule {}
