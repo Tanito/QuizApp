@@ -1,10 +1,9 @@
 <ion-content>
   <div class="quizHeader">
-    <ion-back-button defaultHref="/tabs/games"></ion-back-button>
+    <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
     <ion-title>{{name}}</ion-title>
   </div>
-  <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
-
+ 
   <ion-card *ngIf="infoQuiz">
     <div class="quizImg">
       <img src="{{logo}}" />
@@ -37,14 +36,17 @@
   > -->
 
   <ion-list >
+    <ion-progress-bar color="primary" value={{progressBar}}></ion-progress-bar>
+
     <ion-item-sliding  *ngFor="let q of Questions">
-      <ion-card *ngIf="q.id">
+     
+      <ion-card *ngIf="q.id === this.step" >
+      
         <ion-card-header>
           <ion-card-title> {{q.question}} </ion-card-title>
-        <p> {{q.id}} </p>
-        </ion-card-header>
+          </ion-card-header>
         <ion-card-content>
-          <ion-button *ngFor="let a of q.Answers">
+          <ion-button (click)="changeStep(q.id+1)" *ngFor="let a of q.Answers">
             {{a.text}}
           </ion-button>
         </ion-card-content>
@@ -53,7 +55,7 @@
           Acá va la respuesta
         </ion-button>
       </ion-card>
-      <ion-button (click)="prueba(q.id)">Continuar</ion-button>
+     
     </ion-item-sliding>
   </ion-list>
 </ion-content>

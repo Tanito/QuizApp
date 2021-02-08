@@ -30,8 +30,10 @@ export class QuizPage implements OnInit {
   //Listado de respuestas
   Answers: any;
   infoQuiz: boolean = true;
-  ocultar2: boolean = false;
-
+  qa: boolean = false;
+  clicked: any;
+  step: number = 1;
+  progressBar: number;
 
   constructor(private storage: Storage,
     private http: HttpClient,
@@ -60,21 +62,26 @@ export class QuizPage implements OnInit {
       // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[3].text)
       this.Questions = this.QuizQA.questions.byId
       console.log("preguntas", this.Questions)
+      this.progressBar = (this.step -1) / this.Questions.length
       // this.storage.set('Quiz', this.Quiz);
       // this.router.navigate(['quiz']);
     })
     this.accion1();
+    console.log(this.clicked)
   }
-
-  prueba(n){
-    n=false
-   
+ 
+  changeStep(i) {
+    this.step = i;
+    this.progressBar = (this.step -1) / this.Questions.length
   }
 
   accion1(){
     this.infoQuiz = !this.infoQuiz;
-    this.ocultar2 = !this.ocultar2;
+    this.qa = !this.qa;
+    
   }
+
+
   async cargarStorage() { //Cargo el localStorage
     // await this.storage.remove('Quiz').then(() =>{
 
