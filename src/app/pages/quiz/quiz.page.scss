@@ -1,3 +1,32 @@
 .textQuiz {
     color:black;
+    margin-bottom: 0rem;
+}
+
+.descriptionQuiz {
+    color:black;
+    margin-bottom: 0.5rem;
+}
+
+.questionsQuiz {
+    color:black;
+    margin-top: 0rem;
+    margin-bottom: 0.1rem;
+}
+
+.quizHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.logoSchool {
+    border-radius: 1.5rem;
+    width: 5rem;
+}
+
+.buttonStart {
+    margin: 0rem 0rem 1.8rem 1rem;
 }
