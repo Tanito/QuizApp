@@ -10,7 +10,7 @@
 <ion-content>
   <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
 
-  <ion-card>
+  <ion-card *ngIf="infoQuiz">
     <div class="quizImg">
       <img src="{{logo}}" />
     </div>
@@ -41,19 +41,24 @@
     >Comenzar!!</ion-button
   > -->
 
-  <ion-list>
-    <ion-item-sliding *ngFor="let q of Questions">
-      <ion-card>
+  <ion-list >
+    <ion-item-sliding  *ngFor="let q of Questions">
+      <ion-card *ngIf="q.id">
         <ion-card-header>
-          <ion-card-title>bla bla</ion-card-title>
-          <ion-card-subtitle>bla bla 2</ion-card-subtitle>
+          <ion-card-title> {{q.question}} </ion-card-title>
+        <p> {{q.id}} </p>
         </ion-card-header>
-        <ion-card-content>bla bla 3</ion-card-content>
+        <ion-card-content>
+          <ion-button *ngFor="let a of q.Answers">
+            {{a.text}}
+          </ion-button>
+        </ion-card-content>
 
         <ion-button color="light" *ngFor="let a of Answers" (click)="1+1">
           Acá va la respuesta
         </ion-button>
       </ion-card>
+      <ion-button (click)="prueba(q.id)">Continuar</ion-button>
     </ion-item-sliding>
   </ion-list>
 </ion-content>
