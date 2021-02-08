@@ -4,11 +4,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0rem 1rem;
+    margin: 0rem 2.5rem;
 }
 
 .logoLogin {
     height: 8rem;
+}
+
+.input {
+    background-color: rgb(223, 238, 240, 0.5);
+    margin: 0.3rem;
 }
 
 .margin-input{
@@ -16,21 +21,7 @@
 }
 
 .margin-text{
-    margin-top: 1rem;
-}
-
-.form-rounded-top {
-    border-radius: 0.4rem 0.4rem 0 0 ;
-    height: 3rem;
-    padding: 1rem;
-    margin: 0.5rem 0rem;
-}
-
-.form-rounded-bottom {
-    border-radius: 0 0 0.4rem 0.4rem;
-    height: 3rem;
-    padding: 1rem;
-    margin: 0.5rem 0rem;
+    margin-top: 0.5rem;
 }
 
 .form-rounded {
@@ -46,19 +37,21 @@
 .linkPassword {
     font-size: 0.8rem;
     align-self: center;
+    color: #ffffff;
 }
 
 .text {
     font-size: 0.8rem;
     margin-top: 3rem;
+    color: #ffffff;
 }
 
 .registerButton {
-    color: white;
     text-decoration: none;
 }
 
 .externalLogin {
     display: flex;
     flex-direction: row;
+    margin: 0.2rem 0;
 }

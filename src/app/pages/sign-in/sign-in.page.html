@@ -4,45 +4,85 @@
   <div class="containerSignIn">
     <h4>Ingresa tu datos</h4>
     <div>
-        <form [formGroup]="profileForm" class="formInputs" (ngSubmit)="onSubmit()">
-          <mat-form-field>
-            <input matInput placeholder="Nombre" formControlName="firstName" required />
-          </mat-form-field>
+      <form
+        [formGroup]="profileForm"
+        class="formInputs"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Nombre"
+            formControlName="firstName"
+            required
+          />
+        </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Apellido" formControlName="lastName" required />
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Apellido"
+            formControlName="lastName"
+            required
+          />
+        </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Fecha de nacimiento" formControlName="birthdate" required />
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Fecha de nacimiento"
+            formControlName="birthdate"
+            required
+          />
+        </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Celular" formControlName="cellphone" required />
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Celular"
+            formControlName="cellphone"
+            required
+          />
+        </mat-form-field>
 
-          <mat-form-field> 
-            <input matInput placeholder="Email" formControlName="email" required />
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            required
+          />
+        </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Password" formControlName="password" required />
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Contraseña"
+            formControlName="password"
+            required
+          />
+        </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Foto" formControlName="photo" required />
-          </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Foto" formControlName="photo" required />
+        </mat-form-field>
 
-          <button
-            type="submit"
-            class="btn btn-primary"
-            ion-button
-            (click)="onSubmitStep()"
-            [disabled]="!profileForm.valid"
-          >
-            Enviar
-          </button>
-        </form>
-      </div>
+        <ion-button
+          type="submit"
+          class="full-length margin-text form-rounded primary"
+          (click)="onSubmitStep()"
+          [disabled]="!profileForm.valid"
+        >
+          Enviar
+        </ion-button>
+
+        <ion-button
+        routerLink="/home"
+        expand="full"
+        class="full-length margin-text form-rounded primary"
+      > Iniciar sesión
+      </ion-button>
+      </form>
+    </div>
   </div>
 </ion-content>

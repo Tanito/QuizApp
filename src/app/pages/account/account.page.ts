@@ -12,9 +12,9 @@ import { Chart } from 'chart.js';
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage implements OnInit, AfterViewInit {
+export class AccountPage implements OnInit/* , ViewChild  */{
 
-  @ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
+  //@ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
 
   firstName: string;
   lastName: string;
@@ -25,7 +25,7 @@ export class AccountPage implements OnInit, AfterViewInit {
   photo: string;
   type: string;
 
-  doughnutChart: any;
+  //doughnutChart: any;
 
   constructor(private tabsPage: TabsPage,
               private authService: AuthService,
@@ -36,22 +36,7 @@ export class AccountPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.doughnutChartMethod();
-  }
-
-  doughnutChartMethod() {
-    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: [15, 85],
-          backgroundColor: [
-            "#e74c3c",
-            "#2ecc71"
-          ]
-        }]
-      }
-    });
+    //this.doughnutChartMethod();
   }
 
   cargarStorage(){
@@ -74,6 +59,22 @@ export class AccountPage implements OnInit, AfterViewInit {
   changeAuth(){
     this.authService.changeAuth()
   }
+
+  // GRÁFICO DONA
+/*   doughnutChartMethod() {
+    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [15, 85],
+          backgroundColor: [
+            "#e74c3c",
+            "#2ecc71"
+          ]
+        }]
+      }
+    });
+  } */
 
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {

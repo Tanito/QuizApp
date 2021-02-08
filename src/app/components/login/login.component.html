@@ -1,22 +1,22 @@
 <div class="containerLogin">
   <img
     class="logoLogin"
-    src="https://i.ibb.co/GC5dTnW/rect650.png"
+    src="../../../assets/rect650-removebg-preview.png"
     alt="QuizApp"
   />
-  <h1>Bienvenido</h1>
+<!--   <h1>Hola</h1> -->
   <input
     type="email"
-    class="form-control form-rounded-top"
+    class="form-control form-rounded input"
     aria-describedby="emailHelp"
-    placeholder="Email"
+    placeholder="e-mail"
     [(ngModel)]="email"
   />
 
   <input
     type="password"
-    class="form-control form-rounded-bottom"
-    placeholder="Password"
+    class="form-control form-rounded input"
+    placeholder="Contraseña"
     [(ngModel)]="password"
   />
 
@@ -28,7 +28,7 @@
   <ion-button
     (click)="login()"
     expand="full"
-    class="full-length margin-text form-rounded"
+    class="full-length margin-text form-rounded primary"
   >
     INGRESAR
   </ion-button>
@@ -38,9 +38,8 @@
     <ion-button
       routerLink="/sign-in"
       expand="full"
-      class="full-length margin-text form-rounded"
-    >
-      <a class="registerButton"> Registrate </a>
+      class="full-length margin-text form-rounded primary"
+    > Registrarse
     </ion-button>
 
   <p class="text">Henry Labs - Grupo 3</p>
