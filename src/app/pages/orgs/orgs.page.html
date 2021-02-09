@@ -1,19 +1,21 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar id="toolbar">
     <ion-buttons mode="ios" slot="start" >
       <ion-back-button text="Atrás" defaultHref="/tabs/schoolsList"></ion-back-button>
       </ion-buttons>
-    <ion-title>{{name}}</ion-title>
+    <div id="contenedor">
+      <ion-title id="title">{{name}}  </ion-title>
+    <img id="logo" src="{{logo}}" />
+
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-<img src="{{logo}}" />
-<p> {{email}} </p>
-<p> {{description}} </p>
-<p> {{country}} </p>
-<p> {{city}} </p>
+<p> E-Mail: {{email}} </p>
+<p>Ciudad: {{city}} </p>
+<p>País: {{country}} </p>
+<p>Breve descripción: {{description}} </p>
 
 <ion-item-sliding *ngFor="let q of schoolQuizzes" >
      
