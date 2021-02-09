@@ -50,7 +50,7 @@ export class Endpoints {
     ADD_TO_FAVS_ENDPOINT:string = this.ROLE_ENDPOINT + '/fan';
 
 
-    FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites';
+    FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites/user';
 
     ENROLLED_ENDPOINT:string = this.ROLE_ENDPOINT + '/enrolled/user';
     

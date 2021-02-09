@@ -7,4 +7,34 @@
                  linear-gradient(360deg, rgb(113, 0, 179), rgba(113, 0, 179, 0.287) 80.71%)
   
   }
-     
+
+  .menuContainerFavorites {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .title {
+      margin-top: 0.4rem;
+      margin-left: 4rem;
+  }
+
+  .buttonFavs {
+      width: 7rem;
+  }
+
+  .button {
+    display: flex;
+    justify-content: right;
+    margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
+    
+  .quizImg {
+    margin: 0.4rem;
+}
+
+.favsNameContainer {
+  background-color: none;
+  margin-left: 1rem;
+}

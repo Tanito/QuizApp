@@ -14,6 +14,7 @@
 }
 
 #msg{
+    background-color: var(--ion-background-color);
     text-align: center;
 }
 
@@ -36,10 +37,18 @@
     font-size: 22px;
 }
 
-.textQuizzes {
-    color:black;
-}
+.buttonQuiz {
+    width: 7rem;
+  }
+  
+  .buttonQuizzes {
+    display: flex;
+    justify-content: right;
+    margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
 
-.buttonQuizzes {
-    margin: 0rem 0rem 1.5rem 1rem;
-}
+  .quizzesNameContainer {
+    background-color: none;
+    margin-left: 1rem;
+  }

@@ -1,27 +1,29 @@
 <ion-content>
-  <ion-list>
-    <div id="msg">
-      <div class="menuContainer">
-        <ion-icon name="menu" (click)="openFirst()"></ion-icon>
-      </div>
-      <h2 class="userName">{{firstName}},</h2>
-      <p>estos son tus quizzes</p>
+  <div id="msg">
+    <div class="menuContainer">
+      <ion-icon name="menu" (click)="openFirst()"></ion-icon>
     </div>
-    <ion-item-sliding *ngFor="let q of Quizzes">
-      <ion-card>
-        <div class="quizImg">
-          <img src="{{q.logo}}" />
-        </div>
-        <ion-card-header>
-          <ion-card-title class="textQuizzes">{{q.name}}</ion-card-title>
-          <ion-card-subtitle class="textQuizzes">{{q.quantity}} preguntas</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content class="textQuizzes">{{q.description}}</ion-card-content>
+    <h2 class="userName">{{firstName}},</h2>
+    <p>estos son tus quizzes</p>
+  </div>
+  <ion-item-sliding *ngFor="let q of Quizzes">
+    <ion-card>
+      <div class="quizImg">
+        <img src="{{q.logo}}" />
+      </div>
+      <div class="quizzesNameContainer">
+        <ion-card-title color="light">{{q.name}}</ion-card-title>
+        <ion-card-subtitle class="textQuizzes"
+          >{{q.quantity}} preguntas</ion-card-subtitle
+        >
+      </div>
+      <ion-card-content class="textQuizzes">{{q.description}}</ion-card-content>
 
-        <ion-button class="light buttonQuizzes" (click)="goToQuiz(q.id)">
+      <div class="buttonQuizzes">
+        <ion-button class="buttonQuiz" (click)="goToQuiz(q.id)">
           Ir Al Quiz
         </ion-button>
-      </ion-card>
-    </ion-item-sliding>
-  </ion-list>
+      </div>
+    </ion-card>
+  </ion-item-sliding>
 </ion-content>

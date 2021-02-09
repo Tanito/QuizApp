@@ -6,12 +6,12 @@
     font-size: 22px;
 }
 
-.textSchools {
-    color: black;
+.schoolNameContainer {
+    background-color: none;
+    margin-left: 1rem;
 }
 
 .locationSchools {
-    color:black;
     margin-top: 0.2rem;
 }
 
@@ -22,10 +22,13 @@
 
 .schoolData {
     font-size: 0.8rem;
-    color: black;
 }
 
 #searchbar {
     border-radius: 5px; 
     -moz-border-radius: 7px 27px 100px 0px; 
+}
+
+.quizImg {
+    margin: 0.4rem;
 }

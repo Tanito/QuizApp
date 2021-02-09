@@ -1,0 +1,30 @@
+.menuContainerEnroll {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title {
+  margin-top: 0.4rem;
+  margin-left: 2rem;
+}
+
+.buttonEnroll {
+  width: 7rem;
+}
+
+.buttonEnrolledQuizzes {
+  display: flex;
+  justify-content: right;
+  margin-right: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.quizImg {
+  margin: 0.4rem;
+}
+
+.quizNameContainer {
+  background-color: none;
+  margin-left: 1rem;
+}

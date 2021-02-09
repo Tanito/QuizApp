@@ -1,27 +1,27 @@
 <ion-content class="ion-padding">
-      <div class="menuContainerOrg">
+      <div class="menuContainerFavorites">
         <ion-buttons mode="ios" slot="start" >
-          <ion-back-button text="Atrás" defaultHref="/tabs/schoolsList"></ion-back-button>
+          <ion-back-button defaultHref="/tabs/account"></ion-back-button>
           </ion-buttons>
-        <!-- <ion-icon name="menu" (click)="openFirst()"></ion-icon> -->
+          <h6 class="title">Estos son tus favoritos</h6>
       </div>
-      <h6 class="title">Estos son tus favoritos</h6>
       <ion-item-sliding *ngFor="let fav of Favorites">
         <ion-card>
           <div class="quizImg">
             <img src="{{fav.logo}}" />
           </div>
-          <ion-card-header>
-            <ion-card-title class="textSchools">{{fav.name}}</ion-card-title>
+          <div class="favsNameContainer">
+            <ion-card-title color="light">{{fav.name}}</ion-card-title>
             <p class="schoolData">{{fav.email}}</p>
-          </ion-card-header>
+          </div>
           <ion-card-content class="textSchools">
             {{fav.description}}
           </ion-card-content>
-  
+          <div class="button">
           <ion-button 
            (click)="goToSchool(fav.id)"
-           class="margin-text form-rounded">Más Info</ion-button>
+           class="margin-text form-rounded buttonFavs">Más Info</ion-button>
+          </div>
         </ion-card>
       </ion-item-sliding>
   </ion-content>
