@@ -30,8 +30,13 @@ export class QuizPage implements OnInit {
   //Listado de respuestas
   Answers: any;
   infoQuiz: boolean = true;
-  ocultar2: boolean = false;
-
+  qa: boolean = false;
+  clicked: any;
+  step: number = 1;
+  progressBar: number;
+  countCorrect: number = 0;
+  Finished: string = '';
+  imageToShow: string = '';
 
   constructor(private storage: Storage,
     private http: HttpClient,
@@ -52,29 +57,42 @@ export class QuizPage implements OnInit {
     this.traerQA(this.id)
     .subscribe(resp => {
       this.QuizQA = resp
-      // let listado = resp
-      // console.log("pregunta", this.QuizQA.questions.byId[0].question)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[0].text)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[1].text)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[2].text)
-      // console.log("respuestas", this.QuizQA.questions.byId[0].Answers[3].text)
       this.Questions = this.QuizQA.questions.byId
       console.log("preguntas", this.Questions)
-      // this.storage.set('Quiz', this.Quiz);
-      // this.router.navigate(['quiz']);
+      this.progressBar = (this.step -1) / this.Questions.length
     })
     this.accion1();
+    console.log(this.clicked)
   }
-
-  prueba(n){
-    n=false
-   
+ 
+  changeStep(i, a) {
+    this.step = i;
+    console.log("Step & i", this.step, i)
+    this.progressBar = (this.step -1) / this.Questions.length
+    this.checkAnswer(a)
+    if(this.step > this.Questions.length){
+      this.Finished = 'finished'
+      const x = this.countCorrect / this.Questions.length;
+      if (0 <= x && x <= 0.4) return this.imageToShow = "../../../assets/veryBad.gif"
+      if (0.4 < x && x < 0.7) return this.imageToShow = "../../../assets/masomenos.gif"
+      if (0.7 <= x && x < 0.9) return this.imageToShow = "../../../assets/ok.gif"
+      if (0.9 <= x ) return this.imageToShow = "../../../assets/veryGood.gif"
+    }
   }
 
   accion1(){
     this.infoQuiz = !this.infoQuiz;
-    this.ocultar2 = !this.ocultar2;
+    this.qa = !this.qa;
+    
   }
+  checkAnswer(a){
+    console.log("que manda acá?", a)
+    if(a.correct) {
+      this.countCorrect = this.countCorrect + 1;
+    }
+    console.log("Correctas", this.countCorrect)
+  }
+
   async cargarStorage() { //Cargo el localStorage
     // await this.storage.remove('Quiz').then(() =>{
 
@@ -91,12 +109,5 @@ export class QuizPage implements OnInit {
       this.Reviews = val.Reviews;
       console.log("id2", this.id)
     })
-    // })
-    //  .then(()=> this.getQuizzes() // una vez que tengo el id, llamo a la api
-    //  .subscribe( resp => {
-    //  this.Quizzes = resp
-
-    //  }))
-  }
-
+   }
 }

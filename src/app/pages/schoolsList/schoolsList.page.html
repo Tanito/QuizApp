@@ -1,12 +1,21 @@
+
+
 <ion-content class="ion-padding">
-<!--   <ion-list> -->
+  
+  <div class="menuContainerOrg">
+    <ion-icon name="menu" (click)="openFirst()"></ion-icon>
+    <!-- <ion-searchbar placeholder="Buscar" class="searchBar"></ion-searchbar> -->
+    <ion-searchbar id="searchbar" type="text" debounce="500" animated 
+placeholder="Filtrar por país" color="dark" 
+(ionChange)="searchInputChanged($event.target.value)"
 
-    <div class="menuContainerOrg">
-      <ion-icon name="menu" (click)="openFirst()"></ion-icon>
-      <ion-searchbar placeholder="Buscar" class="searchBar"></ion-searchbar>
-    </div>
+clearInput></ion-searchbar>
 
-    <ion-item-sliding *ngFor="let s of Schools">
+  </div>
+  
+    <ion-list>
+    <ion-item *ngFor="let s of schoolsToShow">
+    <ion-item-sliding >
       <ion-card>
         <div class="quizImg">
           <img src="{{s.logo}}" />
@@ -25,5 +34,23 @@
          class="margin-text form-rounded">Más Info</ion-button>
       </ion-card>
     </ion-item-sliding>
-<!--   </ion-list> -->
+  </ion-item>
+  </ion-list>
 </ion-content>
+
+<script>
+  const searchbar = document.querySelector('ion-searchbar');
+  const items = Array.from(document.querySelector('ion-list').children);
+
+  searchbar.addEventListener('ionInput', handleInput);
+
+  function handleInput(event) {
+    const query = event.target.value.toLowerCase();
+    requestAnimationFrame(() => {
+      items.forEach(item => {
+        const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
+        item.style.display = shouldShow ? 'block' : 'none';
+      });
+    });
+  }
+</script>

@@ -30,7 +30,10 @@ imprimir(){
 
 loginOK() {
   this.storage.set('User', this.userObject);
-  this.router.navigate(['tabs']);
+ setTimeout( () => {
+  this.router.navigate(['tabs'])
+}, 2000);
+  ;
 }
 
 loginFunction (){

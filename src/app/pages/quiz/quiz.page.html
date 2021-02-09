@@ -1,10 +1,9 @@
 <ion-content>
   <div class="quizHeader">
-    <ion-back-button defaultHref="/tabs/games"></ion-back-button>
+    <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
     <ion-title>{{name}}</ion-title>
   </div>
-  <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
-
+ 
   <ion-card *ngIf="infoQuiz">
     <div class="quizImg">
       <img src="{{logo}}" />
@@ -24,36 +23,42 @@
     <ion-button (click)="comenzar()" class="primary buttonStart">Comenzar</ion-button>
   </ion-card>
 
-  <!--   <img src="{{logo}}" />
-  <p>Descripción: {{description}}</p>
-  <p>Cantidad de preguntas: {{quantity}}</p>
-
-  <p>{{this.School.name}}</p>
-  <img src="{{this.School.logo}}" />
-  <p>{{this.Subject.name}}</p>
-
-  <ion-button (click)="comenzar()" shape="round" fill="outline"
-    >Comenzar!!</ion-button
-  > -->
-
   <ion-list >
+    <ion-progress-bar color="primary" value={{progressBar}}></ion-progress-bar>
+
     <ion-item-sliding  *ngFor="let q of Questions">
-      <ion-card *ngIf="q.id">
+     
+      <ion-card *ngIf="(Questions.indexOf(q)+1) === this.step" >
+      
         <ion-card-header>
           <ion-card-title> {{q.question}} </ion-card-title>
-        <p> {{q.id}} </p>
-        </ion-card-header>
+          </ion-card-header>
         <ion-card-content>
-          <ion-button *ngFor="let a of q.Answers">
+          <ion-button (click)="changeStep(Questions.indexOf(q)+2, a) " *ngFor="let a of q.Answers">
             {{a.text}}
           </ion-button>
         </ion-card-content>
 
-        <ion-button color="light" *ngFor="let a of Answers" (click)="1+1">
-          Acá va la respuesta
-        </ion-button>
       </ion-card>
-      <ion-button (click)="prueba(q.id)">Continuar</ion-button>
+     
     </ion-item-sliding>
+
+    <ion-item-sliding *ngIf="Finished === 'finished'" >
+     
+      <ion-card>
+      
+        <ion-card-header>
+          <ion-card-title> {{countCorrect}} respuestas correctas </ion-card-title>
+          <ion-card-subtitle> sobre {{Questions.length}}  </ion-card-subtitle>
+          </ion-card-header>
+        <ion-card-content>
+        
+         <ion-img [src]="imageToShow"></ion-img>
+        </ion-card-content>
+  
+      </ion-card>
+     
+    </ion-item-sliding>
+
   </ion-list>
 </ion-content>

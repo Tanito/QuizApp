@@ -19,11 +19,11 @@ export class SignInPage implements OnInit {
   profileForm = this.formBuilder.group({
     firstName: ['',  Validators.required],
     lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      birthdate: ['', Validators.required],
-      cellphone: ['', Validators.required],
-      photo: ['', Validators.required]
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    birthdate: ['', Validators.required],
+    cellphone: ['', Validators.required],
+    photo: ['', Validators.required]
       
     })
   
@@ -34,7 +34,6 @@ export class SignInPage implements OnInit {
 
   }
 
-  //redirige après un ion-loading
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Wait..',
@@ -48,11 +47,8 @@ export class SignInPage implements OnInit {
   }
 
   onSubmitStep(){
-    // this.router.navigateByUrl('/tabs/games')
-    // console.log(this.profileForm.value);
 
-   //paramètres des données du formulaires lors du submit
-   const formValue = this.profileForm.value //récupère toutes les valeurs formControlName (stockés dans le HTML) du tableau profileForm
+   const formValue = this.profileForm.value 
    const newUser = new User(
      formValue['firstName'],
      formValue ['lastName'],

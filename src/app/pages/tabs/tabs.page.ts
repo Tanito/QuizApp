@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tabs',
@@ -11,7 +12,8 @@ export class TabsPage implements OnInit {
   isHide = [false,true]
   isHide2: true
 
-  constructor(private menu: MenuController) { 
+  constructor(private menu: MenuController,
+              private storage: Storage) { 
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
     this.darkMode = prefersDark.matches;
    }
@@ -24,10 +26,7 @@ export class TabsPage implements OnInit {
 
   ngOnInit() {
   }
-  // getQuizzes(){
-  //   return this.http.get(this.endpoints.MOBILE_QUIZZES_ENDPOINT + this.id)
 
-  //  } 
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
@@ -42,5 +41,8 @@ export class TabsPage implements OnInit {
     this.isHide[i] = !this.isHide[i]
   }
 
+  logout(){
+  this.storage.clear();
+  }
 
 }
