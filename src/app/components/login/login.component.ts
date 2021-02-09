@@ -42,6 +42,34 @@ loginFunction (){
     this.authService.login()
   }
 
+  loginFacebook(){
+    console.log(this.endpoints.LOGIN_FACE_ENDPOINT)
+    window.open(this.endpoints.LOGIN_FACE_ENDPOINT, '_system');
+    // this.http.get(this.endpoints.LOGIN_FACE_ENDPOINT)
+//     .subscribe(data => {
+//       this.userObject = data;
+//       if (this.userObject.token !== undefined){
+//         this.loginOK()
+//      }
+//      }, error => {
+//       this.loginError = "Usuario o Password incorrectos"
+      
+// } )
+  }
+
+  loginGoogle(){
+    console.log(this.endpoints.LOGIN_GOOGLE_ENDPOINT)
+    this.http.get(this.endpoints.LOGIN_GOOGLE_ENDPOINT)
+//     .subscribe(data => {
+//       this.userObject = data;
+//       if (this.userObject.token !== undefined){
+//         this.loginOK()
+//      }
+//      }, error => {
+//       this.loginError = "Usuario o Password incorrectos"
+      
+// } )
+  }
   login(){
       const body = {email: this.email,
       password: this.password}

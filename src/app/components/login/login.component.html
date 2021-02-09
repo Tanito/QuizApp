@@ -20,10 +20,10 @@
     [(ngModel)]="password"
   />
 <p id="errorMsg"> {{loginError}} </p>
-  <a routerLink="/sign-in" class="linkPassword"> ¿Perdiste tu contraseña? </a>
+  <!-- <a routerLink="/sign-in" class="linkPassword"> ¿Perdiste tu contraseña? </a> -->
   <div class="externalLogin">
-  <ion-icon name="logo-facebook"></ion-icon>
-  <ion-icon name="logo-google"></ion-icon>
+  <!-- <ion-icon (click)="loginFacebook()" name="logo-facebook"></ion-icon>
+  <ion-icon (click)="loginGoogle()" name="logo-google"></ion-icon> -->
 </div>
   <ion-button
     (click)="login()"

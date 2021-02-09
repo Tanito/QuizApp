@@ -20,7 +20,13 @@ export class Endpoints {
     RESTORE_ENDPOINT:string = this.AUTH_ENDPOINT + '/restore';
     
     LOGIN_ENDPOINT:string = this.AUTH_ENDPOINT + '/login';
-    
+
+    LOGIN_FACE_ENDPOINT:string = this.AUTH_ENDPOINT + '/facebook';
+
+    LOGIN_GOOGLE_ENDPOINT:string = this.AUTH_ENDPOINT + '/google';
+
+    // RECOVERY_PASS_ENDPOINT:string = this.AUTH_ENDPOINT + '/resetpassword';
+        
     LOGIN_ORG_ENDPOINT:string = this.AUTH_ENDPOINT + '/login/org';
     
     SCHOOL_REGISTER_ENDPOINT:string = this.BASE_ENDPOINT + '/org';
