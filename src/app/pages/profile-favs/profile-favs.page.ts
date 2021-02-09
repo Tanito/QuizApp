@@ -3,6 +3,7 @@ import { DocsService } from "src/app/services/docs.service";
 import { HttpClient } from "@angular/common/http";
 import { Endpoints } from "../../services/endpoints";
 import { Storage } from "@ionic/storage";
+import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
   selector: "app-profile-favs",
@@ -17,7 +18,8 @@ export class ProfileFavsPage implements OnInit {
     private docsService: DocsService,
     private http: HttpClient,
     private endpoints: Endpoints,
-    private storage: Storage
+    private storage: Storage,
+    private tabsPage: TabsPage,
   ) {}
 
   ngOnInit() {
@@ -40,5 +42,9 @@ export class ProfileFavsPage implements OnInit {
   getFavorites(id) {
     this.id = id;
     return this.http.get(this.endpoints.FAVORITES_ENDPOINT + "/" + this.id);
+  }
+
+  openFirst(){
+    this.tabsPage.openFirst()
   }
 }
