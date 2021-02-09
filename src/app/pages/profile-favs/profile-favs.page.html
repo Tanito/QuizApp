@@ -1,34 +1,24 @@
-<ion-header>
-  <div class="head">
-    <ion-toolbar>
-      <ion-buttons mode="ios" slot="start" >
-        <ion-back-button text="Atrás" defaultHref="/tabs/account"></ion-back-button>
-        </ion-buttons>
-         </ion-toolbar>
-
-        <div style="display: flex; justify-content: space-around; margin-top: 13px;">
-          <div routerLink="/tabs/account"  style="display: flex; width: 20%; justify-content: center; color:white">
-            General
-          </div>   
-          <div routerLink="/tabs/profile-details" style="display: flex; width: 20%; justify-content: center;color:white">
-            Detalles
-          </div>    
-          <div   style="border-bottom: solid white; display: flex; width: 20%; justify-content: center;color:white">
-            Favoritos
-          </div>   
-        </div>    
-  </div>
-</ion-header>
-
-
-<ion-content>
-  <div style="background: #f7f9fc; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-      <div style="margin-bottom: 12rem; height: 17rem; width: 17rem; display: flex; align-items: center; flex-direction: column; font-size: 26px;">
-      <img src="/assets/build.png"/>
-      <p style="margin-top: 20px;">Va una parte con mensajes?</p>
+<ion-content class="ion-padding">
+      <div class="menuContainerOrg">
+        <ion-icon name="menu" (click)="openFirst()"></ion-icon>
       </div>
-    
+      <h6 class="title">Estos son tus favoritos</h6>
+      <ion-item-sliding *ngFor="let fav of Favorites">
+        <ion-card>
+          <div class="quizImg">
+            <img src="{{fav.logo}}" />
+          </div>
+          <ion-card-header>
+            <ion-card-title class="textSchools">{{fav.name}}</ion-card-title>
+            <p class="schoolData">{{fav.email}}</p>
+          </ion-card-header>
+          <ion-card-content class="textSchools">
+            {{fav.description}}
+          </ion-card-content>
   
-</div>
-
-</ion-content>
+          <ion-button 
+           (click)="goToSchool(fav.id)"
+           class="margin-text form-rounded">Más Info</ion-button>
+        </ion-card>
+      </ion-item-sliding>
+  </ion-content>

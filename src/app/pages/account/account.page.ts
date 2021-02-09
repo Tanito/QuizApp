@@ -12,9 +12,9 @@ import { Chart } from 'chart.js';
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage implements OnInit/* , ViewChild  */{
+export class AccountPage implements OnInit {
 
-  //@ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
+  @ViewChild('doughnutCanvas', { static: false }) private doughnutCanvas: ElementRef;
 
   firstName: string;
   lastName: string;
@@ -25,7 +25,7 @@ export class AccountPage implements OnInit/* , ViewChild  */{
   photo: string;
   type: string;
 
-  //doughnutChart: any;
+  doughnutChart: any;
 
   constructor(private tabsPage: TabsPage,
               private authService: AuthService,
@@ -36,7 +36,7 @@ export class AccountPage implements OnInit/* , ViewChild  */{
   }
 
   ngAfterViewInit() {
-    //this.doughnutChartMethod();
+    this.doughnutChartMethod();
   }
 
   cargarStorage(){
@@ -61,7 +61,7 @@ export class AccountPage implements OnInit/* , ViewChild  */{
   }
 
   // GRÁFICO DONA
-/*   doughnutChartMethod() {
+  doughnutChartMethod() {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: 'doughnut',
       data: {
@@ -74,9 +74,9 @@ export class AccountPage implements OnInit/* , ViewChild  */{
         }]
       }
     });
-  } */
+  }
 
-  Highcharts: typeof Highcharts = Highcharts;
+/*   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -120,5 +120,5 @@ export class AccountPage implements OnInit/* , ViewChild  */{
     type: 'pie',
 
   }]
-  };
+  }; */
 }

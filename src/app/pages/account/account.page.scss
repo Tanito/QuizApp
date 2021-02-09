@@ -15,22 +15,23 @@
 
 .text {
   font-size: 1rem;
-  color: rgb(187, 187, 187);
+  color: white;
   margin: 0;
 }
 
 .text2 {
   font-size: 0.7rem;
-  color: rgb(107, 107, 107);
+  color: white;
 }
 
 .text3 {
   font-size: 0.8rem;
+  color: white;
   margin: 1px 0 0 0;
 }
 
-.text4 {
-  font-size: 1rem;
+.textLevel {
+  font-size: 0.8rem;
   margin-bottom: 0.2rem;
   color: white;
 }
@@ -38,35 +39,28 @@
 .head {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 12px 20px #cfcfcf;
-  background: linear-gradient(217deg, #1759b1, rgba(0, 225, 255, 0) 80.71%),
-    linear-gradient(127deg, rgb(1, 206, 172), rgba(19, 2, 255, 0) 70.71%),
-    linear-gradient(360deg, rgb(113, 0, 179), rgba(113, 0, 179, 0.287) 80.71%);
 }
 
 .containerTop {
   padding: 25px 20px 20px 20px;
   display: flex;
   justify-content: space-between;
-  color: white;
   font-size: 22px;
 }
 
 .avatar {
-  height: 7rem;
-  width: 7rem;
+  height: 8rem;
+  width: 8rem;
 }
 
 .userInfo {
   font-size: 1.1rem;
   margin-bottom: 0;
-  color: white;
 }
 
 .userEmail {
   font-size: 0.8rem;
   margin-bottom: 1rem;
-  color: white;
 }
 
 .containerMenu {
@@ -80,75 +74,114 @@
   display: flex;
   width: 20%;
   justify-content: center;
-  color: white;
 }
 
 .details {
   display: flex;
   width: 20%;
   justify-content: center;
-  color: white;
 }
 
-.favorites {
+.favoritesContainer {
   display: flex;
   width: 20%;
   justify-content: center;
-  color: white;
 }
 
-.containerTrophy {
+.containerBoxes {
   padding: 1rem;
   margin: 0;
-  background: #f7f9fc;
   width: 100%;
-  height: 100%;
-}
-
-.tagTrophy {
-  padding: 0.7rem 0 0 1rem;
-  border-radius: 10px 10px 0 0;
-  background: linear-gradient(#47feb0, #1de3ca);
-  height: 2rem;
-  margin-top: 0;
-  width: 40%;
+  height: 100%
 }
 
 .trophy {
-  height: 17%;
-  background: white;
+  height: 15%;
+  border: solid 0.08rem white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  box-shadow: 2px 5px 10px #e0dfdf;
 }
 
 .trophyIcon {
-  height: 100%;
   width: 18%;
-  background: linear-gradient(#47feb0, #1de3ca);
+  color: white;
+  background: #348075;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  color: white;
+  margin: 0.09rem;
 }
 
 .trophyLegend {
-  padding: 12.5px 50px 15px 30px;
-  width: 82%;
+  padding-top: 3rem;
+  width: 80%;
 }
 
 .label {
   font-size: 1rem;
   margin: 0;
+  color: white;
 }
 
 .bottomContainer {
-  height: 58%;
-  background: white;
-  margin-top: 30px;
-  box-shadow: 2px 5px 10px #e0dfdf;
+  margin-top: 1rem;
+  border: solid 0.09rem white;
+}
+
+.middleContainer {
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftMiddleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-right: 0.4rem;
+  width: 25rem;
+  height: 5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: solid 0.09rem white;
+}
+
+.rightMiddleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-left: 0.4rem;
+  width: 31rem;
+  height: 5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: solid 0.09rem white;
+}
+
+.containerData {
+  align-self: center;
+  justify-self: center;
+  margin: 0.1rem 0.1rem;
+  width: 98%;
+  height: 98%;
+  background: #348075;
+}
+
+.dataIcon {
+  font-size: 3rem;
+  color: white;
+}
+
+.dataIconFav {
+  font-size: 3rem;
+  color: white;
 }
 
 .statisticsContainer {
@@ -164,15 +197,12 @@
   padding: 10px;
 }
 
-.statisticsTitle {
-  font-size: 1.1rem;
-}
-
 .statisticsData {
   height: 80%;
   width: 100%;
   display: flex;
   flex-direction: row;
+  padding-bottom: 1rem;
 }
 
 .chartContainer {
@@ -188,18 +218,9 @@
   display: block;
 }
 
-.line {
-  height: 100%;
-  width: 1%;
-}
-
-.svgLine {
-  stroke: #dadada; 
-  stroke-width: 2;
-}
-
 .infoQuizzes {
   height: 100%;
   width: 42%;
-  padding: 35px 20px 25px 22px;
+  border-left: solid 0.1rem white;
+  padding: 0.5rem;
 }

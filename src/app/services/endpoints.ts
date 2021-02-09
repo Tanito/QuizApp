@@ -38,6 +38,8 @@ export class Endpoints {
     ROLE_ENDPOINT:string = this.BASE_ENDPOINT + '/roles';
 
     ENROLL_ENDPOINT:string = this.ROLE_ENDPOINT + '/quizzes';
+
+    FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites';
     
     // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
     

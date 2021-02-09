@@ -55,8 +55,7 @@ export class SchoolsListPage implements OnInit {
   getSchool(id){
     this.id = id
     return this.http.get(this.endpoints.SCHOOL_ENDPOINT + '/' + this.id)
-    
-   } 
+  }
 
 goToSchool(id){
   this.id = id
