@@ -28,7 +28,9 @@ export class SchoolsListPage implements OnInit {
   city: string;
 ​​  country: string;
 ​​  description: string;
-
+  searchOrg: string;
+  filteredOrgs: any;
+  schoolsToShow: any;
   
   constructor(private tabsPage: TabsPage, 
               private docsService: DocsService, 
@@ -48,7 +50,7 @@ export class SchoolsListPage implements OnInit {
   .subscribe( resp => {
    this.Schools = resp
     // let listado = resp
-    console.log("listado", this.Schools)
+    this.schoolsToShow = this.Schools
   })
   }
 
@@ -57,6 +59,22 @@ export class SchoolsListPage implements OnInit {
     return this.http.get(this.endpoints.SCHOOL_ENDPOINT + '/' + this.id)
     
    } 
+
+   searchInputChanged(searchOrg) {
+   
+     if (searchOrg === '') {
+      
+      this.schoolsToShow = this.Schools
+     
+      return }
+      if(searchOrg !== '')  this.schoolsToShow = this.Schools.filter((o) => {
+        
+         
+            return (o.name.toLowerCase() === searchOrg.toLowerCase());
+        })
+
+    
+}
 
 goToSchool(id){
   this.id = id
