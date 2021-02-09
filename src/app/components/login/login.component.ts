@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 password: string;
 email: string;
 userObject: any;
+loginError: string;
 
 constructor( private authService: AuthService, 
              private http: HttpClient, 
@@ -51,7 +52,8 @@ loginFunction (){
             this.loginOK()
          }
          }, error => {
-          console.log("Error al loguear", this.userObject.token);
+          this.loginError = "Usuario o Password incorrectos"
+          
    } 
      )};
 

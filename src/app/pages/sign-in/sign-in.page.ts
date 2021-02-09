@@ -34,17 +34,6 @@ export class SignInPage implements OnInit {
 
   }
 
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      message: 'Wait..',
-      duration: 1000
-    });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-
-     this.router.navigateByUrl('/tabs')
-  }
 
   onSubmitStep(){
 
