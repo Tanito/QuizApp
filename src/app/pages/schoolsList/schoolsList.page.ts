@@ -60,7 +60,7 @@ export class SchoolsListPage implements OnInit {
   }
 
    searchInputChanged(searchOrg) {
-   
+   console.log(this.Schools)
      if (searchOrg === '') {
       
       this.schoolsToShow = this.Schools
@@ -69,7 +69,7 @@ export class SchoolsListPage implements OnInit {
       if(searchOrg !== '')  this.schoolsToShow = this.Schools.filter((o) => {
         
          
-            return (o.name.toLowerCase() === searchOrg.toLowerCase());
+            return (o.name.toLowerCase().includes(searchOrg.toLowerCase()) );
         })
 
     
