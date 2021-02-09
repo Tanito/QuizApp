@@ -1,0 +1,23 @@
+<ion-content class="ion-padding">
+    <div class="menuContainerOrg">
+      <ion-icon name="menu" (click)="openFirst()"></ion-icon>
+    </div>
+    <h6 class="title">Estos son tus favoritos</h6>
+    <ion-item-sliding *ngFor="let quiz of EnrolledQuizzes">
+      <ion-card>
+        <div class="quizImg">
+          <img src="{{quiz.logo}}" />
+        </div>
+        <ion-card-header>
+          <ion-card-title class="textSchools">{{quiz.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="textSchools">
+          {{quiz.description}}
+        </ion-card-content>
+
+        <ion-button 
+         (click)="goToSchool(fav.id)"
+         class="margin-text form-rounded">Más Info</ion-button>
+      </ion-card>
+    </ion-item-sliding>
+</ion-content>
