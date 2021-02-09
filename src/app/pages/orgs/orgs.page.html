@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons mode="ios" slot="start" >
-      <ion-back-button text="Atrás" defaultHref="/tabs/docs"></ion-back-button>
+      <ion-back-button text="Atrás" defaultHref="/tabs/schoolsList"></ion-back-button>
       </ion-buttons>
     <ion-title>{{name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
 <img src="{{logo}}" />
-<p> {{id}} </p>
 <p> {{email}} </p>
 <p> {{description}} </p>
 <p> {{country}} </p>
@@ -19,6 +19,7 @@
      
   <ion-card>
     <div class="quizImg">
+   <img (click)="addToFavs(this.userId, q.id)" id="fav" src="../../../assets/fav_yes.png">
       <img src="{{q.logo}}" />
     </div>
     <ion-card-header>
@@ -27,8 +28,8 @@
     </ion-card-header>
     <ion-card-content>{{q.description}}</ion-card-content>
 
-    <ion-button color="light"
-   
+    <ion-button color="light" 
+    (click)="inscriptionQuizApi(this.userId, q.id)" 
     >
      Inscribirse
       

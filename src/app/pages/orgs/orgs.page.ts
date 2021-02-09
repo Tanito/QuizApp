@@ -47,11 +47,19 @@ export class OrgsPage implements OnInit {
     
   } 
 
+  addToFavs(userId, quizId){
+    const body = {UserId: userId, QuizId: quizId }
+    console.log("UserID",userId,"QuizId", quizId)
+    this.http.post(this.endpoints.ADD_TO_FAVS_ENDPOINT, body).subscribe(data => {
+      this.info = data;
+     })
+  }
+
 //Probar si funciona el enroll.
   inscriptionQuizApi(userId, quizId){
+    console.log("UserID",userId,"QuizId", quizId)
     const body = {UserId: userId, QuizId: quizId }
-      
-    this.http.post(this.endpoints.ROLE_ENDPOINT, body).subscribe(data => {
+    this.http.post(this.endpoints.JOIN_QUIZ_ENDPOINT, body).subscribe(data => {
       this.info = data;
      }
  )
@@ -68,6 +76,9 @@ export class OrgsPage implements OnInit {
      this.country= val.country;
      this.city= val.city;
      console.log("id2", this.id)
+   })
+   this.storage.get('User').then(val => { 
+    this.userId= val.user.id;
    })
    }
 

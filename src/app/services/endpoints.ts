@@ -45,6 +45,11 @@ export class Endpoints {
 
     ENROLL_ENDPOINT:string = this.ROLE_ENDPOINT + '/quizzes';
 
+    JOIN_QUIZ_ENDPOINT:string = this.ROLE_ENDPOINT + '/enroll';
+
+    ADD_TO_FAVS_ENDPOINT:string = this.ROLE_ENDPOINT + '/fan';
+
+
     FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites';
 
     ENROLLED_ENDPOINT:string = this.ROLE_ENDPOINT + '/enrolled/user';
