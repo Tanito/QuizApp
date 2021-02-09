@@ -34,22 +34,16 @@
     </div>
 
     <div class="middleContainer">
-      <div class="leftMiddleContainer">
-        <p class="textLevel">FAVORITOS</p>
-        <ion-button
-      routerLink="/profile-favs"
-      expand="full"
-      class="full-length margin-text form-rounded primary"
-    > Registrarse
-    </ion-button>
-        <ion-icon name="heart" class="dataIconFav"></ion-icon>
-      </div>
-      <div class="rightMiddleContainer">
+      <button routerLink="/tabs/profile-favs" class="leftMiddleContainer">
+          <p class="textLevel">FAVORITOS</p>
+          <ion-icon name="heart" class="dataIconFav"></ion-icon>
+      </button>
+        <button routerLink="/tabs/enrolled-quizzes" class="rightMiddleContainer">
         <div class="containerData">
           <ion-icon name="time" class="dataIcon"></ion-icon>
           <p class="textLevel">PENDIENTES</p>
-      </div>
-      </div>
+       </div>
+      </button>
     </div>
 
     <div class="bottomContainer">
@@ -62,7 +56,7 @@
         <div class="chartContainer">
           <canvas
             #doughnutCanvas
-            style="position: relative; height: 3rem;"
+            style="position: relative; height: 3rem"
           ></canvas>
           <!--           <highcharts-chart
             [Highcharts]="Highcharts"

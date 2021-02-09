@@ -64,6 +64,15 @@ const routes: Routes = [
             loadChildren: () => import('../profile-favs/profile-favs.module').then( m => m.ProfileFavsPageModule)
           }
         ]
+      },
+      {
+        path: 'enrolled-quizzes',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../enrolled-quizzes/enrolled-quizzes.module').then( m => m.ProfileEnrolledQuizzesPageModule)
+          }
+        ]
       } 
     ]
   }

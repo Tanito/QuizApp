@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class Endpoints {
 
 
-    // BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
+    //BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
     
     BASE_ENDPOINT:string = 'http://localhost:3000';
 
@@ -46,6 +46,8 @@ export class Endpoints {
     ENROLL_ENDPOINT:string = this.ROLE_ENDPOINT + '/quizzes';
 
     FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites';
+
+    ENROLLED_ENDPOINT:string = this.ROLE_ENDPOINT + '/enrolled/user';
     
     // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
     
