@@ -37,6 +37,8 @@ export class QuizPage implements OnInit {
   countCorrect: number = 0;
   Finished: string = '';
   imageToShow: string = '';
+  userId: number;
+  info: any;
 
   constructor(private storage: Storage,
     private http: HttpClient,
@@ -49,8 +51,7 @@ export class QuizPage implements OnInit {
 
   traerQA(id) {
     
-    console.log("se ejecuta get quizzes", this.endpoints.QUIZ_ENDPOINT + '/' + id)
-    return this.http.get(this.endpoints.QUIZ_ENDPOINT + '/' + id)
+   return this.http.get(this.endpoints.QUIZ_ENDPOINT + '/' + id)
   }
 
   comenzar() {
@@ -58,21 +59,20 @@ export class QuizPage implements OnInit {
     .subscribe(resp => {
       this.QuizQA = resp
       this.Questions = this.QuizQA.questions.byId
-      console.log("preguntas", this.Questions)
       this.progressBar = (this.step -1) / this.Questions.length
     })
     this.accion1();
-    console.log(this.clicked)
-  }
+    }
  
   changeStep(i, a) {
     this.step = i;
-    console.log("Step & i", this.step, i)
     this.progressBar = (this.step -1) / this.Questions.length
     this.checkAnswer(a)
     if(this.step > this.Questions.length){
       this.Finished = 'finished'
       const x = this.countCorrect / this.Questions.length;
+      // const grade= x * 100;
+      this.quizAttempt(Math.trunc(x * 100) , true);
       if (0 <= x && x <= 0.4) return this.imageToShow = "../../../assets/veryBad.gif"
       if (0.4 < x && x < 0.7) return this.imageToShow = "../../../assets/masomenos.gif"
       if (0.7 <= x && x < 0.9) return this.imageToShow = "../../../assets/ok.gif"
@@ -86,11 +86,25 @@ export class QuizPage implements OnInit {
     
   }
   checkAnswer(a){
-    console.log("que manda acá?", a)
-    if(a.correct) {
+     if(a.correct) {
       this.countCorrect = this.countCorrect + 1;
     }
-    console.log("Correctas", this.countCorrect)
+   }
+
+  quizAttempt(grade, finished){
+    console.log("entré a quizAttempt")
+    const body = {QuizId: this.id, 
+                  UserId: this.userId, 
+                  grade, 
+                  finished,
+      }
+      console.log("URL", this.endpoints.ATTEMPTS_ENDPOINT)
+      console.log("User Id", this.userId)
+      this.http.post(this.endpoints.ATTEMPTS_ENDPOINT, body).subscribe(data => {
+        this.info = data;
+        // console.log("INFO", this.info)
+       })
+      
   }
 
   async cargarStorage() { //Cargo el localStorage
@@ -107,7 +121,11 @@ export class QuizPage implements OnInit {
       this.Subject = val.Subject;
       this.School = val.School;
       this.Reviews = val.Reviews;
+  
       console.log("id2", this.id)
     })
+    await this.storage.get('User').then(val => {
+      this.userId = val.user.id;
+      })
    }
 }
