@@ -2,6 +2,9 @@
 
 <ion-content class="ion-padding">
   <div class="containerEditUser">
+    <ion-buttons class="backArrowEdit" mode="ios" slot="start">
+      <ion-back-button defaultHref="/tabs/account"></ion-back-button>
+    </ion-buttons>
     <h4 class="titleEdit">Ingresa tu datos</h4>
     <div>
       <form
@@ -9,11 +12,11 @@
         class="formInputs"
         (ngSubmit)="onSubmit()"
       >
-      <mat-form-field>
-        <input
-          matInput
-           [(ngModel)]="firstName"
-            value={{firstName}}
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="firstName"
+            value="{{firstName}}"
             placeholder="Nombre"
             formControlName="firstName"
           />
@@ -23,7 +26,7 @@
           <input
             matInput
             [(ngModel)]="lastName"
-            value={{lastName}}
+            value="{{lastName}}"
             placeholder="Apellido"
             formControlName="lastName"
           />
@@ -33,7 +36,7 @@
           <input
             matInput
             [(ngModel)]="birthdate"
-            value={{birthdate}}
+            value="{{birthdate}}"
             placeholder="Fecha de nacimiento MM/DD/AAAA"
             formControlName="birthdate"
           />
@@ -43,20 +46,26 @@
           <input
             matInput
             [(ngModel)]="cellphone"
-            value={{cellphone}}
+            value="{{cellphone}}"
             placeholder="Celular"
             formControlName="cellphone"
           />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [(ngModel)]="photo" value={{photo}} placeholder="Foto" formControlName="photo" />
+          <input
+            matInput
+            [(ngModel)]="photo"
+            value="{{photo}}"
+            placeholder="Foto"
+            formControlName="photo"
+          />
         </mat-form-field>
 
         <ion-button
           type="submit"
           class="full-length margin-text form-rounded primary"
-          >
+        >
           <!-- [disabled]="!profileForm.valid" -->
           Editar
         </ion-button>

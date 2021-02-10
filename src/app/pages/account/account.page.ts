@@ -44,7 +44,6 @@ export class AccountPage {
   }
 
   cargarStorage(){
-    console.log('entre')
     this.storage.get('User').then(val => { 
     this.firstName = val.user.firstName; 
     this.lastName= val.user.lastName;

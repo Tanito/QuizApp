@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
 
@@ -35,7 +35,7 @@ export class AccountService {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'primary',
       header: 'QuizApp',
       // subHeader: 'Subtitle',
       message: 'Registro realizado correctamente',

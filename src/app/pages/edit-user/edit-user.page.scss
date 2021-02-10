@@ -2,7 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+/*     justify-content: center;*/
     align-items: center;
 }
 
@@ -14,4 +14,10 @@
 
 .titleEdit {
     padding-bottom: 2rem;
+}
+
+.backArrowEdit {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    align-self: flex-start;
 }
