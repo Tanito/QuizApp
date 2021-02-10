@@ -61,14 +61,16 @@ export class AccountPage  {
      // console.log("quiz attempts",this.http.get(this.endpoints.ATTEMPTS_ENDPOINT + '/id=' + this.id))
     this.callStats(id).subscribe(resp => {
       this.stats = resp
-      console.log("Length",this.stats.length)
       this.quizzesTotal = this.stats.length
+      console.log("Total",this.quizzesTotal)
       this.stats.map((q)=>{
         if (q.grade >= 70){
          return this.quizzesApproved = this.quizzesApproved + 1
         }
     })
-    })
+    console.log("Aprobados",this.quizzesApproved)
+  })
+  return this.quizzesApproved;
   }
 
 
@@ -84,11 +86,18 @@ export class AccountPage  {
     this.photo= val.user.photo;
     this.type= val.user.type;
  }).then(x => {
-  this.userStats(this.id)
- }).then(y => {
-  this.doughnutChartMethod()
+ return this.userStats(this.id)
+ })
+ .then(y => {
+
+  setTimeout( () => {
+    return this.doughnutChartMethod()
+   
+  }, 2000);
+  //  console.log("llega? ", y)
  })
   }
+ 
 
   openFirst(){
     this.tabsPage.openFirst()
@@ -104,7 +113,7 @@ export class AccountPage  {
       type: 'doughnut',
       data: {
         datasets: [{
-          data: [ 1 , 1 ],
+          data: [ this.quizzesTotal - 1, this.quizzesApproved ],
           backgroundColor: [
             "#e74c3c",
             "#2ecc71"
@@ -124,49 +133,50 @@ export class AccountPage  {
     return this.result;
   };
 
-/*   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
-    tooltip: {
-      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    title:{
-      text: null
-  },
-  legend:{
-  enabled: false
-  },
-    plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: 'pointer',
-        dataLabels: {
-          enabled: false
-        },
-        showInLegend: false
-      }
-    },
-   series: [{
-    data: [{
-      name: 'Informática',
-      y: 61.41
-    }, {
-      name: 'Matemática',
-      y: 11.84
-    }, {
-      name: 'Geografía',
-      y: 10.85
-    }, {
-      name: 'Historia',
-      y: 4.67
-    }, {
-      name: 'Química',
-      y: 4.18
-    }, {
-      name: 'Other',
-      y: 7.05
-    }],
-    type: 'pie',
+ 
+  //  Highcharts: typeof Highcharts = Highcharts;
+  // chartOptions: Highcharts.Options = {
+  //   tooltip: {
+  //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  //   },
+  //   title:{
+  //     text: null
+  // },
+  // legend:{
+  // enabled: false
+  // },
+  //   plotOptions: {
+  //     pie: {
+  //       allowPointSelect: true,
+  //       cursor: 'pointer',
+  //       dataLabels: {
+  //         enabled: false
+  //       },
+  //       showInLegend: false
+  //     }
+  //   },
+  //  series: [{
+  //   data: [{
+  //     name: 'Informática',
+  //     y: 61.41
+  //   }, {
+  //     name: 'Matemática',
+  //     y: 11.84
+  //   }, {
+  //     name: 'Geografía',
+  //     y: 10.85
+  //   }, {
+  //     name: 'Historia',
+  //     y: 4.67
+  //   }, {
+  //     name: 'Química',
+  //     y: 4.18
+  //   }, {
+  //     name: 'Other',
+  //     y: 7.05
+  //   }],
+  //   type: 'pie',
 
-  }]
-  }; */
+  // }]
+  // }; 
 }
