@@ -1,9 +1,9 @@
-// import { Component, OnInit } from '@angular/core';
 import { TabsPage } from '../tabs/tabs.page';
 import { AuthService } from 'src/app/services/auth.service';
 import * as Highcharts from 'highcharts';
 import { Storage } from '@ionic/storage';
-
+import { Endpoints } from "../../services/endpoints";
+import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
@@ -12,7 +12,7 @@ import { Chart } from 'chart.js';
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage {
+export class AccountPage  {
 
   @ViewChild('doughnutCanvas', { static: false }) private doughnutCanvas: ElementRef;
 
@@ -24,24 +24,53 @@ export class AccountPage {
   cellphone: number;
   photo: string;
   type: string;
+  result: string;
+  characters: string;
+  stats: any;
+  quizzesTotal: number;
+  quizzesApproved: number;
+ 
+  
 
   doughnutChart: any;
 
   constructor(private tabsPage: TabsPage,
               private authService: AuthService,
-              private storage: Storage,) { }
+              private storage: Storage,
+              private http: HttpClient,
+              private endpoints: Endpoints,) { }
 
-/*   ngOnInit() {
-    this.cargarStorage();
-  } */
+  //  ngOnInit() {
+  //   this.userStats(this.id)
+  // } 
 
   ionViewWillEnter() {
     this.cargarStorage();
+   
   }
 
-  ngAfterViewInit() {
-    this.doughnutChartMethod();
+  // ngAfterViewInit() {
+  //  ;
+  // }
+
+  callStats(id){
+    return this.http.get(this.endpoints.GET_STATS_ENDPOINT + '/' + id)
   }
+  userStats(id){
+    this.quizzesApproved = 0;
+     // console.log("quiz attempts",this.http.get(this.endpoints.ATTEMPTS_ENDPOINT + '/id=' + this.id))
+    this.callStats(id).subscribe(resp => {
+      this.stats = resp
+      console.log("Length",this.stats.length)
+      this.quizzesTotal = this.stats.length
+      this.stats.map((q)=>{
+        if (q.grade >= 70){
+         return this.quizzesApproved = this.quizzesApproved + 1
+        }
+    })
+    })
+  }
+
 
   cargarStorage(){
     this.storage.get('User').then(val => { 
@@ -53,6 +82,10 @@ export class AccountPage {
     this.cellphone= val.user.cellphone;
     this.photo= val.user.photo;
     this.type= val.user.type;
+ }).then(x => {
+  this.userStats(this.id)
+ }).then(y => {
+  this.doughnutChartMethod()
  })
   }
 
@@ -70,7 +103,7 @@ export class AccountPage {
       type: 'doughnut',
       data: {
         datasets: [{
-          data: [15, 85],
+          data: [ 1 , 1 ],
           backgroundColor: [
             "#e74c3c",
             "#2ecc71"
@@ -79,6 +112,16 @@ export class AccountPage {
       }
     });
   }
+
+  makeColor() {
+    this.result = '#';
+    this.characters = 'ABCDEF0123456789';
+    for (var i = 0; i < 6; i++) {
+      this.result += this.characters.charAt(Math.floor(Math.random() * this.characters.length));
+    }
+    console.log(this.result)
+    return this.result;
+  };
 
 /*   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
