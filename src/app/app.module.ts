@@ -11,8 +11,6 @@ import { TabsPageModule } from './pages/tabs/tabs.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpXhrBackend, HttpBackend } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { Facebook } from '@ionic-native/facebook/ngx';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 
 @NgModule({
@@ -22,8 +20,6 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
   providers: [
     StatusBar,
     SplashScreen,
-    Facebook,
-    NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]

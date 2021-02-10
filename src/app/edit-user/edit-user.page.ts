@@ -9,6 +9,9 @@ import {
 } from "@angular/forms";
 import { User } from "src/app/models/user.model";
 import { AccountService } from "src/app/services/account.service";
+import { HttpClient } from "@angular/common/http";
+import { Endpoints } from "../services/endpoints";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: "app-edit-user",
@@ -19,12 +22,11 @@ export class EditUserPage implements OnInit {
   private todo: FormGroup;
   name = new FormControl("");
   progressID = 0;
+  id: number;
 
   profileForm = this.formBuilder.group({
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
-    email: ["", Validators.required],
-    password: ["", Validators.required],
     birthdate: ["", Validators.required],
     cellphone: ["", Validators.required],
     photo: ["", Validators.required],
@@ -34,26 +36,45 @@ export class EditUserPage implements OnInit {
     private router: Router,
     public loadingController: LoadingController,
     private formBuilder: FormBuilder,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private http: HttpClient,
+    private endpoints: Endpoints,
+    private storage: Storage
   ) {}
 
-  ngOnInit() {}
-
-  onSubmitStep() {
-    const formValue = this.profileForm.value;
-    const newUser = new User(
-      formValue["firstName"],
-      formValue["lastName"],
-      formValue["email"],
-      formValue["password"],
-      formValue["birthdate"],
-      formValue["cellphone"],
-      formValue["photo"]
-    );
-    this.accountService.addUser(newUser);
+  ngOnInit() {
+    this.cargarStorage();
   }
 
+  cargarStorage() {
+    this.storage.get("User").then((val) => {
+      this.id = val.user.id;
+    });
+  }
+
+/*   onSubmitEditUser() {
+    const formValue = this.profileForm.value;
+    const userEdited = {
+      firstName: formValue["firstName"],
+      lastName: formValue["lastName"],
+      birthdate: formValue["birthdate"],
+      cellphone: formValue["cellphone"],
+      photo: formValue["photo"]
+    }
+  } */
+
   onSubmit() {
-    console.log(this.profileForm.value);
+    const formValue = this.profileForm.value;
+    const userEdited = {
+      firstName: formValue["firstName"],
+      lastName: formValue["lastName"],
+      birthdate: formValue["birthdate"],
+      cellphone: formValue["cellphone"],
+      photo: formValue["photo"]
+    }
+    this.http.put(this.endpoints.EDIT_USER_ENDPOINT + "/" + this.id, userEdited)
+    .subscribe((resp) => {
+      return resp;
+      })
   }
 }

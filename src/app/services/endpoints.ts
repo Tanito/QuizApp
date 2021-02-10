@@ -53,6 +53,8 @@ export class Endpoints {
     FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites/user';
 
     ENROLLED_ENDPOINT:string = this.ROLE_ENDPOINT + '/enrolled/user';
+
+    EDIT_USER_ENDPOINT:string = this.BASE_ENDPOINT + '/users';
     
     // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
     
