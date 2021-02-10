@@ -1,0 +1,59 @@
+<ion-header> </ion-header>
+
+<ion-content class="ion-padding">
+  <div class="containerEditUser">
+    <h4 class="titleEdit">Ingresa tu datos</h4>
+    <div>
+      <form
+        [formGroup]="profileForm"
+        class="formInputs"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Nombre"
+            formControlName="firstName"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Apellido"
+            formControlName="lastName"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Fecha de nacimiento MM/DD/AAAA"
+            formControlName="birthdate"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Celular"
+            formControlName="cellphone"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Foto" formControlName="photo" />
+        </mat-form-field>
+
+        <ion-button
+          type="submit"
+          class="full-length margin-text form-rounded primary"
+          [disabled]="!profileForm.valid"
+          >
+          <!-- (click)="onSubmitEditUser()" -->
+          Editar
+        </ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>
