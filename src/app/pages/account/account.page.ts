@@ -24,6 +24,8 @@ export class AccountPage {
   cellphone: number;
   photo: string;
   type: string;
+  result: string;
+  characters: string;
 
   doughnutChart: any;
 
@@ -80,6 +82,16 @@ export class AccountPage {
       }
     });
   }
+
+  makeColor() {
+    this.result = '';
+    this.characters = 'ABCDEF0123456789';
+    for (var i = 0; i < 6; i++) {
+      this.result += this.characters.charAt(Math.floor(Math.random() * this.characters.length));
+    }
+    console.log(this.result)
+    return this.result;
+  };
 
 /*   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
