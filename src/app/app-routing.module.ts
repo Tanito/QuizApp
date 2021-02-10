@@ -34,10 +34,6 @@ const routes: Routes = [
     path: 'quiz',
     loadChildren: () => import('./pages/quiz/quiz.module').then( m => m.QuizPageModule)
   },
-  {
-    path: 'edit-user',
-    loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
-  },
   //path wildcard qui permet pour chaque erreur de lien de rediriger vers la page d'erreur 404
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 

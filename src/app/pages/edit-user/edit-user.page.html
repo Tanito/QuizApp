@@ -9,9 +9,11 @@
         class="formInputs"
         (ngSubmit)="onSubmit()"
       >
-        <mat-form-field>
-          <input
-            matInput
+      <mat-form-field>
+        <input
+          matInput
+           [(ngModel)]="firstName"
+            value={{firstName}}
             placeholder="Nombre"
             formControlName="firstName"
           />
@@ -20,6 +22,8 @@
         <mat-form-field>
           <input
             matInput
+            [(ngModel)]="lastName"
+            value={{lastName}}
             placeholder="Apellido"
             formControlName="lastName"
           />
@@ -28,6 +32,8 @@
         <mat-form-field>
           <input
             matInput
+            [(ngModel)]="birthdate"
+            value={{birthdate}}
             placeholder="Fecha de nacimiento MM/DD/AAAA"
             formControlName="birthdate"
           />
@@ -36,21 +42,22 @@
         <mat-form-field>
           <input
             matInput
+            [(ngModel)]="cellphone"
+            value={{cellphone}}
             placeholder="Celular"
             formControlName="cellphone"
           />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Foto" formControlName="photo" />
+          <input matInput [(ngModel)]="photo" value={{photo}} placeholder="Foto" formControlName="photo" />
         </mat-form-field>
 
         <ion-button
           type="submit"
           class="full-length margin-text form-rounded primary"
-          [disabled]="!profileForm.valid"
           >
-          <!-- (click)="onSubmitEditUser()" -->
+          <!-- [disabled]="!profileForm.valid" -->
           Editar
         </ion-button>
       </form>

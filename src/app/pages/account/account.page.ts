@@ -12,7 +12,7 @@ import { Chart } from 'chart.js';
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage implements OnInit {
+export class AccountPage {
 
   @ViewChild('doughnutCanvas', { static: false }) private doughnutCanvas: ElementRef;
 
@@ -31,7 +31,11 @@ export class AccountPage implements OnInit {
               private authService: AuthService,
               private storage: Storage,) { }
 
-  ngOnInit() {
+/*   ngOnInit() {
+    this.cargarStorage();
+  } */
+
+  ionViewWillEnter() {
     this.cargarStorage();
   }
 
@@ -40,6 +44,7 @@ export class AccountPage implements OnInit {
   }
 
   cargarStorage(){
+    console.log('entre')
     this.storage.get('User').then(val => { 
     this.firstName = val.user.firstName; 
     this.lastName= val.user.lastName;

@@ -7,7 +7,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
-import { Endpoints } from "../services/endpoints";
+import { Endpoints } from "../../services/endpoints";
 import { Storage } from "@ionic/storage";
 import { Router } from '@angular/router';
 
@@ -17,20 +17,27 @@ import { Router } from '@angular/router';
   styleUrls: ["./edit-user.page.scss"],
 })
 export class EditUserPage implements OnInit {
+  firstName: string;
+  lastName: string;
+  cellphone: number;
+  birthdate: string;
+  photo: string;
   private todo: FormGroup;
   name = new FormControl("");
   progressID = 0;
   id: number;
+  token: string;
   editedUser: any;
 
+  
   profileForm = this.formBuilder.group({
-    firstName: ["", Validators.required],
-    lastName: ["", Validators.required],
-    birthdate: ["", Validators.required],
-    cellphone: ["", Validators.required],
-    photo: ["", Validators.required],
+    firstName: [""],
+    lastName: [""],
+    birthdate: [""],
+    cellphone: [""],
+    photo: [""],
   });
-
+  
   constructor(
     public loadingController: LoadingController,
     private formBuilder: FormBuilder,
@@ -41,12 +48,18 @@ export class EditUserPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cargarStorage();
+    this.cargarStorage()
   }
 
   cargarStorage() {
     this.storage.get("User").then((val) => {
       this.id = val.user.id;
+      this.token = val.token;
+      this.firstName = val.user.firstName;
+      this.lastName = val.user.lastName;
+      this.birthdate = val.user.birthdate;
+      this.cellphone = val.user.cellphone;
+      this.photo = val.user.photo;
     });
   }
 
@@ -64,10 +77,15 @@ export class EditUserPage implements OnInit {
         .put(this.endpoints.EDIT_USER_ENDPOINT + "/" + this.id, userEdited)
         .subscribe(
           (resp) => {
-            this.editedUser = resp;
-            this.storage.set('User', this.editedUser);
-            this.router.navigate(['tabs/account'])
-            return resp;
+            this.editedUser = {
+              user: resp,
+              token: this.token
+            };
+            this.storage.set('User', this.editedUser)
+              .then(() => {
+                this.router.navigate(['tabs/account'])
+                return
+              })
           },
           (error) => {
             console.log(error);
