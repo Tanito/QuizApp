@@ -1,0 +1,59 @@
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { LoadingController } from "@ionic/angular";
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+} from "@angular/forms";
+import { User } from "src/app/models/user.model";
+import { AccountService } from "src/app/services/account.service";
+
+@Component({
+  selector: "app-edit-user",
+  templateUrl: "./edit-user.page.html",
+  styleUrls: ["./edit-user.page.scss"],
+})
+export class EditUserPage implements OnInit {
+  private todo: FormGroup;
+  name = new FormControl("");
+  progressID = 0;
+
+  profileForm = this.formBuilder.group({
+    firstName: ["", Validators.required],
+    lastName: ["", Validators.required],
+    email: ["", Validators.required],
+    password: ["", Validators.required],
+    birthdate: ["", Validators.required],
+    cellphone: ["", Validators.required],
+    photo: ["", Validators.required],
+  });
+
+  constructor(
+    private router: Router,
+    public loadingController: LoadingController,
+    private formBuilder: FormBuilder,
+    private accountService: AccountService
+  ) {}
+
+  ngOnInit() {}
+
+  onSubmitStep() {
+    const formValue = this.profileForm.value;
+    const newUser = new User(
+      formValue["firstName"],
+      formValue["lastName"],
+      formValue["email"],
+      formValue["password"],
+      formValue["birthdate"],
+      formValue["cellphone"],
+      formValue["photo"]
+    );
+    this.accountService.addUser(newUser);
+  }
+
+  onSubmit() {
+    console.log(this.profileForm.value);
+  }
+}
