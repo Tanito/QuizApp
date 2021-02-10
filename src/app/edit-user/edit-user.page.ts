@@ -21,6 +21,7 @@ export class EditUserPage implements OnInit {
   name = new FormControl("");
   progressID = 0;
   id: number;
+  editedUser: any;
 
   profileForm = this.formBuilder.group({
     firstName: ["", Validators.required],
@@ -63,6 +64,8 @@ export class EditUserPage implements OnInit {
         .put(this.endpoints.EDIT_USER_ENDPOINT + "/" + this.id, userEdited)
         .subscribe(
           (resp) => {
+            this.editedUser = resp;
+            this.storage.set('User', this.editedUser);
             this.router.navigate(['tabs/account'])
             return resp;
           },

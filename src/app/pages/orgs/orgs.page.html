@@ -24,18 +24,21 @@
    <img (click)="addToFavs(this.userId, q.id)" id="fav" src="../../../assets/fav_yes.png">
       <img src="{{q.logo}}" />
     </div>
-    <ion-card-header>
-      <ion-card-title>{{q.name}}</ion-card-title>
+    <div class="orgsNameContainer">
+      <ion-card-title color="light">{{q.name}}</ion-card-title>
       <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
-    </ion-card-header>
+    </div>
     <ion-card-content>{{q.description}}</ion-card-content>
 
-    <ion-button color="light" 
-    (click)="inscriptionQuizApi(this.userId, q.id)" 
+    <div class="button">
+    <ion-button
+    (click)="inscriptionQuizApi(this.userId, q.id)"
+    class="margin-text form-rounded buttonOrgs"
     >
      Inscribirse
       
     </ion-button>
+  </div>
   </ion-card>
 </ion-item-sliding>
 
