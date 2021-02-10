@@ -17,6 +17,8 @@ export class Endpoints {
     
     ATTEMPTS_ENDPOINT:string = this.BASE_ENDPOINT + '/attempts';
 
+    GET_STATS_ENDPOINT:string = this.ATTEMPTS_ENDPOINT + '/user';
+
     ME_ENDPOINT:string = this.AUTH_ENDPOINT + '/me';
     
     RESTORE_ENDPOINT:string = this.AUTH_ENDPOINT + '/restore';
