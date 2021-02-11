@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-quiz',
@@ -39,10 +40,14 @@ export class QuizPage implements OnInit {
   imageToShow: string = '';
   userId: number;
   info: any;
+  time: number = 3000;
+  startTime: number = 3000;
+ 
 
   constructor(private storage: Storage,
     private http: HttpClient,
     private endpoints: Endpoints,
+    public alertController: AlertController,
   ) { }
 
   ngOnInit() {
@@ -65,6 +70,12 @@ export class QuizPage implements OnInit {
     }
  
   changeStep(i, a) {
+    if(a === undefined) {
+      a = false
+    }
+    console.log("que es a cuando se acaba el tiempo?", a)
+    this.time = this.startTime;
+    // this.cuentaRegresiva()
     this.step = i;
     this.progressBar = (this.step -1) / this.Questions.length
     this.checkAnswer(a)
@@ -78,13 +89,41 @@ export class QuizPage implements OnInit {
       if (0.7 <= x && x < 0.9) return this.imageToShow = "../../../assets/ok.gif"
       if (0.9 <= x ) return this.imageToShow = "../../../assets/veryGood.gif"
     }
+    
   }
 
   accion1(){
     this.infoQuiz = !this.infoQuiz;
     this.qa = !this.qa;
+    this.time = this.startTime;
+    // this.cuentaRegresiva()
     
   }
+cuentaRegresiva(){
+ 
+  setTimeout( () => {
+    if (this.time > 1)
+ {   this.time = this.time - 1000
+    return this.cuentaRegresiva()}
+    if (this.time <= 0){
+     return this.presentAlert()
+    }
+  }, 1000);
+ 
+}
+
+async presentAlert() {
+  const alert = await this.alertController.create({
+    cssClass: 'my-custom-class',
+    header: 'QuizApp',
+    // subHeader: 'Subtitle',
+    message: 'Se te ha acabado el tiempo!',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
   checkAnswer(a){
      if(a.correct) {
       this.countCorrect = this.countCorrect + 1;
