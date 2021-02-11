@@ -42,7 +42,7 @@
     <ion-item-sliding  *ngFor="let q of Questions">
       
       <ion-card *ngIf="(Questions.indexOf(q)+1) === this.step" >
-        <ion-item>{{timeLeft}}</ion-item>
+        <ion-item><ion-icon id="clock" name="timer"></ion-icon>  {{timeLeft}} segundos para resolver el Quiz</ion-item>
       
         <ion-card-header>
           <ion-card-title> {{q.question}} </ion-card-title>
