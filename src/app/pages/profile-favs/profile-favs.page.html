@@ -7,7 +7,10 @@
       </div>
       <ion-item-sliding *ngFor="let fav of Favorites">
         <ion-card>
+          
           <div class="quizImg">
+            <ion-icon (click)="remove(this.id, fav.id)" id="fav"  name="trash"></ion-icon>
+            <!-- <img (click)="remove(this.id, fav.id)" id="fav" src="../../../assets/fav_yes.png"> -->
             <img src="{{fav.logo}}" />
           </div>
           <div class="favsNameContainer">
