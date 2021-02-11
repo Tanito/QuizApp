@@ -151,5 +151,21 @@
  }
  .my-custom-class .alert-wrapper {
     // background: #c51414;
-   
+    background-image: url("../src/assets/fondoAlertDark.png");
+    --ion-text-color: white;  
+    color: white;
   }
+
+  .alert-button.sc-ion-alert-md{
+    color: white;
+    background-color:#133337;
+  }
+
+  .alert-input-group.sc-ion-alert-md{
+    color: white !important;  
+  }
+
+  .alert-message.sc-ion-alert-md{
+    color: white !important; 
+  }
+

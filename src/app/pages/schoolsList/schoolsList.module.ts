@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SchoolsListPageRoutingModule } from './schoolsList-routing.module';
 import { SchoolsListPage } from './schoolsList.page';
-import { DocsItemComponent } from 'src/app/components/docs-item/docs-item.component';
+
 
 @NgModule({
   imports: [
@@ -13,6 +13,6 @@ import { DocsItemComponent } from 'src/app/components/docs-item/docs-item.compon
     IonicModule,
     SchoolsListPageRoutingModule
   ],
-  declarations: [SchoolsListPage, DocsItemComponent]
+  declarations: [SchoolsListPage]
 })
 export class SchoolsListPageModule {}

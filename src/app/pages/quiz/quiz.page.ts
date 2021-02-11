@@ -44,7 +44,7 @@ export class QuizPage implements OnInit {
   startTime: number = 3000;
   x: any;
   interval: any;
-  timeLeft: any = 6;
+  timeLeft: any = 60;
  
 
   constructor(private storage: Storage,

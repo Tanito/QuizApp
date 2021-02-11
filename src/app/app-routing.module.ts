@@ -15,16 +15,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/sign-in/sign-in.module').then( m => m.SignInPageModule)
   },
   {
-    path: 'game-prehistoire',
-    loadChildren: () => import('./pages/game-prehistoire/game-prehistoire.module').then( m => m.GamePrehistoirePageModule)
-  },
-  {
     path: 'not-found',
     loadChildren: () => import('./pages/error-four-four/error-four-four.module').then( m => m.ErrorFourFourPageModule)
-  },
-  {
-    path: 'results',
-    loadChildren: () => import('./pages/results/results.module').then( m => m.ResultsPageModule)
   },
   {
     path: 'orgs',
