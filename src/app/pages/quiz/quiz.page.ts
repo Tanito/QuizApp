@@ -42,6 +42,9 @@ export class QuizPage implements OnInit {
   info: any;
   time: number = 3000;
   startTime: number = 3000;
+  x: any;
+  interval: any;
+  timeLeft: any = 6;
  
 
   constructor(private storage: Storage,
@@ -75,14 +78,12 @@ export class QuizPage implements OnInit {
     }
     console.log("que es a cuando se acaba el tiempo?", a)
     this.time = this.startTime;
-    // this.cuentaRegresiva()
     this.step = i;
     this.progressBar = (this.step -1) / this.Questions.length
     this.checkAnswer(a)
     if(this.step > this.Questions.length){
       this.Finished = 'finished'
       const x = this.countCorrect / this.Questions.length;
-      // const grade= x * 100;
       this.quizAttempt(Math.trunc(x * 100) , true);
       if (0 <= x && x <= 0.4) return this.imageToShow = "../../../assets/veryBad.gif"
       if (0.4 < x && x < 0.7) return this.imageToShow = "../../../assets/masomenos.gif"
@@ -96,21 +97,44 @@ export class QuizPage implements OnInit {
     this.infoQuiz = !this.infoQuiz;
     this.qa = !this.qa;
     this.time = this.startTime;
-    // this.cuentaRegresiva()
+    this.startTimer()
     
   }
-cuentaRegresiva(){
- 
-  setTimeout( () => {
-    if (this.time > 1)
- {   this.time = this.time - 1000
-    return this.cuentaRegresiva()}
-    if (this.time <= 0){
-     return this.presentAlert()
+
+
+  // startCountdown(seconds) {
+  //   let counter = seconds;
+      
+  //   const interval = setInterval(() => {
+  //     console.log(counter);
+  //     counter--;
+  //   }, 1000);
+  // }
+
+
+
+
+startTimer() {
+  this.interval = setInterval(() => {
+     if(this.timeLeft > 0) {
+      this.timeLeft--;
+    } else {
+      clearInterval(this.interval)
+      this.timeLeft = 60;
+      this.step = this.Questions.length + 1;
+      this.Finished = 'finished'
+      const x = this.countCorrect / this.Questions.length;
+      this.quizAttempt(Math.trunc(x * 100) , true);
+      if (0 <= x && x <= 0.4) return this.imageToShow = "../../../assets/veryBad.gif"
+      if (0.4 < x && x < 0.7) return this.imageToShow = "../../../assets/masomenos.gif"
+      if (0.7 <= x && x < 0.9) return this.imageToShow = "../../../assets/ok.gif"
+      if (0.9 <= x ) return this.imageToShow = "../../../assets/veryGood.gif"
     }
-  }, 1000);
- 
+  },1000)
 }
+
+ 
+
 
 async presentAlert() {
   const alert = await this.alertController.create({

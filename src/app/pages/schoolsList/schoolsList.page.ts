@@ -69,7 +69,7 @@ export class SchoolsListPage implements OnInit {
       if(searchOrg !== '')  this.schoolsToShow = this.Schools.filter((o) => {
         
          
-            return (o.name.toLowerCase().includes(searchOrg.toLowerCase()) );
+            return (o.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(searchOrg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) );
         })
 
     

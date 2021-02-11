@@ -42,7 +42,7 @@
     <ion-item-sliding  *ngFor="let q of Questions">
       
       <ion-card *ngIf="(Questions.indexOf(q)+1) === this.step" >
-        <ion-item>{{time}}</ion-item>
+        <ion-item>{{timeLeft}}</ion-item>
       
         <ion-card-header>
           <ion-card-title> {{q.question}} </ion-card-title>
@@ -55,9 +55,9 @@
             {{a.text}}
           </ion-button>
         </ion-card-content>
-        <ion-button (click)="changeStep(Questions.indexOf(q)+2, q.Answers.text)" >
+        <!-- <ion-button (click)="changeStep(Questions.indexOf(q)+2, q.Answers.text)" >
           Continuar
-        </ion-button>
+        </ion-button> -->
       </ion-card>
       
     </ion-item-sliding>

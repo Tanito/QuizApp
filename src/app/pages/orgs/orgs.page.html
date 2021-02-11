@@ -24,7 +24,16 @@
     </div>
     </div>
   </div>
-
+  <ion-searchbar
+  id="searchbar"
+  type="text"
+  debounce="500"
+  animated
+  placeholder="Filtrar por nombre"
+  color="none"
+  (ionChange)="searchInputChanged($event.target.value)"
+  clearInput
+></ion-searchbar>
   <ion-item-sliding *ngFor="let q of schoolQuizzes">
     <ion-card>
       <div class="quizImg">

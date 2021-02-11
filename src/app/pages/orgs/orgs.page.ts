@@ -18,6 +18,7 @@ export class OrgsPage implements OnInit {
   ​    logo: string;
   ​    name: string;
       schoolQuizzes: any;
+      schoolQuizzesBU: any;
       body: any;
       userId: number;
       quizId: number;
@@ -34,6 +35,7 @@ export class OrgsPage implements OnInit {
       .subscribe(async resp => {
        this.Quizzes = await resp
        this.schoolQuizzes = this.Quizzes.quizzes.byId
+       this.schoolQuizzesBU = this.Quizzes.quizzes.byId 
         // let listado = resp
         console.log("listado", this.schoolQuizzes)
       
@@ -46,6 +48,22 @@ export class OrgsPage implements OnInit {
     return this.http.get(this.endpoints.SCHOOL_ENDPOINT + '/' + id + '/quizzes')
     
   } 
+
+  searchInputChanged(searchOrg) {
+    console.log(this.schoolQuizzesBU)
+      if (searchOrg === '') {
+       
+       this.schoolQuizzes = this.schoolQuizzesBU
+      
+       return }
+       if(searchOrg !== '')  this.schoolQuizzes = this.schoolQuizzesBU.filter((o) => {
+         
+          
+             return (o.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(searchOrg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) );
+         })
+ 
+        
+ }
 
   addToFavs(userId, quizId){
     const body = {UserId: userId, QuizId: quizId }
