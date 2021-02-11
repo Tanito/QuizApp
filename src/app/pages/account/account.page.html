@@ -27,9 +27,9 @@
         <p class="textLevel">NIVEL</p>
       </div>
       <div class="trophyLegend">
-        <p class="label">EXPERTO</p>
+        <p class="label">{{lvl}}</p>
         <!-- Dependiendo de la cantidad de queizzes que respondió podríamos ponerle un nivel: principiante (menos de 5), aficionado (menos de 10), intermedio (menos de 15), maestro (menos de 20), experto (más de 20) -->
-        <p class="text2">Haz completado 20 quizzes!</p>
+        <p class="text2">{{lvlText}}</p>
       </div>
     </div>
 
@@ -62,8 +62,8 @@
       <div class="statisticsData">
         <div class="chartContainer">
           <canvas
-            #doughnutCanvas
-            style="position: relative; height: 3rem"
+          #doughnutCanvas
+            style="position: relative; height: 5rem"
           ></canvas>
                     <!-- <highcharts-chart
             [Highcharts]="Highcharts"
@@ -77,6 +77,9 @@
           <p class="text">{{quizzesTotal}}</p>
           <p class="text3">Aprobados</p>
           <p class="text">{{quizzesApproved}}</p>
+          <p class="text3">Promedio</p>
+          <p class="text">{{quizzesAVG}}</p>
+          
         </div>
       </div>
     </div>

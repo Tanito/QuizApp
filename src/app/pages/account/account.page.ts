@@ -29,6 +29,10 @@ export class AccountPage  {
   stats: any;
   quizzesTotal: number;
   quizzesApproved: number;
+  gradeSUM: number = 0;
+  quizzesAVG: number;
+  lvl: string;
+  lvlText: string;
  
   
 
@@ -58,24 +62,24 @@ export class AccountPage  {
   }
   userStats(id){
     this.quizzesApproved = 0;
+    this.gradeSUM = 0;
      // console.log("quiz attempts",this.http.get(this.endpoints.ATTEMPTS_ENDPOINT + '/id=' + this.id))
     this.callStats(id).subscribe(resp => {
       this.stats = resp
       this.quizzesTotal = this.stats.length
-      console.log("Total",this.quizzesTotal)
       this.stats.map((q)=>{
+      this.gradeSUM = this.gradeSUM + q.grade
         if (q.grade >= 70){
-         return this.quizzesApproved = this.quizzesApproved + 1
+         return this.quizzesApproved = this.quizzesApproved + 1, this.gradeSUM
         }
     })
-    console.log("Aprobados",this.quizzesApproved)
+    this.quizzesAVG = this.gradeSUM / this.stats.length
   })
-  return this.quizzesApproved;
+  return this.quizzesApproved, this.quizzesAVG;
   }
 
 
   cargarStorage(){
-    console.log('entre')
     this.storage.get('User').then(val => { 
     this.firstName = val.user.firstName; 
     this.lastName= val.user.lastName;
@@ -87,14 +91,38 @@ export class AccountPage  {
     this.type= val.user.type;
  }).then(x => {
  return this.userStats(this.id)
- })
+ }).then(j=>{
+  setTimeout( () => {
+      
+    if (this.quizzesAVG <= 30) {
+     this.lvl = 'Trainee'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+    if (this.quizzesAVG <= 69) {
+     this.lvl = 'Junior'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+    if (this.quizzesAVG <= 85) {
+     this.lvl = 'Semi Senior'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+    if (this.quizzesAVG > 85) {
+     this.lvl = 'Senior'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+  }, 1000);
+})
  .then(y => {
 
   setTimeout( () => {
     return this.doughnutChartMethod()
    
-  }, 2000);
-  //  console.log("llega? ", y)
+  }, 1000);
+ 
  })
   }
  
@@ -112,6 +140,7 @@ export class AccountPage  {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: 'doughnut',
       data: {
+        labels: ['Aprobados', 'Desaprobados'],
         datasets: [{
           data: [ this.quizzesTotal - 1, this.quizzesApproved ],
           backgroundColor: [
