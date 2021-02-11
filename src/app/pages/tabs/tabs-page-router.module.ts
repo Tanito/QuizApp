@@ -35,15 +35,7 @@ const routes: Routes = [
               import("../schoolsList/schoolsList.module").then(
                 (m) => m.SchoolsListPageModule
               ),
-          },
-          {
-            path: ":id",
-            loadChildren: () =>
-              import("../docs-details/docs-details.module").then(
-                (m) => m.DocsDetailsPageModule
-              ),
-            canActivate: [AuthGuardGuard],
-          },
+          }
         ],
       },
       {
