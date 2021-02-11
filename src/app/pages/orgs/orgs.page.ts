@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { Endpoints } from "../../services/endpoints";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-orgs',
@@ -26,7 +27,8 @@ export class OrgsPage implements OnInit {
 
   constructor( private storage: Storage,
     private http: HttpClient, 
-    private endpoints: Endpoints,) { }
+    private endpoints: Endpoints,
+    public alertController: AlertController,) { }
 
   ngOnInit() {
     this.cargarStorage().then(() =>{
@@ -65,11 +67,25 @@ export class OrgsPage implements OnInit {
         
  }
 
+ async presentAlert(name) {
+  const alert = await this.alertController.create({
+    cssClass: 'my-custom-class',
+    header: 'QuizApp',
+    // subHeader: 'Subtitle',
+    message: 'Ya eres '+ name +' de este quiz!',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
   addToFavs(userId, quizId){
     const body = {UserId: userId, QuizId: quizId }
     console.log("UserID",userId,"QuizId", quizId)
     this.http.post(this.endpoints.ADD_TO_FAVS_ENDPOINT, body).subscribe(data => {
       this.info = data;
+      this.presentAlert(this.info.name)
+      console.log("INFO",this.info)
      })
   }
 
