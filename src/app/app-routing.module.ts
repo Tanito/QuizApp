@@ -37,9 +37,6 @@ const routes: Routes = [
   //path wildcard qui permet pour chaque erreur de lien de rediriger vers la page d'erreur 404
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 
-
-
-
 ];
 
 @NgModule({

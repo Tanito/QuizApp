@@ -142,11 +142,14 @@ export class AccountPage  {
       data: {
         labels: ['Desaprobados','Aprobados' ],
         datasets: [{
+          borderWidth: 0,
           data: [ this.quizzesTotal - this.quizzesApproved, this.quizzesApproved ],
           backgroundColor: [
             "#e74c3c",
             "#2ecc71"
-          ]
+          ],
+          gridLines: [{borderDash: 0}]
+          // style: [{fontSize: 50}]
         }]
       }
     });

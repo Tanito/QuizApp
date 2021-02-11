@@ -16,7 +16,7 @@
 
   .title {
       margin-top: 0.4rem;
-      margin-left: 4rem;
+      margin-left: 2rem;
   }
 
   .buttonFavs {
@@ -41,4 +41,13 @@
 
 .textSchools {
   padding-top: 0;
+}
+
+#fav{
+  position: absolute;
+  color: rgb(179, 23, 23);
+  height: 40px;
+  width: 40px;
+  top: 5px;
+  right: 10px;
 }
