@@ -29,6 +29,10 @@ export class AccountPage  {
   stats: any;
   quizzesTotal: number;
   quizzesApproved: number;
+  gradeSUM: number = 0;
+  quizzesAVG: number;
+  lvl: string;
+  lvlText: string;
  
   
 
@@ -58,17 +62,20 @@ export class AccountPage  {
   }
   userStats(id){
     this.quizzesApproved = 0;
+    this.gradeSUM = 0;
      // console.log("quiz attempts",this.http.get(this.endpoints.ATTEMPTS_ENDPOINT + '/id=' + this.id))
     this.callStats(id).subscribe(resp => {
       this.stats = resp
-      console.log("Length",this.stats.length)
       this.quizzesTotal = this.stats.length
       this.stats.map((q)=>{
+      this.gradeSUM = this.gradeSUM + q.grade
         if (q.grade >= 70){
-         return this.quizzesApproved = this.quizzesApproved + 1
+         return this.quizzesApproved = this.quizzesApproved + 1, this.gradeSUM
         }
     })
-    })
+    this.quizzesAVG = this.gradeSUM / this.stats.length
+  })
+  return this.quizzesApproved, this.quizzesAVG;
   }
 
 
@@ -83,11 +90,42 @@ export class AccountPage  {
     this.photo= val.user.photo;
     this.type= val.user.type;
  }).then(x => {
-  this.userStats(this.id)
- }).then(y => {
-  this.doughnutChartMethod()
+ return this.userStats(this.id)
+ }).then(j=>{
+  setTimeout( () => {
+      
+    if (this.quizzesAVG <= 30) {
+     this.lvl = 'Trainee'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+    if (this.quizzesAVG <= 69) {
+     this.lvl = 'Junior'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+    if (this.quizzesAVG <= 85) {
+     this.lvl = 'Semi Senior'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+    if (this.quizzesAVG > 85) {
+     this.lvl = 'Senior'
+     this.lvlText = 'Tu promedio es de ' + this.quizzesAVG
+     return;
+    }
+  }, 1000);
+})
+ .then(y => {
+
+  setTimeout( () => {
+    return this.doughnutChartMethod()
+   
+  }, 1000);
+ 
  })
   }
+ 
 
   openFirst(){
     this.tabsPage.openFirst()
@@ -102,8 +140,9 @@ export class AccountPage  {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: 'doughnut',
       data: {
+        labels: ['Aprobados', 'Desaprobados'],
         datasets: [{
-          data: [ 1 , 1 ],
+          data: [ this.quizzesTotal - 1, this.quizzesApproved ],
           backgroundColor: [
             "#e74c3c",
             "#2ecc71"
@@ -123,49 +162,50 @@ export class AccountPage  {
     return this.result;
   };
 
-/*   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
-    tooltip: {
-      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    title:{
-      text: null
-  },
-  legend:{
-  enabled: false
-  },
-    plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: 'pointer',
-        dataLabels: {
-          enabled: false
-        },
-        showInLegend: false
-      }
-    },
-   series: [{
-    data: [{
-      name: 'Informática',
-      y: 61.41
-    }, {
-      name: 'Matemática',
-      y: 11.84
-    }, {
-      name: 'Geografía',
-      y: 10.85
-    }, {
-      name: 'Historia',
-      y: 4.67
-    }, {
-      name: 'Química',
-      y: 4.18
-    }, {
-      name: 'Other',
-      y: 7.05
-    }],
-    type: 'pie',
+ 
+  //  Highcharts: typeof Highcharts = Highcharts;
+  // chartOptions: Highcharts.Options = {
+  //   tooltip: {
+  //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  //   },
+  //   title:{
+  //     text: null
+  // },
+  // legend:{
+  // enabled: false
+  // },
+  //   plotOptions: {
+  //     pie: {
+  //       allowPointSelect: true,
+  //       cursor: 'pointer',
+  //       dataLabels: {
+  //         enabled: false
+  //       },
+  //       showInLegend: false
+  //     }
+  //   },
+  //  series: [{
+  //   data: [{
+  //     name: 'Informática',
+  //     y: 61.41
+  //   }, {
+  //     name: 'Matemática',
+  //     y: 11.84
+  //   }, {
+  //     name: 'Geografía',
+  //     y: 10.85
+  //   }, {
+  //     name: 'Historia',
+  //     y: 4.67
+  //   }, {
+  //     name: 'Química',
+  //     y: 4.18
+  //   }, {
+  //     name: 'Other',
+  //     y: 7.05
+  //   }],
+  //   type: 'pie',
 
-  }]
-  }; */
+  // }]
+  // }; 
 }
