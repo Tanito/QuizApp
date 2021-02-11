@@ -140,9 +140,9 @@ export class AccountPage  {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: 'doughnut',
       data: {
-        labels: ['Aprobados', 'Desaprobados'],
+        labels: ['Desaprobados','Aprobados' ],
         datasets: [{
-          data: [ this.quizzesTotal - 1, this.quizzesApproved ],
+          data: [ this.quizzesTotal - this.quizzesApproved, this.quizzesApproved ],
           backgroundColor: [
             "#e74c3c",
             "#2ecc71"

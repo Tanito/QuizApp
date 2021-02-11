@@ -5,9 +5,13 @@
           </ion-buttons>
           <h6 class="title">Estos son tus favoritos</h6>
       </div>
+         <ion-item *ngIf="vacio"> Lista vacía</ion-item>
       <ion-item-sliding *ngFor="let fav of Favorites">
         <ion-card>
+          
           <div class="quizImg">
+            <ion-icon (click)="remove(this.id, fav.id, fav.name)" id="fav"  name="trash"></ion-icon>
+          
             <img src="{{fav.logo}}" />
           </div>
           <div class="favsNameContainer">
@@ -18,9 +22,7 @@
             {{fav.description}}
           </ion-card-content>
           <div class="button">
-          <!-- <ion-button 
-           (click)="goToSchool(fav.id)"
-           class="margin-text form-rounded buttonFavs">Más Info</ion-button> -->
+        
           </div>
         </ion-card>
       </ion-item-sliding>

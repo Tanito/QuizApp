@@ -5,9 +5,11 @@
         </ion-buttons>
         <h6 class="title">Estás esperando respuesta de</h6>
       </div>
+      <ion-item *ngIf="vacio"> Lista vacía</ion-item>
     <ion-item-sliding *ngFor="let quiz of EnrolledQuizzes">
       <ion-card>
         <div class="quizImg">
+          <ion-icon (click)="remove(this.id, quiz.id, quiz.name)" id="fav"  name="trash"></ion-icon>
           <img src="{{quiz.logo}}" />
         </div>
         <div class="quizNameContainer">
@@ -17,9 +19,6 @@
           {{quiz.description}}
         </ion-card-content>
         <div class="buttonEnrolledQuizzes">
-          <ion-button 
-          (click)="goToSchool(fav.id)"
-          class="buttonEnroll">Más Info</ion-button>
         </div>
       </ion-card>
     </ion-item-sliding>
