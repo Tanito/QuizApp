@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content fullscreen>
   <div class="head">
     <div class="containerTop">
       <ion-icon name="menu" (click)="openFirst()"></ion-icon>
@@ -13,12 +13,83 @@
         <p class="userEmail">{{email}}</p>
       </div>
     </div>
-    <!--     <div class="containerMenu">
-      <div class="general">General</div>
-      <div routerLink="/tabs/profile-details" class="details">Detalles</div>
-      <div routerLink="/tabs/profile-favs" class="favorites">Favoritos</div>
-    </div> -->
   </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="8">
+        <div class="gridLevel">
+          <div class="iconLevel">
+            <ion-icon name="trophy"></ion-icon>
+            <p>NIVEL</p>
+          </div>
+          <div class="levelDetail">
+            <p>{{lvl}}<br>{{lvlText}}</p>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="grid">
+          <button routerLink="/tabs/edit-user" class="button">
+          <ion-icon name="finger-print" class="dataIcon"></ion-icon>
+          <p class="dataText">Mis datos</p>
+        </button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset-4>
+        <div class="grid">
+        <button routerLink="/tabs/profile-favs" class="button">
+          <p class="textFavorites">FAVORITOS</p>
+          <ion-icon name="heart" class="iconFavorites"></ion-icon>
+      </button>
+    </div>
+      </ion-col>
+      <ion-col>
+        <div class="grid">
+        <button routerLink="/tabs/enrolled-quizzes" class="button">
+          <div>
+            <ion-icon name="time" class="iconEnrolled"></ion-icon>
+            <p class="textEnrolled">PENDIENTES</p>
+         </div>
+        </button>
+      </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="bottomContainer">
+          <div class="statisticsContainer">
+            <div class="statistics">
+              <p>ESTADÍSTICAS GENERALES</p>
+            </div>
+          </div>
+          <div class="statisticsData">
+            <div class="chartContainer">
+              <canvas
+              #doughnutCanvas
+                style="position: relative; height: 5rem"
+              ></canvas>
+            </div>
+            <div class="infoQuizzes">
+              <p class="text3">Quizzes terminados</p>
+              <p class="text">{{quizzesTotal}}</p>
+              <p class="text3">Aprobados</p>
+              <p class="text">{{quizzesApproved}}</p>
+              <p class="text3">Promedio</p>
+              <p class="text">{{quizzesAVG}}</p>
+              
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- 
+
 
   <div class="containerBoxes">
     <div class="trophy">
@@ -28,7 +99,6 @@
       </div>
       <div class="trophyLegend">
         <p class="label">{{lvl}}</p>
-        <!-- Dependiendo de la cantidad de queizzes que respondió podríamos ponerle un nivel: principiante (menos de 5), aficionado (menos de 10), intermedio (menos de 15), maestro (menos de 20), experto (más de 20) -->
         <p class="text2">{{lvlText}}</p>
       </div>
     </div>
@@ -65,12 +135,6 @@
           #doughnutCanvas
             style="position: relative; height: 5rem"
           ></canvas>
-                    <!-- <highcharts-chart
-            [Highcharts]="Highcharts"
-            [options]="chartOptions"
-            class="highchartItem"
-          >
-          </highcharts-chart> -->
         </div>
         <div class="infoQuizzes">
           <p class="text3">Quizzes terminados</p>
@@ -83,6 +147,6 @@
         </div>
       </div>
     </div>
-    <!-- <ion-button (click)="makeColor()">CREAR COLOR</ion-button> -->
+
    </div>
-</ion-content>
+</ion-content> -->

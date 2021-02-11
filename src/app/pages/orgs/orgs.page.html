@@ -1,4 +1,4 @@
-<ion-header >
+<!-- <ion-header >
   <ion-toolbar id="toolbar">
     <ion-buttons mode="ios" slot="start" >
       <ion-back-button text="Atrás" defaultHref="/tabs/schoolsList"></ion-back-button>
@@ -6,40 +6,49 @@
     <div id="contenedor">
       <ion-title id="title">{{name}}  </ion-title>
     <img id="logo" src="{{logo}}" />
-
     </div>
   </ion-toolbar>
-</ion-header>
-
+</ion-header> -->
 <ion-content>
-<p>E-Mail: {{email}} </p>
-<p>Ciudad: {{city}} </p>
-<p>País: {{country}} </p>
-<p>Breve descripción: {{description}} </p>
-
-<ion-item-sliding *ngFor="let q of schoolQuizzes" >
-     
-  <ion-card>
-    <div class="quizImg">
-   <img (click)="addToFavs(this.userId, q.id)" id="fav" src="../../../assets/fav_yes.png">
-      <img src="{{q.logo}}" />
+  <div id="contenedor">
+    <ion-buttons mode="ios" slot="start">
+      <ion-back-button defaultHref="/tabs/schoolsList"></ion-back-button>
+    </ion-buttons>
+    <div class="info">
+      <img class="logoSchool" src="{{logo}}" />
+      <div class="data">
+      <ion-title id="title">{{name}}</ion-title>
+      <p class="textLocation">{{city}}, {{country}}</p>
+      <p class="text">{{email}}</p>
+      <p class="text">{{description}}</p>
     </div>
-    <div class="orgsNameContainer">
-      <ion-card-title color="light">{{q.name}}</ion-card-title>
-      <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
     </div>
-    <ion-card-content>{{q.description}}</ion-card-content>
-
-    <div class="button">
-    <ion-button
-    (click)="inscriptionQuizApi(this.userId, q.id)"
-    class="margin-text form-rounded buttonOrgs"
-    >
-     Inscribirse
-      
-    </ion-button>
   </div>
-  </ion-card>
-</ion-item-sliding>
 
+  <ion-item-sliding *ngFor="let q of schoolQuizzes">
+    <ion-card>
+      <div class="quizImg">
+        <img
+          (click)="addToFavs(this.userId, q.id)"
+          id="fav"
+          src="../../../assets/fav_yes.png"
+        />
+        <img src="{{q.logo}}" />
+      </div>
+      <div class="orgsNameContainer">
+        <ion-card-title color="light">{{q.name}}</ion-card-title>
+        <ion-card-subtitle>{{q.quantity}} preguntas</ion-card-subtitle>
+      </div>
+      <ion-card-content>{{q.description}}</ion-card-content>
+
+      <div class="button">
+        <ion-button
+          (click)="inscriptionQuizApi(this.userId, q.id)"
+          class="margin-text form-rounded buttonOrgs"
+        >
+          Inscribirse
+        </ion-button>
+      </div>
+    </ion-card>
+  </ion-item-sliding>
 </ion-content>

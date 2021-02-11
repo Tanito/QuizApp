@@ -13,11 +13,11 @@
       </div>
       <div class="quizzesNameContainer">
         <ion-card-title color="light">{{q.name}}</ion-card-title>
-        <ion-card-subtitle class="textQuizzes"
+        <ion-card-subtitle
           >{{q.quantity}} preguntas</ion-card-subtitle
         >
       </div>
-      <ion-card-content class="textQuizzes">{{q.description}}</ion-card-content>
+      <ion-card-content>{{q.description}}</ion-card-content>
 
       <div class="buttonQuizzes">
         <ion-button class="buttonQuiz" (click)="goToQuiz(q.id)">

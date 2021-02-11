@@ -29,7 +29,8 @@
 
 #contenedor{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 1.5rem;
 }
 
 .buttonOrgs {
@@ -47,4 +48,27 @@
 background-color: none;
 margin-left: 1rem;
 margin-top: 1rem;
+}
+
+.logoSchool {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    margin: 0 1rem;
+}
+
+.text {
+    padding-left: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.textLocation {
+    padding-left: 1.1rem;
+    margin-bottom: 0.2rem;
 }

@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class Endpoints {
 
 
-    // BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
+    //BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
     
     BASE_ENDPOINT:string = 'http://localhost:3000';
 

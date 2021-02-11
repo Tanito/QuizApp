@@ -19,7 +19,9 @@
   --ion-color-light: black;
 
   --ion-color-success:  rgba(231, 246, 247, 0.3);
-}
+
+  --ion-color-back:  rgba(204, 231, 230, 0.295);
+  }
 
 /*
  * Dark Colors
@@ -43,6 +45,8 @@
   --ion-color-light: white;
 
   --ion-color-success:  rgba(231, 246, 247, 0.3);
+
+  --ion-color-back:  rgba(24, 82, 90, 0.5);
 }
 
 /*
@@ -66,7 +70,10 @@
   --ion-color-light: white;
 
   --ion-color-success:  rgba(231, 246, 247, 0.3);
+
+  --ion-color-back:  rgba(24, 82, 90, 0.5);
 }
+
 
 .ios body.dark ion-modal {
   --ion-background-color: var(--ion-color-step-100);
@@ -79,7 +86,6 @@
  * Material Design Dark Theme
  * -------------------------------------------
  */
-
 .md body.dark {
   --ion-color-primary: #224442;
 
@@ -96,4 +102,6 @@
   --ion-color-light: white;
 
   --ion-color-success:  rgba(231, 246, 247, 0.3);
+
+  --ion-color-back:  rgba(24, 82, 90, 0.5);
 }

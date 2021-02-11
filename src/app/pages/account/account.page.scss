@@ -1,39 +1,18 @@
-.imgDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-back {
-  background: #f7f9fc;
-}
-
-.btnflex {
-  display: flex;
-  flex-direction: row;
-}
-
 .text {
   font-size: 1rem;
-  color: white;
+  color: var(--ion-color-light);
   margin: 0;
 }
 
 .text2 {
   font-size: 0.7rem;
-  color: white;
+  color: var(--ion-color-light);
 }
 
 .text3 {
   font-size: 0.8rem;
-  color: white;
+  color: var(--ion-color-light);
   margin: 1px 0 0 0;
-}
-
-.textLevel {
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-  color: white;
 }
 
 .head {
@@ -63,128 +42,9 @@
   margin-bottom: 1rem;
 }
 
-.containerMenu {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 13px;
-}
-
-.general {
-  border-bottom: solid white;
-  display: flex;
-  width: 20%;
-  justify-content: center;
-}
-
-.details {
-  display: flex;
-  width: 20%;
-  justify-content: center;
-}
-
-.favoritesContainer {
-  display: flex;
-  width: 20%;
-  justify-content: center;
-}
-
-.containerBoxes {
-  padding: 1rem;
-  margin: 0;
-  width: 100%;
-  height: 100%
-}
-
-.trophy {
-  height: 15%;
-  border: solid 0.08rem white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.trophyIcon {
-  width: 18%;
-  color: white;
-  background: #348075;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  margin: 0.09rem;
-}
-
-.trophyLegend {
-  padding-top: 3rem;
-  width: 80%;
-}
-
-.label {
-  font-size: 1rem;
-  margin: 0;
-  color: white;
-}
-
 .bottomContainer {
-  margin-top: 1rem;
-  border: solid 0.09rem white;
-}
-
-.middleContainer {
-  display: flex;
-  flex-direction: row;
-  height: 5rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.leftMiddleContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  margin-right: 0.4rem;
-  width: 25rem;
-  height: 5rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: solid 0.09rem white;
-  background-color: transparent;
-  background-repeat: no-repeat;
-}
-
-.rightMiddleContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  margin-left: 0.4rem;
-  padding: 0;
-  width: 31rem;
-  height: 5rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: solid 0.09rem white;
-}
-
-.containerData {
-  align-self: center;
-  justify-self: center;
-  margin: 0.1rem 0.1rem;
-  width: 100%;
-  height: 100%;
-  background: #348075;
-}
-
-.dataIcon {
-  font-size: 3rem;
-  color: white;
-}
-
-.dataIconFav {
-  font-size: 3rem;
-  color: white;
+  //border: solid 0.09rem var(--ion-color-light);
+  background-color: var(--ion-color-back);
 }
 
 .statisticsContainer {
@@ -215,15 +75,80 @@
   justify-content: center;
 }
 
-.highchartItem {
-  width: 90%; 
-  height: 90%; 
-  display: block;
-}
-
 .infoQuizzes {
   height: 100%;
   width: 42%;
-  border-left: solid 0.1rem white;
+  border-left: solid 0.1rem var(--ion-color-light);
   padding: 0.5rem;
+}
+
+.grid {
+  //border: solid 0.1rem var(--ion-color-light);
+  background-color: var(--ion-color-back);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridLevel {
+  display: flex;
+  flex-direction: row;
+  //border: solid 0.1rem var(--ion-color-light);
+  background-color: var(--ion-color-back);
+}
+
+.levelDetail {
+  margin-left: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.iconLevel {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dataIcon {
+  color: var(--ion-color-light);
+  padding-top: 0.7rem;
+  font-size: 1.9rem;
+}
+
+.button {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconFavorites {
+  color: var(--ion-color-light);
+  font-size: 1.9rem;
+  padding-bottom: 0.7rem;
+}
+
+.iconEnrolled {
+  color: var(--ion-color-light);
+  padding-top:  0.7rem;
+  font-size: 1.9rem;
+}
+
+.textEnrolled {
+  color: var(--ion-color-light);
+  margin-bottom: 0.5rem;
+}
+
+.textFavorites {
+  color: var(--ion-color-light);
+  margin-bottom: 0.2rem;
+  padding-top: 0.7rem;
+}
+
+.dataText {
+  color: var(--ion-color-light);
+  margin-bottom: 0.64rem;
 }
