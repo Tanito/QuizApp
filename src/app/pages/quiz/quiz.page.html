@@ -8,19 +8,22 @@
     <div class="quizImg">
       <img src="{{logo}}" />
     </div>
-    <ion-card-header>
-      <ion-card-title>{{name}}</ion-card-title>
+      <div class="quizNameContainer">
+      <ion-card-title color="light">{{name}}</ion-card-title>
       <p class="textQuiz">{{this.Subject.name}}</p>
       <ion-card-subtitle class="questionsQuiz"
         >{{quantity}} preguntas</ion-card-subtitle>
-    </ion-card-header>
+      </div>
     <ion-card-content>
       <p class="descriptionQuiz"><em>Descripción</em> <br/> {{description}}</p>
       <img src="{{this.School.logo}}" class="logoSchool" />
       <p class="textQuiz">{{this.School.name}}</p>
     </ion-card-content>
 
-    <ion-button (click)="comenzar()" class="primary buttonStart">Comenzar</ion-button>
+    <div class="buttonStartQuiz">
+      <ion-button 
+      (click)="comenzar()" class="primary buttonStart">Comenzar</ion-button>
+    </div>
   </ion-card>
 
   <ion-list >

@@ -35,7 +35,7 @@ export class AccountService {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      cssClass: 'primary',
+      cssClass: 'my-custom-class',
       header: 'QuizApp',
       // subHeader: 'Subtitle',
       message: 'Registro realizado correctamente',
