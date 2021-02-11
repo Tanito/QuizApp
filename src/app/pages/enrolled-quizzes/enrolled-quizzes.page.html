@@ -8,6 +8,7 @@
     <ion-item-sliding *ngFor="let quiz of EnrolledQuizzes">
       <ion-card>
         <div class="quizImg">
+          <ion-icon (click)="remove(this.id, quiz.id)" id="fav"  name="trash"></ion-icon>
           <img src="{{quiz.logo}}" />
         </div>
         <div class="quizNameContainer">
@@ -17,9 +18,6 @@
           {{quiz.description}}
         </ion-card-content>
         <div class="buttonEnrolledQuizzes">
-          <ion-button 
-          (click)="goToSchool(fav.id)"
-          class="buttonEnroll">Más Info</ion-button>
         </div>
       </ion-card>
     </ion-item-sliding>

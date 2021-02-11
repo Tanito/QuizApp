@@ -11,6 +11,7 @@ import { Storage } from "@ionic/storage";
 export class ProfileEnrolledQuizzesPage implements OnInit {
   EnrolledQuizzes: any;
   id: number;
+  info: any;
 
   constructor(
     private http: HttpClient,
@@ -34,6 +35,17 @@ export class ProfileEnrolledQuizzesPage implements OnInit {
           this.EnrolledQuizzes = resp
          })
       });
+  }
+
+  remove(userId, quizId){
+    console.log("user & quiz ids", userId, quizId)
+    const body = {UserId: userId, QuizId: quizId }
+    console.log("UserID",userId,"QuizId", quizId)
+    this.http.request("delete", this.endpoints.ROLE_ENDPOINT, { body }
+   ).subscribe(data => {
+      this.info = data;
+      console.log("info devuelta", this.info)
+     })
   }
 
   getEnrolledQuizzes(id) {
