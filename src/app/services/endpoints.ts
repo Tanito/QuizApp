@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class Endpoints {
 
 
-    //BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
+    BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
     
-    BASE_ENDPOINT:string = 'http://localhost:3000';
+    // BASE_ENDPOINT:string = 'http://localhost:3000';
 
     MOBILE_QUIZZES_ENDPOINT:string = this.BASE_ENDPOINT + '/mobile/quizzes'; // + id user
     
