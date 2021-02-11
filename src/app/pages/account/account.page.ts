@@ -73,7 +73,7 @@ export class AccountPage  {
          return this.quizzesApproved = this.quizzesApproved + 1, this.gradeSUM
         }
     })
-    this.quizzesAVG = this.gradeSUM / this.stats.length
+    this.quizzesAVG = Math.round(this.gradeSUM / this.stats.length)
   })
   return this.quizzesApproved, this.quizzesAVG;
   }
