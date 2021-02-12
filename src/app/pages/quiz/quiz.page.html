@@ -45,7 +45,7 @@
         <ion-item><ion-icon id="clock" name="timer"></ion-icon>  {{timeLeft}} segundos para resolver el Quiz</ion-item>
       
         <ion-card-header>
-          <ion-card-title> {{q.question}} </ion-card-title>
+          <ion-card-title class="questionText"> {{q.question}} </ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-button
@@ -68,7 +68,7 @@
     <ion-item-sliding *ngIf="Finished === 'finished'">
       <ion-card id="finalCard">
         <ion-card-header>
-          <ion-card-title>
+          <ion-card-title class="questionText">
             {{countCorrect}} respuestas correctas
           </ion-card-title>
           <ion-card-subtitle> sobre {{Questions.length}} </ion-card-subtitle>
