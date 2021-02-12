@@ -11,13 +11,12 @@ export class AuthGuardGuard implements CanActivate {
      loggedIn: boolean
     constructor(private router: Router, private authService: AuthService) {}
   
-    //fonction à 2 arg
     canActivate(
-      next: ActivatedRouteSnapshot, //prends en compte la route de l'élement
-      state: RouterStateSnapshot //l'êtat de l'élément
+      next: ActivatedRouteSnapshot, 
+      state: RouterStateSnapshot 
     ): boolean {
   
-     this.loggedIn = true; // replace with actual user auth checking logic
+     this.loggedIn = true; 
   
       if (!this.authService.isAuth) {
         this.router.navigate(['/']);

@@ -7,8 +7,7 @@ import { User } from '../models/user.model';
 export class AccountService {
 
    users: User[] =[]
-   //crée une variable users de type User et qui est par défault un array vide
-
+  
   constructor() { }
 
   addUser(user: User){

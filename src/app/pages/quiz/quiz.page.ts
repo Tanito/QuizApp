@@ -78,7 +78,6 @@ export class QuizPage implements OnInit {
     if(a === undefined) {
       a = false
     }
-    console.log("que es a cuando se acaba el tiempo?", a)
     this.time = this.startTime;
     this.step = i;
     this.progressBar = (this.step -1) / this.Questions.length
@@ -104,17 +103,6 @@ export class QuizPage implements OnInit {
     
   }
 
-
-  // startCountdown(seconds) {
-  //   let counter = seconds;
-      
-  //   const interval = setInterval(() => {
-  //     console.log(counter);
-  //     counter--;
-  //   }, 1000);
-  // }
-
-
 volverFin(){
   this.router.navigate(['orgs'])
 }
@@ -138,14 +126,10 @@ startTimer() {
   },1000)
 }
 
- 
-
-
 async presentAlert() {
   const alert = await this.alertController.create({
     cssClass: 'my-custom-class',
     header: 'QuizApp',
-    // subHeader: 'Subtitle',
     message: 'Se te ha acabado el tiempo!',
     buttons: ['OK']
   });
@@ -166,19 +150,15 @@ async presentAlert() {
                   grade, 
                   finished,
       }
-      console.log("URL", this.endpoints.ATTEMPTS_ENDPOINT)
-      console.log("User Id", this.userId)
       this.http.post(this.endpoints.ATTEMPTS_ENDPOINT, body).subscribe(data => {
         this.info = data;
-        // console.log("INFO", this.info)
+        
        })
       
   }
 
   async cargarStorage() { //Cargo el localStorage
-    // await this.storage.remove('Quiz').then(() =>{
-
-    await this.storage.get('Quiz').then(val => {
+      await this.storage.get('Quiz').then(val => {
       this.description = val.description;
       this.quantity = val.quantity;
       this.logo = val.logo;

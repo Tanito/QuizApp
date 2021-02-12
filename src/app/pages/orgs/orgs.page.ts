@@ -38,7 +38,6 @@ export class OrgsPage implements OnInit {
           this.Quizzes = await resp
           this.schoolQuizzes = this.Quizzes.quizzes.byId
           this.schoolQuizzesBU = this.Quizzes.quizzes.byId
-          // let listado = resp
           console.log("listado", this.schoolQuizzes)
 
         })
@@ -54,18 +53,12 @@ export class OrgsPage implements OnInit {
   searchInputChanged(searchOrg) {
     console.log(this.schoolQuizzesBU)
     if (searchOrg === '') {
-
       this.schoolQuizzes = this.schoolQuizzesBU
-
       return
     }
     if (searchOrg !== '') this.schoolQuizzes = this.schoolQuizzesBU.filter((o) => {
-
-
       return (o.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(searchOrg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")));
     })
-
-
   }
 
   async presentAlert(name) {
@@ -86,7 +79,6 @@ export class OrgsPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'QuizApp',
-      // subHeader: 'Subtitle',
       message: 'Ya eres ' + name + ' de este quiz!',
       buttons: ['OK']
     });
@@ -104,7 +96,6 @@ export class OrgsPage implements OnInit {
     })
   }
 
-  //Probar si funciona el enroll.
   inscriptionQuizApi(userId, quizId) {
     console.log("UserID", userId, "QuizId", quizId)
     const body = { UserId: userId, QuizId: quizId }
@@ -114,7 +105,6 @@ export class OrgsPage implements OnInit {
       console.log("INFO", this.info)
     }
     )
-
   }
 
   async cargarStorage() { //Cargo el localStorage

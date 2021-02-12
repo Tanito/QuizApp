@@ -3,8 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-
-
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: '',
@@ -26,9 +24,8 @@ const routes: Routes = [
     path: 'quiz',
     loadChildren: () => import('./pages/quiz/quiz.module').then( m => m.QuizPageModule)
   },
-  //path wildcard qui permet pour chaque erreur de lien de rediriger vers la page d'erreur 404
+  //path wildcard para manejar una página no válida
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
-
 ];
 
 @NgModule({

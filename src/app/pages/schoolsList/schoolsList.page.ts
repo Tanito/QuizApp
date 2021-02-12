@@ -49,8 +49,7 @@ export class SchoolsListPage implements OnInit {
   this.docsService.getSchools()
   .subscribe( resp => {
    this.Schools = resp
-    // let listado = resp
-    this.schoolsToShow = this.Schools
+   this.schoolsToShow = this.Schools
   })
   }
 
@@ -80,10 +79,8 @@ goToSchool(id){
   this.getSchool(this.id)
   .subscribe( resp => {
    this.School = resp
-    // let listado = resp
-    console.log("listado", this.School)
-    this.storage.set('School', this.School);
-    this.router.navigate(['orgs']);
+   this.storage.set('School', this.School);
+   this.router.navigate(['orgs']);
   })
 }
 

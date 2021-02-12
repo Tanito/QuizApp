@@ -4,7 +4,6 @@
     src="../../../assets/rect650-removebg-preview.png"
     alt="QuizApp"
   />
-<!--   <h1>Hola</h1> -->
   <input
     type="email"
     class="form-control form-rounded input"
@@ -20,7 +19,7 @@
     [(ngModel)]="password"
   />
 <p id="errorMsg"> {{loginError}} </p>
-  <a routerLink="/sign-in" class="linkPassword"> ¿Perdiste tu contraseña? </a>
+  <!-- <a routerLink="/sign-in" class="linkPassword"> ¿Perdiste tu contraseña? </a> -->
   <div class="externalLogin">
   <!-- <ion-icon (click)="doFbLogin()" name="logo-facebook"></ion-icon>
   <ion-icon (click)="loginGoogle()" name="logo-google"></ion-icon> -->
@@ -33,9 +32,7 @@
     INGRESAR
   </ion-button>
 
-  <!-- routerLink="/tabs" routerDirection="forward" -->
-
-    <ion-button
+     <ion-button
       routerLink="/sign-in"
       expand="full"
       class="full-length margin-text form-rounded primary"

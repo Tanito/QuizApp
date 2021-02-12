@@ -17,7 +17,7 @@ export class GameServiceService implements OnInit{
 
     
     ngOnInit() {
-  console.log("ggs")
+ 
     }
     
     getQuizzes(){

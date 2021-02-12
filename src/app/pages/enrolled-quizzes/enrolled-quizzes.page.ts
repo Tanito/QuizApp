@@ -32,8 +32,6 @@ export class ProfileEnrolledQuizzesPage implements OnInit {
 
   ionViewWillEnter() {
     this.cargarStorage();
-    // console.log("Favoritos", this.Favorites, this.vacio)
-    // console.log("PRUEBA", (this.Favorites === undefined))
     if (this.EnrolledQuizzes === undefined) return this.vacio === true;
     if (this.EnrolledQuizzes !== undefined) return this.vacio === false;
   }
@@ -72,7 +70,6 @@ export class ProfileEnrolledQuizzesPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'QuizApp',
-      // subHeader: 'Subtitle',
       message: 'Ha retirado la inscripción del quiz '+ name +'!',
       buttons: ['OK']
     });

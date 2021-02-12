@@ -1,11 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LoadingController } from "@ionic/angular";
-import {
-  FormGroup,
-  FormControl,
-  FormBuilder,
-  Validators,
-} from "@angular/forms";
+import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { Endpoints } from "../../services/endpoints";
 import { Storage } from "@ionic/storage";
@@ -22,7 +17,6 @@ export class EditUserPage implements OnInit {
   cellphone: number;
   birthdate: string;
   photo: string;
-  private todo: FormGroup;
   name = new FormControl("");
   progressID = 0;
   id: number;

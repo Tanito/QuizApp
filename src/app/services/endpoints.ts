@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class Endpoints {
 
 
-    // BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
+    BASE_ENDPOINT:string = 'https://apiquizzes.herokuapp.com';
     
-    BASE_ENDPOINT:string = 'http://localhost:3000';
+    // BASE_ENDPOINT:string = 'http://localhost:3000';
 
     MOBILE_QUIZZES_ENDPOINT:string = this.BASE_ENDPOINT + '/mobile/quizzes'; // + id user
     
@@ -53,24 +53,12 @@ export class Endpoints {
 
     ADD_TO_FAVS_ENDPOINT:string = this.ROLE_ENDPOINT + '/fan';
 
-
     FAVORITES_ENDPOINT:string = this.ROLE_ENDPOINT + '/favorites/user';
 
     ENROLLED_ENDPOINT:string = this.ROLE_ENDPOINT + '/enrolled/user';
 
     EDIT_USER_ENDPOINT:string = this.BASE_ENDPOINT + '/users';
     
-    // SUBJECT_ENDPOINT = BASE_ENDPOINT + '/subject';
-    
-    // USER_PROFILE_ENDPOINT = BASE_ENDPOINT + '/auth/me/';
-    
-    
-    
-    // FINAL_REGISTER_SCHOOL_ENDPOINT = AUTH_ENDPOINT + '/org/register';
-    
-    // GET_USER_EMAIL_ENDPOINT = BASE_ENDPOINT + '/users/email/';
-    
-    // TEACHER_ENDPOINT = BASE_ENDPOINT + '/teachers/';
   constructor() { }
 
 

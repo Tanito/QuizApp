@@ -41,10 +41,9 @@ export class QuizzesPage implements OnInit {
   
   ngOnInit() {
   
-    this.cargarStorage() //Refrescar la pantalla cuando carga?
+    this.cargarStorage() 
 console.log("id", this.id)
- 
-    
+   
    
   }
 
@@ -65,10 +64,8 @@ console.log("id", this.id)
     this.getQuiz(this.id)
     .subscribe( resp => {
      this.Quiz = resp
-      // let listado = resp
-      console.log("listado", this.Quiz)
-      this.storage.set('Quiz', this.Quiz);
-      this.router.navigate(['quiz']);
+     this.storage.set('Quiz', this.Quiz);
+     this.router.navigate(['quiz']);
     })
   }
 
@@ -84,7 +81,7 @@ async cargarStorage(){ //Cargo el localStorage
   this.photo= val.user.photo;
   this.type= val.user.type;
   console.log("id2", this.id)
-}).then(()=> this.getQuizzes() // una vez que tengo el id, llamo a la api
+}).then(()=> this.getQuizzes() 
 .subscribe( resp => {
 this.Quizzes = resp
  
@@ -98,7 +95,5 @@ this.Quizzes = resp
   openFirst(){
     this.tabsPage.openFirst()
   };
-
-
 
 }

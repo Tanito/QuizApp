@@ -37,7 +37,6 @@ export class ProfileFavsPage implements OnInit {
   ionViewWillEnter() {
     this.cargarStorage();
     console.log("Favoritos", this.Favorites, this.vacio)
-    // console.log("PRUEBA", (this.Favorites === undefined))
     if (this.Favorites === undefined) return this.vacio === true;
     if (this.Favorites !== undefined) return this.vacio === false;
   }
@@ -79,7 +78,6 @@ export class ProfileFavsPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'QuizApp',
-      // subHeader: 'Subtitle',
       message: 'El quizz '+ name +' se quitó de favoritos!',
       buttons: ['OK']
     });

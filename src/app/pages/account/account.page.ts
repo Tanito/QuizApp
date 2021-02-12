@@ -1,10 +1,9 @@
 import { TabsPage } from '../tabs/tabs.page';
 import { AuthService } from 'src/app/services/auth.service';
-import * as Highcharts from 'highcharts';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -44,18 +43,12 @@ export class AccountPage  {
               private http: HttpClient,
               private endpoints: Endpoints,) { }
 
-  //  ngOnInit() {
-  //   this.userStats(this.id)
-  // } 
+
 
   ionViewWillEnter() {
     this.cargarStorage();
     
   }
-
-  // ngAfterViewInit() {
-  //  ;
-  // }
 
   callStats(id){
     return this.http.get(this.endpoints.GET_STATS_ENDPOINT + '/' + id)
@@ -63,7 +56,6 @@ export class AccountPage  {
   userStats(id){
     this.quizzesApproved = 0;
     this.gradeSUM = 0;
-     // console.log("quiz attempts",this.http.get(this.endpoints.ATTEMPTS_ENDPOINT + '/id=' + this.id))
     this.callStats(id).subscribe(resp => {
       this.stats = resp
       this.quizzesTotal = this.stats.length
@@ -149,8 +141,7 @@ export class AccountPage  {
             "#2ecc71"
           ],
           gridLines: [{borderDash: 0}]
-          // style: [{fontSize: 50}]
-        }]
+         }]
       }
     });
   }
@@ -164,51 +155,4 @@ export class AccountPage  {
     console.log(this.result)
     return this.result;
   };
-
- 
-  //  Highcharts: typeof Highcharts = Highcharts;
-  // chartOptions: Highcharts.Options = {
-  //   tooltip: {
-  //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-  //   },
-  //   title:{
-  //     text: null
-  // },
-  // legend:{
-  // enabled: false
-  // },
-  //   plotOptions: {
-  //     pie: {
-  //       allowPointSelect: true,
-  //       cursor: 'pointer',
-  //       dataLabels: {
-  //         enabled: false
-  //       },
-  //       showInLegend: false
-  //     }
-  //   },
-  //  series: [{
-  //   data: [{
-  //     name: 'Informática',
-  //     y: 61.41
-  //   }, {
-  //     name: 'Matemática',
-  //     y: 11.84
-  //   }, {
-  //     name: 'Geografía',
-  //     y: 10.85
-  //   }, {
-  //     name: 'Historia',
-  //     y: 4.67
-  //   }, {
-  //     name: 'Química',
-  //     y: 4.18
-  //   }, {
-  //     name: 'Other',
-  //     y: 7.05
-  //   }],
-  //   type: 'pie',
-
-  // }]
-  // }; 
 }
