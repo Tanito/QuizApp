@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Endpoints } from "../../services/endpoints";
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -51,6 +52,7 @@ export class QuizPage implements OnInit {
     private http: HttpClient,
     private endpoints: Endpoints,
     public alertController: AlertController,
+    private router:Router,
   ) { }
 
   ngOnInit() {
@@ -97,6 +99,7 @@ export class QuizPage implements OnInit {
     this.infoQuiz = !this.infoQuiz;
     this.qa = !this.qa;
     this.time = this.startTime;
+    this.Finished = 'onCourse'
     this.startTimer()
     
   }
@@ -112,7 +115,9 @@ export class QuizPage implements OnInit {
   // }
 
 
-
+volverFin(){
+  this.router.navigate(['orgs'])
+}
 
 startTimer() {
   this.interval = setInterval(() => {

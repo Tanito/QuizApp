@@ -30,7 +30,7 @@ export class AccountPage  {
   quizzesTotal: number;
   quizzesApproved: number;
   gradeSUM: number = 0;
-  quizzesAVG: number;
+  quizzesAVG: number = 0;
   lvl: string;
   lvlText: string;
  
@@ -50,7 +50,7 @@ export class AccountPage  {
 
   ionViewWillEnter() {
     this.cargarStorage();
-   
+    
   }
 
   // ngAfterViewInit() {
