@@ -1,6 +1,6 @@
 <ion-content>
   <div class="quizHeader">
-    <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
+    <ion-back-button *ngIf="Finished !== 'onCourse'" defaultHref="/tabs/quizzes"></ion-back-button>
     <ion-title>{{name}}</ion-title>
   </div>
 
@@ -49,6 +49,9 @@
         </ion-card-header>
         <ion-card-content>
           <ion-button
+          text-wrap full large
+          expand="full"
+          id="ansBtn"
             (click)="changeStep(Questions.indexOf(q)+2, a) "
             *ngFor="let a of q.Answers"
           >
@@ -73,7 +76,7 @@
         <ion-card-content id="finalContent">
           <ion-img id="finalImg" [src]="imageToShow"></ion-img>
         </ion-card-content>
-      </ion-card>
+        </ion-card>
     </ion-item-sliding>
   </ion-list>
 </ion-content>
