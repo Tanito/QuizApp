@@ -84,6 +84,7 @@ export class QuizPage implements OnInit {
     this.checkAnswer(a)
     if(this.step > this.Questions.length){
       this.Finished = 'finished'
+      clearInterval(this.interval)
       const x = this.countCorrect / this.Questions.length;
       this.quizAttempt(Math.trunc(x * 100) , true);
       if (0 <= x && x <= 0.4) return this.imageToShow = "../../../assets/veryBad.gif"
