@@ -90,7 +90,11 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-advanced-http": {}
+      "cordova-plugin-advanced-http": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1082367218915790",
+        "APP_NAME": "QuizApp"
+      }
     },
     "platforms": [
       "android"

@@ -83,7 +83,19 @@ export class HomePage {
           'facebook'
         );
 
-        this.navCtrl.navigateRoot('/home')
+        this.userObject = {
+          firstName: user.displayName.split(" ")[0] || "",
+          lastName: user.displayName.split(" ")[1] || "",
+          email: user.email,
+          birthdate: "",
+          cellphone: "",
+          photo: user.photoURL,
+          createdAt: "",
+          updatedAt: "",
+
+        }
+
+        this.loginOK();
       });
   }
 
