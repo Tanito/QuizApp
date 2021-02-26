@@ -1,1 +1,95 @@
+.containerLogin{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 2.5rem;
+    padding-top: 50px;
+}
+
+.logoLogin {
+    height: 8rem;
+}
+
+.input {
+    background-color: rgb(223, 238, 240, 0.5);
+    margin: 0.3rem;
+}
+
+.margin-input{
+ margin-top: 2rem;
+}
+
+.margin-text{
+    margin-top: 0.5rem;
+}
+
+.form-rounded {
+    height: 3rem;  
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linkPassword {
+    font-size: 0.8rem;
+    align-self: center;
+    color: #ffffff;
+}
+
+.text {
+    font-size: 0.8rem;
+    margin-top: 3rem;
+    color: #ffffff;
+}
+
+.registerButton {
+    text-decoration: none;
+}
+
+// .externalLogin {
+//     display: flex;
+//     flex-direction: row;
+//     margin: 0.2rem 0;
+// }
+
+#errorMsg{
+    color: red;
+}
+
+ion-icon{
+    padding-right: 15px;
+}
+
+#google{
+    --background: #dd4b39 !important;
+    width: 50%;
+    align-self: center;
+}
+
+#facebook{
+    --background: #3b5998 !important;
+    width: 50%;
+    align-self: center;
+}
+
+    
+    .top-5{
+        margin-top: 5%;
+        }
+
+   
+        
+ion-col{
+    display:flex;
+    justify-content: center;
+}
+
+h4{
+    padding-top: 20px;
+}
 

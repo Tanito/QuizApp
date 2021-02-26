@@ -2,5 +2,62 @@
 </ion-header>
 
 <ion-content>
-  <app-login></app-login>
+  <div class="containerLogin">
+    <img
+      class="logoLogin"
+      src="../../../assets/rect650-removebg-preview.png"
+      alt="QuizApp"
+    />
+    <input
+      type="email"
+      class="form-control form-rounded input"
+      aria-describedby="emailHelp"
+      placeholder="e-mail"
+      [(ngModel)]="email"
+    />
+  
+    <input
+      type="password"
+      class="form-control form-rounded input"
+      placeholder="Contraseña"
+      [(ngModel)]="password"
+    />
+  <p id="errorMsg"> {{loginError}} </p>
+    <!-- <a routerLink="/sign-in" class="linkPassword"> ¿Perdiste tu contraseña? </a> -->
+        <ion-button
+      (click)="login()"
+      expand="full"
+      class="full-length margin-text form-rounded primary"
+    >
+      INGRESAR
+    </ion-button>
+  
+       <ion-button
+        routerLink="/sign-in"
+        expand="full"
+        class="full-length margin-text form-rounded primary"
+      > Registrarse
+      </ion-button>
+  
+      <h4>O ingresa con:</h4>
+   <ion-grid>
+    <ion-row>
+      <ion-col class="flex-columns">
+        <ion-button id="google" icon-left block>
+          <ion-icon name="logo-google"></ion-icon> 
+         Google
+      </ion-button>
+    
+        <ion-button (click)="signInWithFacebook()" id="facebook" icon-left block>
+            <ion-icon name="logo-facebook"></ion-icon>
+          Facebook
+        </ion-button>
+    
+      </ion-col>
+    </ion-row>
+    
+    </ion-grid>
+    <p class="text">Henry Labs - Grupo 3</p>
+  </div>
+  
 </ion-content>
